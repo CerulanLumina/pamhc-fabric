@@ -12,6 +12,7 @@ group = project.maven_group
 
 repositories {
     jcenter()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
@@ -27,6 +28,8 @@ dependencies {
 
     modCompileOnly("me.shedaniel:RoughlyEnoughItems-api:${project.rei_version}")
     modRuntime("me.shedaniel:RoughlyEnoughItems:${project.rei_version}")
+
+    modRuntime "com.github.squeek502:AppleSkin:1.16-fabric-SNAPSHOT"
 }
 
 processResources {

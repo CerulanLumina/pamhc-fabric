@@ -1,4 +1,8 @@
 {
+  "cropResultFood": {
+    "hunger": 1,
+    "saturation": 0.6
+  },
   "food": {
     "akutuqitem": {
       "hunger": 5,
@@ -965,10 +969,6 @@
     },
     "crackersitem": {
       "hunger": 6,
-      "saturation": 1.2
-    },
-    "cracklinsitem": {
-      "hunger": 5,
       "saturation": 1.2
     },
     "cranberrybaritem": {
@@ -2296,10 +2296,6 @@
       "hunger": 6,
       "saturation": 1.2
     },
-    "patreonpieitem": {
-      "hunger": 10,
-      "saturation": 1.2
-    },
     "pbandjitem": {
       "hunger": 6,
       "saturation": 1.2
@@ -2561,10 +2557,6 @@
     },
     "porklomeinitem": {
       "hunger": 9,
-      "saturation": 1.2
-    },
-    "porkrindsitem": {
-      "hunger": 4,
       "saturation": 1.2
     },
     "porksausageitem": {

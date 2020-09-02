@@ -2,6 +2,9 @@ package net.cerulan.harvestcraftfabric;
 
 import com.swordglowsblue.artifice.api.Artifice;
 import net.cerulan.harvestcraftfabric.block.PamCropBlock;
+import net.cerulan.harvestcraftfabric.config.ConfigHandler;
+import net.cerulan.harvestcraftfabric.config.FoodsConfig;
+import net.cerulan.harvestcraftfabric.item.DrinkFoodItem;
 import net.cerulan.harvestcraftfabric.item.PamSeedItem;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
 import net.fabricmc.api.ModInitializer;
@@ -33,21 +36,32 @@ public final class Harvestcraftfabric implements ModInitializer {
         this.localPam = new LocalPam();
         INSTANCE = this;
 
+        ConfigHandler config = ConfigHandler.loadConfig();
+
+        if (config == null) {
+            Harvestcraftfabric.LOGGER.error("Failed to load config.");
+            return;
+        }
+
+        FoodsConfig foodsConfig = config.getFoodsConfig();
+        FoodComponent cropResultFood = foodsConfig.getCropResultFood().toFoodComponent();
+
+        // Tools
         localPam.getContent().getTools().forEach(tool -> {
             Item item = new Item(new Item.Settings().group(HARVESTCRAFT_FOOD_GROUP));
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", tool + "item"), item);
         });
 
+        // General Items
         localPam.getContent().getBasicItems().forEach(itemName -> {
             Item item = new Item(new Item.Settings().group(HARVESTCRAFT_FOOD_GROUP));
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", itemName + "item"), item);
         });
 
-        FoodComponent basic = new FoodComponent.Builder().hunger(1).saturationModifier(0.0f).build();
-
+        // Crops
         localPam.getContent().getCrops().forEach(name -> {
             PamCropBlock block = new PamCropBlock();
-            Item item = new AliasedBlockItem(block, new Item.Settings().group(HARVESTCRAFT_CROP_GROUP).food(basic));
+            Item item = new AliasedBlockItem(block, new Item.Settings().group(HARVESTCRAFT_CROP_GROUP).food(cropResultFood));
             Item seedItem = new PamSeedItem(block, new Item.Settings().group(HARVESTCRAFT_CROP_GROUP));
 
             CROP_BLOCKS.add(block);
@@ -60,19 +74,32 @@ public final class Harvestcraftfabric implements ModInitializer {
             Registry.register(Registry.BLOCK, new Identifier("harvestcraft", getCropID(name)), block);
         });
 
+        // Foods
         localPam.getContent().getFoods().forEach(food -> {
-            // TODO food component
-            Item foodItem = new Item(new Item.Settings().group(HARVESTCRAFT_FOOD_GROUP).food(FoodComponents.APPLE));
-            Registry.register(Registry.ITEM, new Identifier("harvestcraft", food + "item"), foodItem);
+            Identifier foodId = new Identifier("harvestcraft", food + "item");
+            FoodsConfig.FoodObject obj = foodsConfig.getFood(foodId.getPath());
+            FoodComponent foodComponent = obj.toFoodComponent();
+            Item.Settings settings = new Item.Settings().group(HARVESTCRAFT_FOOD_GROUP).food(foodComponent);
+            Item foodItem;
+            if (obj.isDrink()) {
+                foodItem = new DrinkFoodItem(settings);
+            } else {
+                foodItem = new Item(settings);
+            }
+            Registry.register(Registry.ITEM, foodId, foodItem);
         });
+        foodsConfig.validateConfig(localPam.getContent().getFoods());
 
+        // Ingredients
         localPam.getContent().getIngredients().forEach(ingred -> {
-            Item item = new Item(new Item.Settings().group(HARVESTCRAFT_FOOD_GROUP).food(basic));
+            Item item = new Item(new Item.Settings().group(HARVESTCRAFT_FOOD_GROUP));
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", ingred + "item"), item);
         });
 
+        // Fruits
         localPam.getContent().getFruits().forEach(fruit -> {
-            Item item = new Item(new Item.Settings().group(HARVESTCRAFT_CROP_GROUP).food(basic));
+            // TODO trees
+            Item item = new Item(new Item.Settings().group(HARVESTCRAFT_CROP_GROUP).food(cropResultFood));
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "item"), item);
         });
 

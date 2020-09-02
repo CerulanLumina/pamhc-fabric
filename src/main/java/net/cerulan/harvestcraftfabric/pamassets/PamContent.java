@@ -1,36 +1,36 @@
 package net.cerulan.harvestcraftfabric.pamassets;
 
-import java.util.List;
+import java.util.HashSet;
 
 public class PamContent {
-    private List<String> crops;
-    private List<String> foods;
-    private List<String> tools;
-    private List<String> ingredients;
-    private List<String> fruits;
-    private List<String> basicItems;
+    private HashSet<String> crops;
+    private HashSet<String> foods;
+    private HashSet<String> tools;
+    private HashSet<String> ingredients;
+    private HashSet<String> fruits;
+    private HashSet<String> basicItems;
 
-    public List<String> getCrops() {
+    public HashSet<String> getCrops() {
         return crops;
     }
 
-    public List<String> getFoods() {
+    public HashSet<String> getFoods() {
         return foods;
     }
 
-    public List<String> getTools() {
+    public HashSet<String> getTools() {
         return tools;
     }
 
-    public List<String> getFruits() {
+    public HashSet<String> getFruits() {
         return fruits;
     }
 
-    public List<String> getIngredients() {
+    public HashSet<String> getIngredients() {
         return ingredients;
     }
 
-    public List<String> getBasicItems() {
+    public HashSet<String> getBasicItems() {
         return basicItems;
     }
 }

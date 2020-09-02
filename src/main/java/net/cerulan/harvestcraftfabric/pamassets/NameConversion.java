@@ -60,6 +60,8 @@ public class NameConversion {
     public static NameConversion fromItemAndData(Identifier item, int data) {
         if (item.toString().equals("minecraft:dye"))
             return DYE_DATA_MAP.getOrDefault(data, null);
+        else if (item.toString().equals("minecraft:double_plant") && data == 0)
+            return new NameConversion("minecraft:sunflower", false);
         if (DROP_DATA_MAP.containsKey(item.toString()))
             return DROP_DATA_MAP.get(item.toString());
 
