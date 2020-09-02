@@ -26,6 +26,7 @@ public final class Harvestcraftfabric implements ModInitializer {
             () -> new ItemStack(Registry.ITEM.get(new Identifier("harvestcraft", "mcpamitem"))));
 
     public static final ArrayList<PamCropBlock> CROP_BLOCKS = new ArrayList<>();
+    public static final ArrayList<Identifier> SEED_ITEMS = new ArrayList<>();
 
     @Override
     public void onInitialize() {
@@ -51,7 +52,10 @@ public final class Harvestcraftfabric implements ModInitializer {
 
             CROP_BLOCKS.add(block);
 
-            Registry.register(Registry.ITEM, new Identifier("harvestcraft", getSeedItemID(name)), seedItem);
+            Identifier seedID = new Identifier("harvestcraft", getSeedItemID(name));
+            SEED_ITEMS.add(seedID);
+
+            Registry.register(Registry.ITEM, seedID, seedItem);
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", getItemID(name)), item);
             Registry.register(Registry.BLOCK, new Identifier("harvestcraft", getCropID(name)), block);
         });

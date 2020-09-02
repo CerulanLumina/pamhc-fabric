@@ -1,13 +1,20 @@
 package net.cerulan.harvestcraftfabric.block;
 
+import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.*;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.tag.ItemTags;
+import net.minecraft.tag.Tag;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -29,6 +36,16 @@ public class PamCropBlock extends CropBlock {
 
     public void setSeedsItem(ItemConvertible seedsItem) {
         this.seedsItem = seedsItem;
+    }
+
+    @Override
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        super.onBreak(world, pos, state, player);
+        ItemTags.getRequiredTags().forEach(a -> {
+            Harvestcraftfabric.LOGGER.info(((Tag.Identified<Item>)a).getId() + " :: " + ((Tag.Identified<Item>)a).values().toString());
+        });
+//        Tag<Item> item = TagRegistry.item(new Identifier("harvestcraft:milk"));
+//        Harvestcraftfabric.LOGGER.info(item.values());
     }
 
     @Override

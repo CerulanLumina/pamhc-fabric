@@ -1,0 +1,3390 @@
+{
+ "food": {
+  "akutuqitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "almondbutteritem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "anchovypepperonipizzaitem": {
+   "hunger": 13,
+   "saturation": 1.2
+  },
+  "applecideritem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "applefritteritem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "applejellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "applejellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "applepieitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "applesauceitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "applesmoothieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "applesnowitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "appleyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "apricotglazedporkitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "apricotjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "apricotjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "apricotsmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "apricotyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "asparagusquicheitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "asparagussoupitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "avocadoburritoitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "babaganoushitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "baconandeggsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "baconcheeseburgeritem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "baconmushroomburgeritem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "baconpancakesitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "baconwrappedchiliitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "baconwrappeddatesitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "bakedalaskaitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "bakedbeansitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "bakedbeetsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "bakedcactusitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "bakedhamitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "bakedsweetpotatoitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "bakedturnipsitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "baklavaitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "bamboosteamedriceitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "bananamilkshakeitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "banananutbreaditem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "bananasmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "bananasplititem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "bananayogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "bangersandmashitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "battenbergitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "batteredsausageitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "bbqchickenbiscuititem": {
+   "hunger": 14,
+   "saturation": 1.2
+  },
+  "bbqchickenpizzaitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "bbqjackfruititem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "bbqplatteritem": {
+   "hunger": 14,
+   "saturation": 1.2
+  },
+  "bbqpotatochipsitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "bbqpulledporkitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "bbqsauceitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "beanburritoitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "beansandriceitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "beansontoastitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "beefjerkyitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "beefwellingtonitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "beetburgeritem": {
+   "hunger": 13,
+   "saturation": 1.2
+  },
+  "beetsaladitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "beetsoupitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "bentoboxitem": {
+   "hunger": 18,
+   "saturation": 1.2
+  },
+  "berrymeringuenestitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "berryvinaigrettesaladitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "bibimbapitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "biscuititem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "biscuitsandgravyitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "blackberrycobbleritem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "blackberryjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "blackberryjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "blackberrysmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "blackberryyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "blackpaellaitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "blazingsoupitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "bltitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "blueberryjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "blueberryjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "blueberrymuffinitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "blueberrypancakesitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "blueberrypieitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "blueberrysmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "blueberryyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "boiledeggitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "bolognaitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "bolognasandwichitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "braisedonionsitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "bratwurstitem": {
+   "hunger": 13,
+   "saturation": 1.2
+  },
+  "breadedporkchopitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "breakfastburritoitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "briochebunitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "broccolimacitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "broccolindipitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "brownieitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "bubbleteaitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "bulgogiitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "buttercookieitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "butteredpotatoitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "buttertartitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "cactussoupitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "calamaricookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "calamarirawitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "californiarollitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "candiedgingeritem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "candiedlemonitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "candiedpecansitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "candiedsweetpotatoesitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "candiedwalnutsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "cantonesegreensitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cantonesenoodlesitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "caramelappleitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "caramelcupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "caramelicecreamitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "caramelitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "carrotcupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "carrotsoupitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "cashewbutteritem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "cashewchickenitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "cassouletitem": {
+   "hunger": 13,
+   "saturation": 1.2
+  },
+  "ceasarsaladitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "celeryandpeanutbutteritem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "celerysoupitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "cevicheitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "chaiteaitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "chaoscookieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "charsiuitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "cheddarandsourcreampotatochipsitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "cheeseburgeritem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "cheesedanishitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "cheeseitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cheeseontoastitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "cheesesteakitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "cheesyshrimpquinoaitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "cheezepuffsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "cherrycoconutchocolatebaritem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "cherryicecreamitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "cherryjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cherryjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "cherrypieitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "cherryslushieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "cherrysmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "cherrysodaitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "cherryyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "chestnutbutteritem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "chickenandwafflesitem": {
+   "hunger": 14,
+   "saturation": 1.2
+  },
+  "chickenbiscuititem": {
+   "hunger": 13,
+   "saturation": 1.2
+  },
+  "chickencelerycasseroleitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "chickenchowmeinitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "chickencordonbleuitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "chickencurryitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "chickendinneritem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "chickengumboitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "chickenkatsuitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "chickennoodlesoupitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "chickenpaellaitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "chickenparmasanitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "chickenpotpieitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "chickensandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "chikorollitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "chilichocolateitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "chilicupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "chilidogitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "chilidonutitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "chiliitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "chilipoppersitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "chimichangaitem": {
+   "hunger": 17,
+   "saturation": 1.2
+  },
+  "chipsanddipitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "chipsandsalsaitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "chocolatebaconitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "chocolatebaritem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "chocolatecaramelfudgeitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "chocolatecherryitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "chocolatecoconutbaritem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "chocolatecupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "chocolatedonutitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "chocolateicecreamitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "chocolatemilkitem": {
+   "drink": true,
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "chocolatemilkshakeitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "chocolateorangeitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "chocolatepuddingitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "chocolaterollitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "chocolatestrawberryitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "chocolateyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "chocovoxelsitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "chorizoitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "chorusfruitsoupitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "cinnamonappleoatmealitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "cinnamonbreaditem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "cinnamonrollitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "cinnamonsugardonutitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "cinnamontoastitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "citrussaladitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "clamchowderitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "clamcookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cobblestonecobbleritem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "coconutcreamitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "coconutmilkitem": {
+   "drink": true,
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "coconutshrimpitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "coconutsmoothieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "coconutyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "coffeeconlecheitem": {
+   "drink": true,
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "coffeecupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "coffeeitem": {
+   "drink": true,
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "colasodaitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "coleslawburgeritem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "coleslawitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "cookedtofabbititem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cookedtofaconitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cookedtofeakitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cookedtofeegitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cookedtofenisonitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cookedtofickenitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cookedtofishitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cookedtofuduckitem": {
+   "hunger": 2,
+   "saturation": 0.6
+  },
+  "cookedtofurkeyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cookedtofuttonitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cookiesandmilkitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cornbreaditem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "cornchipsitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "corndogitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "cornedbeefbreakfastitem": {
+   "hunger": 26,
+   "saturation": 1.2
+  },
+  "cornedbeefhashitem": {
+   "hunger": 18,
+   "saturation": 1.2
+  },
+  "cornedbeefitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "cornflakesitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cornishpastyitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "cornonthecobitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "cottagepieitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "cottoncandyitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "crabcookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "crabkimbapitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "crackeritem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "crackersandcheeseitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "crackersitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "cracklinsitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "cranberrybaritem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "cranberryjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cranberryjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "cranberrysauceitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "cranberrysmoothieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "cranberryyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "crawfishetoufeeitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "crayfishcookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "crayfishsaladitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "creamcookieitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "creamedbroccolisoupitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "creamedcornitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "creamofavocadosoupitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "creepercookieitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "creeperwingsitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "crispyricepuffbarsitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "crispyricepuffcerealitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "croissantitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "cucumbersaladitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "cucumbersandwichitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "cucumbersoupitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "curryitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "custarditem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "damperitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "dandelionsaladitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "dandelionteaitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "dangoitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "datenutbreaditem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "delightedmealitem": {
+   "hunger": 15,
+   "saturation": 1.2
+  },
+  "deluxecheeseburgeritem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "deluxechickencurryitem": {
+   "hunger": 19,
+   "saturation": 1.2
+  },
+  "deluxenachoesitem": {
+   "hunger": 16,
+   "saturation": 1.2
+  },
+  "deviledeggitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "dhalitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "dimsumitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "donutitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "driedsoupitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "duckcookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "duckrawitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "durianmilkshakeitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "durianmuffinitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "earlgreyteaitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "ediblerootitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "eggnogitem": {
+   "drink": true,
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "eggplantparmitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "eggrollitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "eggsaladitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "eggsbenedictitem": {
+   "hunger": 12,
+   "saturation": 1.2
+  },
+  "eggtartitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "enchiladaitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "energydrinkitem": {
+   "drink": true,
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "epicbaconitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "epicbltitem": {
+   "hunger": 13,
+   "saturation": 1.2
+  },
+  "escargotitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "espressoitem": {
+   "drink": true,
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "etonmessitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "extremechiliitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "fairybreaditem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "festivalbreaditem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "fiestacornsaladitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "figbaritem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "figjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "figjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "figsmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "figyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "firmtofuitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "fishandchipsitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "fishdinneritem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "fishlettucewrapitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "fishsandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "fishsticksitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "fishtacoitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "footlongitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "fortunecookieitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "frenchtoastitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "friedbolognasandwichitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "friedchickenitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "friedeggitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "friedfeastitem": {
+   "hunger": 18,
+   "saturation": 1.2
+  },
+  "friedgreentomatoesitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "friedonionsitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "friedpecanokraitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "friedriceitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "friesitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "frogcookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "froglegstirfryitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "frosteddonutitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "fruitcakeitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "fruitcreamfestivalbreaditem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "fruitcrumbleitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "fruitpunchitem": {
+   "drink": true,
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "fruitsaladitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "futomakiitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "gardensoupitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "garlicbreaditem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "garlicchickenitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "garlicmashedpotatoesitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "garlicsteakitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "generaltsochickenitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "gherkinitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "gingerbreaditem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "gingerchickenitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "gingeredrhubarbtartitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "gingersnapsitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "gingersodaitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "glazedcarrotsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "glisteningsaladitem": {
+   "hunger": 12,
+   "saturation": 1.2
+  },
+  "gooseberryjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "gooseberryjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "gooseberrymilkshakeitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "gooseberrypieitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "gooseberrysmoothieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "gooseberryyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "gourmetbeefburgeritem": {
+   "hunger": 19,
+   "saturation": 1.2
+  },
+  "gourmetbeefpattyitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "gourmetmuttonburgeritem": {
+   "hunger": 16,
+   "saturation": 1.2
+  },
+  "gourmetmuttonpattyitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "gourmetporkburgeritem": {
+   "hunger": 14,
+   "saturation": 1.2
+  },
+  "gourmetporkpattyitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "gourmetvenisonburgeritem": {
+   "hunger": 20,
+   "saturation": 1.2
+  },
+  "gourmetvenisonpattyitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "grapefruitjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "grapefruitjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "grapefruitsmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "grapefruitsodaitem": {
+   "drink": true,
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "grapefruityogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "grapejellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "grapesaladitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "grapesmoothieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "grapesodaitem": {
+   "drink": true,
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "grapeyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "gravlaxitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "gravyitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "greenbeancasseroleitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "greeneggsandhamitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "greenteaitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "grilledasparagusitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "grilledcheeseitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "grilledcheesevegemitetoastitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "grilledeggplantitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "grilledmushroomitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "grilledskewersitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "gritsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "groiledcheesesandwichitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "guacamoleitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "guisoitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "gumboitem": {
+   "hunger": 13,
+   "saturation": 1.2
+  },
+  "gummybearsitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "gyudonitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "haggisitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "hamandcheesesandwichitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "hamandpineapplepizzaitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "hamburgeritem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "hamsweetpicklesandwichitem": {
+   "hunger": 12,
+   "saturation": 1.2
+  },
+  "hashitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "heartybreakfastitem": {
+   "hunger": 15,
+   "saturation": 1.2
+  },
+  "herbbutterparsnipsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "homestylelunchitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "honeybreaditem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "honeybunitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "honeycombchocolatebaritem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "honeyglazedcarrotsitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "honeyglazedhamitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "honeylemonlambitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "honeysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "honeysoyribsitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "hotandsoursoupitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "hotchocolateitem": {
+   "drink": true,
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "hotcocoaitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "hotdishcasseroleitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "hotdogitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "hotwingsitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "hummusitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "hushpuppiesitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "icecreamitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "imagawayakiitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "imitationcrabsticksitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "ironbrewitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "jaffaitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "jambalayaitem": {
+   "hunger": 13,
+   "saturation": 1.2
+  },
+  "jamrollitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "jelliedeelitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "jellybeansitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "jellydonutitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "kalechipsitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "keylimepieitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "kimchiitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "kiwijellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "kiwijellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "kiwismoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "kiwiyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "kohlundpinkelitem": {
+   "hunger": 14,
+   "saturation": 1.2
+  },
+  "koreandinneritem": {
+   "hunger": 24,
+   "saturation": 1.2
+  },
+  "kungpaochickenitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "lambbarleysoupitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "lambkebabitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "lambwithmintsauceitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "lasagnaitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "lavendershortbreaditem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "leafychickensandwichitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "leafyfishsandwichitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "leekbaconsoupitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "lemonaideitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "lemonbaritem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "lemonchickenitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "lemoncupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "lemondrizzlecakeitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "lemonjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "lemonjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "lemonlimesodaitem": {
+   "drink": true,
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "lemonmeringueitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "lemonsmoothieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "lemonyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "limejellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "limejellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "limesmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "limeyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "liverandonionsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "loadedbakedpotatoitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "lycheeteaitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "mangochutneyitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "mangojellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "mangojellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "mangosmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "mangoyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "manjuuitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "maplecandiedbaconitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "mapleoatmealitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "maplesausageitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "maplesyruppancakesitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "maplesyrupwafflesitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "marinatedcucumbersitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "marshmellowchicksitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "marshmellowsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "marzipanitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "mashedpotatoeschickenbiscuititem": {
+   "hunger": 12,
+   "saturation": 1.2
+  },
+  "mashedpotatoesitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "mashedsweetpotatoesitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "mcpamitem": {
+   "hunger": 16,
+   "saturation": 1.2
+  },
+  "meatfeastpizzaitem": {
+   "hunger": 24,
+   "saturation": 1.2
+  },
+  "meatloafitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "meatloafsandwichitem": {
+   "hunger": 12,
+   "saturation": 1.2
+  },
+  "meatpieitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "meatystewitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "meatystirfryitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "meesuaitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "melonsmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "melonyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "meringuebombeitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "meringuebrownieitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "meringuecookieitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "meringuerouladeitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "merveilleuxitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "mettbrotchenitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "mincepieitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "minerstewitem": {
+   "hunger": 25,
+   "saturation": 1.2
+  },
+  "mintchocolatechipicecreamitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "mintcupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "misopasteitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "misosoupitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "mixedsaladitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "mobsoupitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "mochaicecreamitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "mochicakeitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "mochidessertitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "mochiitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "monsterfrieddumplingsitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "montecristosandwichitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "mozzerellasticksitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "museliitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "mushroomketchupitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "mushroomketchupomeletitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "mushroomlasagnaitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "mushroomrisottoitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "mushroomsteakitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "musselcookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "musubiitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "naanitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "nachoesitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "neapolitanicecreamitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "netherstartoastitem": {
+   "hunger": 16,
+   "saturation": 1.2
+  },
+  "netherwingsitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "nopalessaladitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "nutellaitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "octopuscookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "okrachipsitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "okracreoleitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "oldworldveggiesoupitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "omeletitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "omuriceitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "onigiriitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "onionhamburgeritem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "onionsoupitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "orangechickenitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "orangeduckitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "orangejellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "orangejellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "orangesmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "orangesodaitem": {
+   "drink": true,
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "orangeyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "ovenroastedcaulifloweritem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "oystercookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "oystersauceitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "padthaiitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "pambitsboxitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "pancakesitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "paneeritem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "paneertikkamasalaitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "papayajellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "papayajellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "papayasmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "papayayogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "paradiseburgeritem": {
+   "hunger": 16,
+   "saturation": 1.2
+  },
+  "pastagardeniaitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "patreonpieitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "pbandjitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "peaandhamsoupitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "peachcobbleritem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "peachesandcreamoatmealitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "peachjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "peachjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "peachsmoothieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "peachyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "peanutbutterbananasandwichitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "peanutbuttercookiesitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "peanutbuttercupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "peanutbuttercupitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "peanutbutteritem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "peanutsoupitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "pearjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "pearjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "pearsmoothieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "pearyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "peasandceleryitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "pecanpieitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "pekingduckitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "pemmicanitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "pepperjellyandcrackersitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "pepperjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "peppermintitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "pepperoniitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "persimmonjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "persimmonjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "persimmonsmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "persimmonyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "phoitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "pickledbeetsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "pickledonionsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "picklesitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "pinacoladaitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "pineapplehamitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "pineappleyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "pinkelitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "pistachiobakedsalmonitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "pistachiobutteritem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "pistachioicecreamitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "pitepaltitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "pizzaitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "pizzasliceitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "pizzasoupitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "plainyogurtitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "ploughmanslunchitem": {
+   "hunger": 18,
+   "saturation": 1.2
+  },
+  "plumjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "plumjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "plumsmoothieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "plumyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "poachedpearitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "pomegranatejellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "pomegranatejellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "pomegranatesmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "pomegranateyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "popcornitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "porklettucewrapitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "porklomeinitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "porkrindsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "porksausageitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "potatoandcheesepirogiitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "potatoandleeksoupitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "potatocakesitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "potatochipsitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "potatoesobrienitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "potatosaladitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "potatoskinsitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "potatosoupitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "potroastitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "potstickersitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "poutineitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "powdereddonutitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "pralinesitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "pumpkinbreaditem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "pumpkinmuffinitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "pumpkinoatsconesitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "pumpkinsoupitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "pumpkinspicelatteitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "pumpkinyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "quesadillaitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "rainbowcurryitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "raisincookiesitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "raisinsitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "ramenitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "randomtacoitem": {
+   "hunger": 12,
+   "saturation": 1.2
+  },
+  "raspberryicedteaitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "raspberryjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "raspberryjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "raspberrymilkshakeitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "raspberrypieitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "raspberrysmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "raspberrytrifleitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "raspberryyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "rawtofabbititem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "rawtofaconitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "rawtofeakitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "rawtofeegitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "rawtofenisonitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "rawtofickenitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "rawtofishitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "rawtofuduckitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "rawtofurkeyitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "rawtofuttonitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "redvelvetcupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "refriedbeansitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "ricecakeitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "ricepuddingitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "ricesoupitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "rivermudcakeitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "roastchickenitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "roastedchestnutitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "roastedpumpkinseedsitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "roastedrootveggiemedleyitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "roastpotatoesitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "rootbeerfloatitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "rootbeersodaitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "rosepetalteaitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "salisburysteakitem": {
+   "hunger": 17,
+   "saturation": 1.2
+  },
+  "salmononigiriitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "salmonpattiesitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "salsaitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "saltedcaramelitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "saltedsunflowerseedsitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "sardinesinhotsauceitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "saucedlambkebabitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "sauerbratenitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "sausagebeanmeltitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "sausageinbreaditem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "sausageitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "sausagerollitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "scallionbakedpotatoitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "scallopcookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "schnitzelitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "scrambledeggitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "seedenergygelitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "seedsoupitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "sesameballitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "sesamesnapsitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "shepardspieitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "shrimpcocktailitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "shrimpcookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "shrimpokrahushpuppiesitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "shrimptemperaitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "silkentofuitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "slawdogitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "slimegummiesitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "slimepieitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "smoresitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "snailcookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "snickersbaritem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "softpretzelandmustarditem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "softpretzelitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "sourcreamandonionpotatochipsitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "southernstylebreakfastitem": {
+   "hunger": 20,
+   "saturation": 1.2
+  },
+  "soymilkitem": {
+   "drink": true,
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "spagettiandmeatballsitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "spagettiitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "spaghettidinneritem": {
+   "hunger": 13,
+   "saturation": 1.2
+  },
+  "spicebunitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "spicygreensitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "spicymustardporkitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "spidereyepieitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "spidereyesoupitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "spinachpieitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "splitpeasoupitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "springfieldcashewchickenitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "springrollitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "springsaladitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "sprinklescupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "spumoniicecreamitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "squidinkspaghettiitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "starfruitjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "starfruitjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "starfruitsmoothieitem": {
+   "drink": true,
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "starfruityogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "steakandchipsitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "steakfajitaitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "steaktartareitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "steamedpeasitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "steamedspinachitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "stockitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "strawberrycupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "strawberryicecreamitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "strawberryjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "strawberryjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "strawberrymilkshakeitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "strawberrypieitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "strawberryrhubarbpieitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "strawberrysaladitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "strawberrysmoothieitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "strawberrysodaitem": {
+   "drink": true,
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "strawberrysouffleitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "strawberryyogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "stuffedchilipeppersitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "stuffedduckitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "stuffedeggplantitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "stuffedmushroomitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "stuffedpepperitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "stuffingitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "suaderoitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "succotashitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "sugarcookieitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "summerradishsaladitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "summersquashwithradishitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "sundayhighteaitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "sundayroastitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "sunflowerbroccolisaladitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "sunflowerseedsitem": {
+   "hunger": 1,
+   "saturation": 0.6
+  },
+  "sunflowerwheatrollsitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "supremepizzaitem": {
+   "hunger": 14,
+   "saturation": 1.2
+  },
+  "surfandturfitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "sushiitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "swedishmeatballsitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "sweetandsourchickenitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "sweetandsourmeatballsitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "sweetpickleitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "sweetpotatopieitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "sweetpotatosouffleitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "sweetteaitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "szechuaneggplantitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "tacoitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "taffyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "taiyakiitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "takoyakiitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "tatertotsitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "teaitem": {
+   "drink": true,
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "teriyakichickenitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "thankfuldinneritem": {
+   "hunger": 24,
+   "saturation": 1.2
+  },
+  "theatreboxitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "threebeansaladitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "timpanoitem": {
+   "hunger": 19,
+   "saturation": 1.2
+  },
+  "timtamitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "tiropitaitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "toadintheholeitem": {
+   "hunger": 11,
+   "saturation": 1.2
+  },
+  "toastedcoconutitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "toastedwesternitem": {
+   "hunger": 12,
+   "saturation": 1.2
+  },
+  "toastitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "toastsandwichitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "tomatoherbchickenitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "tomatosoupitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "tortillachipsitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "tortillaitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "trailmixitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "tunafishsandwichitem": {
+   "hunger": 10,
+   "saturation": 1.2
+  },
+  "tunaonigiriitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "tunapotatoitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "tunasaladitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "turkeycookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "turkeyrawitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "turkishdelightitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "turnipsoupitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "turtlecookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "vanillaconchasbreaditem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "vanillacupcakeitem": {
+   "hunger": 8,
+   "saturation": 1.2
+  },
+  "vanillaicecreamitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "vanillayogurtitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "vegemiteitem": {
+   "hunger": 4,
+   "saturation": 1.2
+  },
+  "vegemiteontoastitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "vegetablesoupitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "vegetarianlettucewrapitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "veggiestirfryitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "veggiestripsitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "venisoncookeditem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "venisonrawitem": {
+   "hunger": 1,
+   "saturation": 1.2
+  },
+  "vindalooitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "wafflesitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "walnutraisinbreaditem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "watermelonjellyitem": {
+   "hunger": 2,
+   "saturation": 1.2
+  },
+  "watermelonjellysandwichitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "weekendpicnicitem": {
+   "hunger": 19,
+   "saturation": 1.2
+  },
+  "wontonsoupitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "yorkshirepuddingitem": {
+   "hunger": 7,
+   "saturation": 1.2
+  },
+  "zeppoleitem": {
+   "hunger": 5,
+   "saturation": 1.2
+  },
+  "zestyzucchiniitem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "zombiejerkyitem": {
+   "hunger": 3,
+   "saturation": 1.2
+  },
+  "zucchinibakeitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  },
+  "zucchinibreaditem": {
+   "hunger": 6,
+   "saturation": 1.2
+  },
+  "zucchinifriesitem": {
+   "hunger": 9,
+   "saturation": 1.2
+  }
+ },
+ "items": [
+  "garliccoinitem",
+  "saltitem",
+  "freshwateritem",
+  "freshmilkitem",
+  "vanillaitem",
+  "toastedsesameseedsitem",
+  "flouritem",
+  "doughitem",
+  "pastaitem",
+  "heavycreamitem",
+  "butteritem",
+  "mayoitem",
+  "cocoapowderitem",
+  "ketchupitem",
+  "cornmealitem",
+  "vinegaritem",
+  "mustarditem",
+  "blackpepperitem",
+  "groundcinnamonitem",
+  "groundnutmegitem",
+  "oliveoilitem",
+  "saladdressingitem",
+  "bubblywateritem",
+  "batteritem",
+  "currypowderitem",
+  "soysauceitem",
+  "garammasalaitem",
+  "sesameoilitem",
+  "noodlesitem",
+  "hoisinsauceitem",
+  "fivespiceitem",
+  "sweetandsoursauceitem",
+  "hotsauceitem",
+  "rouxitem",
+  "meringueitem",
+  "groundbeefitem",
+  "groundchickenitem",
+  "groundduckitem",
+  "groundfishitem",
+  "groundmuttonitem",
+  "groundporkitem",
+  "groundrabbititem",
+  "groundturkeyitem",
+  "groundvenisonitem"
+ ]
+}

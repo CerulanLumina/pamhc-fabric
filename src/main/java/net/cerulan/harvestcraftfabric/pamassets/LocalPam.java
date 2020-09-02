@@ -108,13 +108,14 @@ public class LocalPam {
         while (entries.hasMoreElements()) {
             ZipArchiveEntry entry = entries.nextElement();
             Optional<Loader> loader = getLoader(entry);
+//            Optional<Loader> loader = Optional.empty();
             loader.ifPresent(l -> registerDatum(l, builder));
         }
         if (!unhandledOres.isEmpty()) {
             Harvestcraftfabric.LOGGER.error("There were unhandled ore cases. This is a bug!");
             unhandledOres.forEach(Harvestcraftfabric.LOGGER::error);
         }
-        NameConversion.tags.forEach(tag -> builder.addItemTag(new Identifier(tag), tagBuilder -> {}));
+        builder.addItemTag(new Identifier("harvestcraft", "seed"), tagBuilder -> Harvestcraftfabric.SEED_ITEMS.forEach(tagBuilder::value));
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
             StringBuilder tags = new StringBuilder();
             NameConversion.tags.stream().sorted().forEach(t -> tags.append(t).append("\n"));
@@ -198,10 +199,21 @@ public class LocalPam {
                 return NO_RESULT_ITEM;
             }
         } else if (element.isJsonObject()) {
-            JsonObject obj = element.getAsJsonObject();
-            String result = obj.getAsJsonPrimitive("item").getAsString();
+            JsonObject resultObj = element.getAsJsonObject();
+            String result = resultObj.getAsJsonPrimitive("item").getAsString();
             if (!Registry.ITEM.getOrEmpty(new Identifier(result)).isPresent()) {
                 return NO_RESULT_ITEM;
+            }
+            if (resultObj.has("data")) {
+                try {
+                    if (modifyItemObjectWithData(resultObj, result)) {
+                        Harvestcraftfabric.LOGGER.error("Tag in output!");
+                        return null;
+                    }
+                } catch (IllegalStateException ex) {
+                    Harvestcraftfabric.LOGGER.error("Failed to adjust data element.");
+                    return null;
+                }
             }
         }
 
@@ -217,6 +229,23 @@ public class LocalPam {
                 Harvestcraftfabric.LOGGER.error("Unknown recipe type");
                 return null;
         }
+    }
+
+    private boolean modifyItemObjectWithData(JsonObject object, String item) throws IllegalStateException {
+        int data = object.getAsJsonPrimitive("data").getAsInt();
+        object.remove("data");
+        NameConversion conversion = NameConversion.fromItemAndData(new Identifier(item), data);
+        if (conversion != null) {
+            if (conversion.isTag()) {
+                object.addProperty("tag", conversion.getValue());
+                object.remove("item");
+                return true;
+            } else {
+                object.addProperty("item", conversion.getValue());
+                return false;
+            }
+        }
+        throw new IllegalStateException();
     }
 
     private static final HashSet<String> unhandledOres = new HashSet<>();
@@ -238,10 +267,7 @@ public class LocalPam {
     }
 
     private IngredientModifyResult modifyIngredient(JsonObject ingred) {
-        if (ingred.has("data")) {
-            Harvestcraftfabric.LOGGER.error("Data field present");
-            return IngredientModifyResult.DataFieldPresent;
-        }
+
         if (ingred.has("type")) {
             String type = ingred.getAsJsonPrimitive("type").getAsString();
             if (type.equals("forge:ore_dict")) {
@@ -265,14 +291,23 @@ public class LocalPam {
             }
         }
         if (ingred.has("item")) {
-            Identifier initialItem = new Identifier(ingred.getAsJsonPrimitive("item").getAsString());
-            NameConversion conversion = NameConversion.fromItem(initialItem);
-            if (conversion != null) {
-                if (conversion.isTag()) {
-                    ingred.remove("item");
-                    ingred.addProperty("tag", conversion.getValue());
-                } else {
-                    ingred.addProperty("item", conversion.getValue());
+            if (ingred.has("data")) {
+                try {
+                    modifyItemObjectWithData(ingred, ingred.get("item").getAsString());
+                } catch (IllegalStateException ex) {
+                    Harvestcraftfabric.LOGGER.error("Unknown data.");
+                    return IngredientModifyResult.DataFieldPresent;
+                }
+            } else {
+                Identifier initialItem = new Identifier(ingred.getAsJsonPrimitive("item").getAsString());
+                NameConversion conversion = NameConversion.fromItem(initialItem);
+                if (conversion != null) {
+                    if (conversion.isTag()) {
+                        ingred.remove("item");
+                        ingred.addProperty("tag", conversion.getValue());
+                    } else {
+                        ingred.addProperty("item", conversion.getValue());
+                    }
                 }
             }
         }
@@ -281,6 +316,7 @@ public class LocalPam {
             if (!Registry.ITEM.getOrEmpty(initialItem).isPresent()) {
                 Harvestcraftfabric.LOGGER.error("Missing ingredient: " + initialItem.toString());
                 missingIngredients.add(initialItem.toString());
+                return IngredientModifyResult.MissingIngredient;
             }
         }
         return IngredientModifyResult.Success;
@@ -340,13 +376,16 @@ public class LocalPam {
         skipRecipes.add("assets/harvestcraft/recipes/cake.json");
         skipRecipes.add("assets/harvestcraft/recipes/honey.json");
         skipRecipes.add("assets/harvestcraft/recipes/honeyitem_x9_honey.json");
+        skipRecipes.add("assets/harvestcraft/recipes/minecraft_pumpkinseeds.json");
+        skipRecipes.add("assets/harvestcraft/recipes/minecraft_pumpkinblocks.json");
     }
 
     private enum IngredientModifyResult {
         Success,
         DataFieldPresent,
         UnhandledOre,
-        UnknownType
+        UnknownType,
+        MissingIngredient,
     }
 
 }

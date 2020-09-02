@@ -1,5 +1,6 @@
 package net.cerulan.harvestcraftfabric.pamassets;
 
+import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
@@ -28,6 +29,8 @@ public class NameConversion {
     private static final HashMap<String, String> CROP_NAME_OVERRIDE = new HashMap<>();
     private static final HashMap<String, NameConversion> ORE_NAME_OVERRIDE = new HashMap<>();
     private static final HashMap<String, NameConversion> ITEM_NAME_OVERRIDE = new HashMap<>();
+    private static final HashMap<Integer, NameConversion> DYE_DATA_MAP = new HashMap<>();
+    private static final HashMap<String, NameConversion> DROP_DATA_MAP = new HashMap<>();
 
     public static NameConversion fromOre(String ore) {
         if (ORE_NAME_OVERRIDE.containsKey(ore)) return ORE_NAME_OVERRIDE.get(ore);
@@ -52,6 +55,15 @@ public class NameConversion {
 
     public static NameConversion fromItem(Identifier item) {
         return ITEM_NAME_OVERRIDE.getOrDefault(item.toString(), null);
+    }
+
+    public static NameConversion fromItemAndData(Identifier item, int data) {
+        if (item.toString().equals("minecraft:dye"))
+            return DYE_DATA_MAP.getOrDefault(data, null);
+        if (DROP_DATA_MAP.containsKey(item.toString()))
+            return DROP_DATA_MAP.get(item.toString());
+
+        return null;
     }
 
     static {
@@ -82,6 +94,29 @@ public class NameConversion {
         ITEM_NAME_OVERRIDE.put("harvestcraft:yogurtitem", new NameConversion("harvestcraft:plainyogurtitem", false));
         ITEM_NAME_OVERRIDE.put("minecraft:waterlily", new NameConversion("minecraft:lily_pad", false));
         ITEM_NAME_OVERRIDE.put("minecraft:speckled_melon", new NameConversion("minecraft:glistering_melon_slice", false));
+        ITEM_NAME_OVERRIDE.put("minecraft:dye", new NameConversion("minecraft:dye", true));
+
+        DYE_DATA_MAP.put(0, new NameConversion("minecraft:black_dye", false));
+        DYE_DATA_MAP.put(1, new NameConversion("minecraft:red_dye", false));
+        DYE_DATA_MAP.put(2, new NameConversion("minecraft:green_dye", false));
+        DYE_DATA_MAP.put(3, new NameConversion("minecraft:brown_dye", false));
+        DYE_DATA_MAP.put(4, new NameConversion("minecraft:blue_dye", false));
+        DYE_DATA_MAP.put(5, new NameConversion("minecraft:purple_dye", false));
+        DYE_DATA_MAP.put(6, new NameConversion("minecraft:cyan_dye", false));
+        DYE_DATA_MAP.put(7, new NameConversion("minecraft:light_gray_dye", false));
+        DYE_DATA_MAP.put(8, new NameConversion("minecraft:gray_dye", false));
+        DYE_DATA_MAP.put(9, new NameConversion("minecraft:pink_dye", false));
+        DYE_DATA_MAP.put(10, new NameConversion("minecraft:lime_dye", false));
+        DYE_DATA_MAP.put(11, new NameConversion("minecraft:yellow_dye", false));
+        DYE_DATA_MAP.put(12, new NameConversion("minecraft:light_blue_dye", false));
+        DYE_DATA_MAP.put(13, new NameConversion("minecraft:magenta_dye", false));
+        DYE_DATA_MAP.put(14, new NameConversion("minecraft:orange_dye", false));
+        DYE_DATA_MAP.put(15, new NameConversion("minecraft:white_dye", false));
+        DYE_DATA_MAP.put(32767, new NameConversion("minecraft:dye", true));
+
+        DROP_DATA_MAP.put("minecraft:golden_apple", new NameConversion("minecraft:golden_apple", false));
+        DROP_DATA_MAP.put("minecraft:coal", new NameConversion("minecraft:coal", false));
+        DROP_DATA_MAP.put("minecraft:stone_pressure_plate", new NameConversion("minecraft:stone_pressure_plate", false));
     }
 
 }

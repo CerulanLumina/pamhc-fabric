@@ -1,0 +1,29 @@
+{
+  "values": [
+    "minecraft:beef",
+    "minecraft:chicken",
+    "minecraft:porkchop",
+    "minecraft:mutton",
+    "minecraft:rabbit",
+    "harvestcraft:venisonrawitem",
+    "harvestcraft:duckrawitem",
+    "harvestcraft:turkeyrawitem",
+    "harvestcraft:rawtofeakitem",
+    "harvestcraft:rawtofaconitem",
+    "harvestcraft:rawtofuttonitem",
+    "harvestcraft:rawtofickenitem",
+    "harvestcraft:rawtofabbititem",
+    "harvestcraft:rawtofurkeyitem",
+    "harvestcraft:rawtofenisonitem",
+    "harvestcraft:rawtofuduckitem",
+    "harvestcraft:groundbeefitem",
+    "harvestcraft:groundchickenitem",
+    "harvestcraft:groundduckitem",
+    "harvestcraft:groundfishitem",
+    "harvestcraft:groundmuttonitem",
+    "harvestcraft:groundporkitem",
+    "harvestcraft:groundrabbititem",
+    "harvestcraft:groundturkeyitem",
+    "harvestcraft:groundvenisonitem"
+  ]
+}
