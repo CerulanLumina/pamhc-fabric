@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "harvestcraftfabric",
+  "version": "${version}",
+  "name": "Harvestcraft: Fabric",
+  "description": "Pam's Harvestcraft but for fabric",
+  "authors": [
+    "LuminaSapphira"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/harvestcraft/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.cerulan.harvestcraftfabric.client.HarvestcraftfabricClient"
+    ],
+    "main": [
+      "net.cerulan.harvestcraftfabric.Harvestcraftfabric"
+    ]
+  },
+  "mixins": [
+    "harvestcraftfabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.9.2+build.206",
+    "fabric": "*",
+    "minecraft": "1.16.2"
+  },
+  "recommends": {
+    "roughlyenoughitems": "*"
+  },
+  "custom": {
+    "harvestcraftfabric:pamurl": "https://media.forgecdn.net/files/2904/825/Pam%27s+HarvestCraft+1.12.2zg.jar"
+  }
+}
