@@ -22,13 +22,12 @@ config = {
 # registerItemPamCakeFood("redvelvetcakeitem", 6, config['mealsaturation'], BlockRegistry.redvelvetcake)
 
 data = {
-    'items': [],
     'food': {},
 }
 
 
 def add_item(identifier: str):
-    data['items'].append(identifier)
+    pass
 
 
 def add_food(identifier: str, food: int, saturation: float, speed: bool = False):
@@ -48,13 +47,17 @@ def add_potion_food(identifier: str, food: int, saturation: float, speed: bool =
     add_food(identifier, food, saturation)['drink'] = True
 
 
+def add_juice(identifier: str):
+    add_potion_food(identifier, 2, config['mealsaturation'])
+
+
 def export():
-    with open('foods.json', 'w') as output_file:
+    with open('../src/main/resources/foods.json', 'w') as output_file:
         json.dump(data, output_file, indent=2, sort_keys=True)
 
 
 def move_to_ingredients(file: str):
-    with open('foods.json') as data_file:
+    with open('../src/main/resources/foods.json') as data_file:
         n_data = json.load(data_file)
     with open(file) as pamhc_file:
         pamhc = json.load(pamhc_file)
@@ -68,6 +71,31 @@ def move_to_ingredients(file: str):
 
 
 def do_foods():
+    add_juice('applejuiceitem')
+    add_juice('melonjuiceitem')
+    add_juice('carrotjuiceitem')
+    add_juice('strawberryjuiceitem')
+    add_juice('grapejuiceitem')
+    add_juice('blueberryjuiceitem')
+    add_juice('cherryjuiceitem')
+    add_juice('papayajuiceitem')
+    add_juice('starfruitjuiceitem')
+    add_juice('orangejuiceitem')
+    add_juice('peachjuiceitem')
+    add_juice('limejuiceitem')
+    add_juice('mangojuiceitem')
+    add_juice('pomegranatejuiceitem')
+    add_juice('blackberryjuiceitem')
+    add_juice('raspberryjuiceitem')
+    add_juice('kiwijuiceitem')
+    add_juice('cranberryjuiceitem')
+    add_juice('cactusfruitjuiceitem')
+    add_juice('plumjuiceitem')
+    add_juice('pearjuiceitem')
+    add_juice('apricotjuiceitem')
+    add_juice('figjuiceitem')
+    add_juice('grapefruitjuiceitem')
+    add_juice('persimmonjuiceitem')
     add_item("garliccoinitem")
     add_food("ediblerootitem", config['cropfoodRestore'], config['cropsaturationRestore'])
     add_food("sunflowerseedsitem", config['cropfoodRestore'], config['cropsaturationRestore'])
