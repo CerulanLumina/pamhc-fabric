@@ -133,8 +133,8 @@ public class LocalPam {
                             .addDecorator(treeDecoratorBuilder ->  {
                                 treeDecoratorBuilder
                                         .type("harvestcraft:fruit")
-                                        .jsonNumber("fruitProbability", 0.15f)
-                                        .with("fruitBlockState", JsonObject::new, json -> new StateDataBuilder().name("harvestcraft:pam" + fruit).setProperty("age", "2").buildTo(json));
+                                        .jsonNumber("fruitProbability", 0.25f)
+                                        .with("fruitBlockState", JsonObject::new, json -> new StateDataBuilder().name("harvestcraft:pam" + fruit).setProperty("age", "0").buildTo(json));
                             }, new TreeDecoratorBuilder());
                         }, new TreeFeatureConfigBuilder());
             });
