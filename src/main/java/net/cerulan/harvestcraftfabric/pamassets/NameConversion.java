@@ -119,6 +119,7 @@ public class NameConversion {
         DROP_DATA_MAP.put("minecraft:golden_apple", new NameConversion("minecraft:golden_apple", false));
         DROP_DATA_MAP.put("minecraft:coal", new NameConversion("minecraft:coal", false));
         DROP_DATA_MAP.put("minecraft:stone_pressure_plate", new NameConversion("minecraft:stone_pressure_plate", false));
+        DROP_DATA_MAP.put("minecraft:sapling", new NameConversion("minecraft:saplings", true));
     }
 
 }
