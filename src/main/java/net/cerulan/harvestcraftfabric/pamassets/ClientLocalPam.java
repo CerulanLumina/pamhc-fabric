@@ -116,11 +116,12 @@ public class ClientLocalPam extends LocalPam {
                 variants.add("stage=1", variant);
                 object.add("variants", variants);
             }
-
-
-
         } else if (object.has("variants")) {
-            for (Map.Entry<String, JsonElement> entry : object.getAsJsonObject("variants").entrySet()) {
+            JsonObject variants = object.getAsJsonObject("variants");
+            if (variants.has("inventory")) {
+                variants.remove("inventory");
+            }
+            for (Map.Entry<String, JsonElement> entry : variants.entrySet()) {
                 if (entry.getValue().isJsonObject()) {
                     JsonObject obj = entry.getValue().getAsJsonObject();
                     String model = obj.getAsJsonPrimitive("model").getAsString();
