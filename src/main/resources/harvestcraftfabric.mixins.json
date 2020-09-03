@@ -4,6 +4,7 @@
   "package": "net.cerulan.harvestcraftfabric.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AccessorFoliagePlacerType"
   ],
   "client": [
   ],

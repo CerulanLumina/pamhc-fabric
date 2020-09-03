@@ -7,6 +7,9 @@ import net.cerulan.harvestcraftfabric.config.FoodsConfig;
 import net.cerulan.harvestcraftfabric.item.DrinkFoodItem;
 import net.cerulan.harvestcraftfabric.item.PamSeedItem;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
+import net.cerulan.harvestcraftfabric.trees.TestSaplingBlock;
+import net.cerulan.harvestcraftfabric.trees.TreeInitializer;
+import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.*;
@@ -29,6 +32,7 @@ public final class Harvestcraftfabric implements ModInitializer {
             () -> new ItemStack(Registry.ITEM.get(new Identifier("harvestcraft", "mcpamitem"))));
 
     public static final ArrayList<PamCropBlock> CROP_BLOCKS = new ArrayList<>();
+    public static final ArrayList<TestSaplingBlock> SAPLING_BLOCKS = new ArrayList<>();
     public static final ArrayList<Identifier> SEED_ITEMS = new ArrayList<>();
 
     @Override
@@ -96,14 +100,23 @@ public final class Harvestcraftfabric implements ModInitializer {
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", ingred + "item"), item);
         });
 
+
+
         // Fruits
         localPam.getContent().getFruits().forEach(fruit -> {
+
             // TODO trees
             Item item = new Item(new Item.Settings().group(HARVESTCRAFT_CROP_GROUP).food(cropResultFood));
+            TestSaplingBlock saplingBlock = new TestSaplingBlock();
+            Item sapling = new BlockItem(saplingBlock, new Item.Settings().group(HARVESTCRAFT_CROP_GROUP));
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "item"), item);
+            Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "_sapling"), sapling);
+            Registry.register(Registry.BLOCK, new Identifier("harvestcraft", fruit + "_sapling"), saplingBlock);
+            SAPLING_BLOCKS.add(saplingBlock);
         });
 
         Artifice.registerData(new Identifier("harvestcraft", "harvestcraft"), localPam::registerPamData);
+        PamWorldGenerator.initWorldGen();
     }
 
     public LocalPam getLocalPam() {

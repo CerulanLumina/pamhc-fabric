@@ -29,6 +29,12 @@ public class ClientLocalPam extends LocalPam {
             Optional<Loader> loader = getLoader(entry);
             loader.ifPresent(l -> registerAsset(l, builder));
         }
+        this.content.getSpecialModels().forEach((key, texture) -> {
+            builder.addItemModel(new Identifier("harvestcraft", key), modelBuilder -> modelBuilder
+                    .parent(new Identifier("item/generated"))
+                    .texture("layer0", new Identifier("harvestcraft", texture)));
+        });
+
 
     }
 
@@ -67,7 +73,8 @@ public class ClientLocalPam extends LocalPam {
 
     private static Identifier getModelID(String zipName) {
         String path = zipName
-                .substring(20);
+                .substring(20)
+                .replace("models/item/saplings/", "models/item/");
         return new Identifier("harvestcraft", path);
     }
 
@@ -96,7 +103,23 @@ public class ClientLocalPam extends LocalPam {
     private byte[] blockStateTransformer(byte[] blockstate) {
         InputStreamReader reader = new InputStreamReader(new ByteArrayInputStream(blockstate));
         JsonObject object = this.gson.fromJson(reader, JsonObject.class);
-        if (object.has("variants")) {
+
+        if (object.has("forge_marker")) {
+
+            String model = object.getAsJsonObject("defaults").get("model").getAsString();
+            if (model.endsWith("_sapling")) {
+                object = new JsonObject();
+                JsonObject variants = new JsonObject();
+                JsonObject variant = new JsonObject();
+                variant.addProperty("model", model.replace("harvestcraft:", "harvestcraft:block/"));
+                variants.add("stage=0", variant);
+                variants.add("stage=1", variant);
+                object.add("variants", variants);
+            }
+
+
+
+        } else if (object.has("variants")) {
             for (Map.Entry<String, JsonElement> entry : object.getAsJsonObject("variants").entrySet()) {
                 if (entry.getValue().isJsonObject()) {
                     JsonObject obj = entry.getValue().getAsJsonObject();
@@ -118,15 +141,16 @@ public class ClientLocalPam extends LocalPam {
                 String key = line[0];
                 String value = line[1];
                 String newKey;
+                String substring = key.substring(5, key.length() - 5);
                 if (key.startsWith("tile."))
-                    newKey = "block.harvestcraft." + key.substring(5, key.length() - 5);
+                    newKey = "block.harvestcraft." + substring;
                 else if (key.startsWith("harvestcraft.tile."))
                     newKey = "block.harvestcraft." + key.substring(18, key.length() - 5);
                 else if (key.startsWith("item.minecraft:"))
                     return;
                 else if (key.startsWith("item."))
                     if (key.endsWith(".name"))
-                        newKey = "item.harvestcraft." + key.substring(5, key.length() - 5);
+                        newKey = "item.harvestcraft." + substring;
                     else
                         newKey = "item.harvestcraft." + key.substring(5);
                 else newKey = key;

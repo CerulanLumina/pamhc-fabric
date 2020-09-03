@@ -21,5 +21,7 @@ public class HarvestcraftfabricClient implements ClientModInitializer {
 
         Harvestcraftfabric.CROP_BLOCKS
                 .forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout()));
+        Harvestcraftfabric.SAPLING_BLOCKS
+                .forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout()));
     }
 }

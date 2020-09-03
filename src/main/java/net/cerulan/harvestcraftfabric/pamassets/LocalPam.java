@@ -5,12 +5,20 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
+import com.swordglowsblue.artifice.api.builder.TypedJsonBuilder;
+import com.swordglowsblue.artifice.api.builder.data.StateDataBuilder;
+import com.swordglowsblue.artifice.api.builder.data.worldgen.BlockStateProviderBuilder;
+import com.swordglowsblue.artifice.api.builder.data.worldgen.configured.feature.config.TreeFeatureConfigBuilder;
+import com.swordglowsblue.artifice.api.builder.data.worldgen.gen.FeatureSizeBuilder;
+import com.swordglowsblue.artifice.api.builder.data.worldgen.gen.FoliagePlacerBuilder;
+import com.swordglowsblue.artifice.api.builder.data.worldgen.gen.TrunkPlacerBuilder;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.pamassets.artifice.DataResource;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.Heightmap;
 import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
 import org.apache.commons.compress.archivers.zip.ZipFile;
 import org.apache.commons.io.FileUtils;
@@ -104,6 +112,37 @@ public class LocalPam {
     }
 
     public void registerPamData(ArtificeResourcePack.ServerResourcePackBuilder builder) {
+
+        builder.addConfiguredFeature(new Identifier("harvestcraft:fruit_tree"), configuredFeatureBuilder -> {
+            configuredFeatureBuilder.featureID("tree")
+                    .featureConfig(featureBuilder -> {
+                        featureBuilder
+                                .heightmap(Heightmap.Type.MOTION_BLOCKING)
+                                .ignoreVines(true)
+                                .minimumSize(sizeBuilder -> {
+                                }, new FeatureSizeBuilder.TwoLayersFeatureSizeBuilder())
+                                .trunkPlacer(trunkPlacerBuilder -> {
+                                    trunkPlacerBuilder
+                                            .baseHeight(5)
+                                            .heightRandA(1)
+                                            .heightRandB(2);
+                                }, new TrunkPlacerBuilder.StraightTrunkPlacerBuilder())
+                                .trunkProvider(b -> b.state(state -> state.name("minecraft:oak_log").setProperty("axis", "y")), new BlockStateProviderBuilder.SimpleBlockStateProviderBuilder())
+                                .leavesProvider(b -> b.state(state -> state.name("minecraft:oak_leaves").setProperty("persistent", "false").setProperty("distance", "4")), new BlockStateProviderBuilder.SimpleBlockStateProviderBuilder())
+                                .foliagePlacer(p -> p
+                                                .radius(2)
+                                                .offset(2)
+                                                .type("harvestcraft:fruit_tree")
+                                                .with("fruitBlockState", JsonObject::new, processor -> {
+                                                    new StateDataBuilder()
+                                                            .name("minecraft:diamond_block")
+                                                            .buildTo(processor);
+                                                }),
+                                        new FoliagePlacerBuilder.BlobFoliagePlacerBuilder().height(3));
+                    }, new TreeFeatureConfigBuilder());
+        });
+
+
         Enumeration<ZipArchiveEntry> entries = zipFile.getEntries();
         while (entries.hasMoreElements()) {
             ZipArchiveEntry entry = entries.nextElement();
@@ -136,8 +175,7 @@ public class LocalPam {
             byte[] data = loader.getTransformer().transform(IOUtils.toByteArray(is));
             if (data == NO_RESULT_ITEM) {
                 Harvestcraftfabric.LOGGER.debug("Not implemented skip: " + loader.getIdentifier());
-            }
-            else if (data != null) {
+            } else if (data != null) {
                 if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
                     Path out = FabricLoader.getInstance()
                             .getGameDir()
@@ -186,7 +224,7 @@ public class LocalPam {
         else return null;
     }
 
-    private static final byte[] NO_RESULT_ITEM = { 1, 2, 3, 4 };
+    private static final byte[] NO_RESULT_ITEM = {1, 2, 3, 4};
 
     private byte[] transformRecipe(byte[] inputRecipe) {
         InputStreamReader reader = new InputStreamReader(new ByteArrayInputStream(inputRecipe));
@@ -260,7 +298,8 @@ public class LocalPam {
 
     private byte[] shapedTransform(JsonObject object) {
         for (Map.Entry<String, JsonElement> ingredient : object.getAsJsonObject("key").entrySet()) {
-            if (modifyIngredient(ingredient.getValue().getAsJsonObject()) != IngredientModifyResult.Success) return null;
+            if (modifyIngredient(ingredient.getValue().getAsJsonObject()) != IngredientModifyResult.Success)
+                return null;
         }
         object.addProperty("type", "minecraft:crafting_shaped");
         return gson.toJson(object).getBytes();
