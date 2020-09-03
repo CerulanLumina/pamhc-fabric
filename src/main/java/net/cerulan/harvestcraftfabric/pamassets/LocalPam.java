@@ -1,8 +1,10 @@
 package net.cerulan.harvestcraftfabric.pamassets;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
-import com.swordglowsblue.artifice.api.builder.TypedJsonBuilder;
 import com.swordglowsblue.artifice.api.builder.data.StateDataBuilder;
 import com.swordglowsblue.artifice.api.builder.data.worldgen.BlockStateProviderBuilder;
 import com.swordglowsblue.artifice.api.builder.data.worldgen.configured.feature.config.TreeFeatureConfigBuilder;
@@ -329,7 +331,7 @@ public class LocalPam {
                 try {
                     modifyItemObjectWithData(ingred, ingred.get("item").getAsString());
                 } catch (IllegalStateException ex) {
-                    Harvestcraftfabric.LOGGER.error("Unknown data.");
+                    Harvestcraftfabric.LOGGER.error("Unknown data: " + ingred.toString());
                     return IngredientModifyResult.DataFieldPresent;
                 }
             } else {
