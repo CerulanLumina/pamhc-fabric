@@ -12,8 +12,8 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 // Rip-off of https://github.com/TechReborn/TechReborn/blob/1.16/src/main/java/techreborn/world/RubberTreeDecorator.java
-public class PamTreeDecorator extends Decorator<ChanceDecoratorConfig> {
-    public PamTreeDecorator(Codec<ChanceDecoratorConfig> codec) {
+public class BiomeFruitTreeDecorator extends Decorator<ChanceDecoratorConfig> {
+    public BiomeFruitTreeDecorator(Codec<ChanceDecoratorConfig> codec) {
         super(codec);
     }
 

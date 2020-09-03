@@ -1,6 +1,8 @@
 package net.cerulan.harvestcraftfabric;
 
 import com.swordglowsblue.artifice.api.Artifice;
+import net.cerulan.harvestcraftfabric.block.PamFruitBlock;
+import net.minecraft.block.Block;
 import net.cerulan.harvestcraftfabric.block.PamCropBlock;
 import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.config.FoodsConfig;
@@ -12,6 +14,8 @@ import net.cerulan.harvestcraftfabric.trees.TreeInitializer;
 import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -32,6 +36,7 @@ public final class Harvestcraftfabric implements ModInitializer {
             () -> new ItemStack(Registry.ITEM.get(new Identifier("harvestcraft", "mcpamitem"))));
 
     public static final ArrayList<PamCropBlock> CROP_BLOCKS = new ArrayList<>();
+    public static final ArrayList<PamFruitBlock> FRUIT_BLOCKS = new ArrayList<>();
     public static final ArrayList<TestSaplingBlock> SAPLING_BLOCKS = new ArrayList<>();
     public static final ArrayList<Identifier> SEED_ITEMS = new ArrayList<>();
 
@@ -107,12 +112,15 @@ public final class Harvestcraftfabric implements ModInitializer {
 
             // TODO trees
             Item item = new Item(new Item.Settings().group(HARVESTCRAFT_CROP_GROUP).food(cropResultFood));
-            TestSaplingBlock saplingBlock = new TestSaplingBlock();
+            TestSaplingBlock saplingBlock = new TestSaplingBlock(fruit);
             Item sapling = new BlockItem(saplingBlock, new Item.Settings().group(HARVESTCRAFT_CROP_GROUP));
+            PamFruitBlock fruitBlock = new PamFruitBlock();
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "item"), item);
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "_sapling"), sapling);
             Registry.register(Registry.BLOCK, new Identifier("harvestcraft", fruit + "_sapling"), saplingBlock);
+            Registry.register(Registry.BLOCK, new Identifier("harvestcraft", "pam" + fruit), fruitBlock);
             SAPLING_BLOCKS.add(saplingBlock);
+            FRUIT_BLOCKS.add(fruitBlock);
         });
 
         Artifice.registerData(new Identifier("harvestcraft", "harvestcraft"), localPam::registerPamData);

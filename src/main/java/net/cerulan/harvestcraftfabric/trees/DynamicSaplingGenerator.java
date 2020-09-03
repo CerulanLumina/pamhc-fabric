@@ -5,15 +5,22 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class DynamicSaplingGenerator extends SaplingGenerator {
 
-    public static ConfiguredFeature<TreeFeatureConfig, ?> config = null;
+    private String saplingKey;
+    public DynamicSaplingGenerator(String saplingKey) {
+        this.saplingKey = saplingKey;
+    }
+
+    public static Map<String, ConfiguredFeature<TreeFeatureConfig, ?>> config = new HashMap<>();
 
     @Override
     protected @Nullable ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bl) {
-        return config;
+        return config.get(saplingKey);
     }
 
 }

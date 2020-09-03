@@ -1,9 +1,6 @@
 package net.cerulan.harvestcraftfabric.pamassets;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.google.gson.*;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import com.swordglowsblue.artifice.api.builder.TypedJsonBuilder;
 import com.swordglowsblue.artifice.api.builder.data.StateDataBuilder;
@@ -11,6 +8,7 @@ import com.swordglowsblue.artifice.api.builder.data.worldgen.BlockStateProviderB
 import com.swordglowsblue.artifice.api.builder.data.worldgen.configured.feature.config.TreeFeatureConfigBuilder;
 import com.swordglowsblue.artifice.api.builder.data.worldgen.gen.FeatureSizeBuilder;
 import com.swordglowsblue.artifice.api.builder.data.worldgen.gen.FoliagePlacerBuilder;
+import com.swordglowsblue.artifice.api.builder.data.worldgen.gen.TreeDecoratorBuilder;
 import com.swordglowsblue.artifice.api.builder.data.worldgen.gen.TrunkPlacerBuilder;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.pamassets.artifice.DataResource;
@@ -112,42 +110,39 @@ public class LocalPam {
     }
 
     public void registerPamData(ArtificeResourcePack.ServerResourcePackBuilder builder) {
-
-        builder.addConfiguredFeature(new Identifier("harvestcraft:fruit_tree"), configuredFeatureBuilder -> {
-            configuredFeatureBuilder.featureID("tree")
-                    .featureConfig(featureBuilder -> {
-                        featureBuilder
-                                .heightmap(Heightmap.Type.MOTION_BLOCKING)
-                                .ignoreVines(true)
-                                .minimumSize(sizeBuilder -> {
-                                }, new FeatureSizeBuilder.TwoLayersFeatureSizeBuilder())
-                                .trunkPlacer(trunkPlacerBuilder -> {
-                                    trunkPlacerBuilder
-                                            .baseHeight(5)
-                                            .heightRandA(1)
-                                            .heightRandB(2);
-                                }, new TrunkPlacerBuilder.StraightTrunkPlacerBuilder())
-                                .trunkProvider(b -> b.state(state -> state.name("minecraft:oak_log").setProperty("axis", "y")), new BlockStateProviderBuilder.SimpleBlockStateProviderBuilder())
-                                .leavesProvider(b -> b.state(state -> state.name("minecraft:oak_leaves").setProperty("persistent", "false").setProperty("distance", "4")), new BlockStateProviderBuilder.SimpleBlockStateProviderBuilder())
-                                .foliagePlacer(p -> p
-                                                .radius(2)
-                                                .offset(2)
-                                                .type("harvestcraft:fruit_tree")
-                                                .with("fruitBlockState", JsonObject::new, processor -> {
-                                                    new StateDataBuilder()
-                                                            .name("minecraft:diamond_block")
-                                                            .buildTo(processor);
-                                                }),
-                                        new FoliagePlacerBuilder.BlobFoliagePlacerBuilder().height(3));
-                    }, new TreeFeatureConfigBuilder());
-        });
+        for (String fruit : this.getContent().getFruits()) {
+            builder.addConfiguredFeature(new Identifier("harvestcraft:" + fruit + "_tree"), configuredFeatureBuilder -> {
+                configuredFeatureBuilder.featureID("tree")
+                        .featureConfig(featureBuilder -> {
+                            featureBuilder
+                                    .heightmap(Heightmap.Type.MOTION_BLOCKING)
+                                    .ignoreVines(true)
+                                    .minimumSize(sizeBuilder -> {
+                                    }, new FeatureSizeBuilder.TwoLayersFeatureSizeBuilder())
+                                    .trunkPlacer(trunkPlacerBuilder -> {
+                                        trunkPlacerBuilder
+                                                .baseHeight(5)
+                                                .heightRandA(3)
+                                                .heightRandB(0);
+                                    }, new TrunkPlacerBuilder.StraightTrunkPlacerBuilder())
+                                    .trunkProvider(b -> b.state(state -> state.name("minecraft:oak_log").setProperty("axis", "y")), new BlockStateProviderBuilder.SimpleBlockStateProviderBuilder())
+                                    .leavesProvider(b -> b.state(state -> state.name("minecraft:oak_leaves").setProperty("persistent", "false").setProperty("distance", "7")), new BlockStateProviderBuilder.SimpleBlockStateProviderBuilder())
+                                    .foliagePlacer(p -> p.radius(2).offset(0), new FoliagePlacerBuilder.BlobFoliagePlacerBuilder().height(3))
+                            .addDecorator(treeDecoratorBuilder ->  {
+                                treeDecoratorBuilder
+                                        .type("harvestcraft:fruit")
+                                        .jsonNumber("fruitProbability", 0.15f)
+                                        .with("fruitBlockState", JsonObject::new, json -> new StateDataBuilder().name("harvestcraft:pam" + fruit).setProperty("age", "2").buildTo(json));
+                            }, new TreeDecoratorBuilder());
+                        }, new TreeFeatureConfigBuilder());
+            });
+        }
 
 
         Enumeration<ZipArchiveEntry> entries = zipFile.getEntries();
         while (entries.hasMoreElements()) {
             ZipArchiveEntry entry = entries.nextElement();
             Optional<Loader> loader = getLoader(entry);
-//            Optional<Loader> loader = Optional.empty();
             loader.ifPresent(l -> registerDatum(l, builder));
         }
         if (!unhandledOres.isEmpty()) {

@@ -43,8 +43,6 @@ public class TreeInitializer {
 //                            .ignoreVines().build()
 //    );
 
-    public static final SaplingGenerator SAPLING_GENERATOR = new DynamicSaplingGenerator();
-
 
 
 
