@@ -114,8 +114,9 @@ public final class Harvestcraftfabric implements ModInitializer {
             Item item = new Item(new Item.Settings().group(HARVESTCRAFT_CROP_GROUP).food(cropResultFood));
             TestSaplingBlock saplingBlock = new TestSaplingBlock(fruit);
             Item sapling = new BlockItem(saplingBlock, new Item.Settings().group(HARVESTCRAFT_CROP_GROUP));
-            PamFruitBlock fruitBlock = new PamFruitBlock();
-            Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "item"), item);
+            Identifier fruitItemID = new Identifier("harvestcraft", fruit + "item");
+            PamFruitBlock fruitBlock = new PamFruitBlock(fruitItemID);
+            Registry.register(Registry.ITEM, fruitItemID, item);
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "_sapling"), sapling);
             Registry.register(Registry.BLOCK, new Identifier("harvestcraft", fruit + "_sapling"), saplingBlock);
             Registry.register(Registry.BLOCK, new Identifier("harvestcraft", "pam" + fruit), fruitBlock);
