@@ -83,7 +83,7 @@ public class NameConversion {
         ORE_NAME_OVERRIDE.put("seedMustard", new NameConversion("harvestcraft:mustardseedsitem", false));
         ORE_NAME_OVERRIDE.put("dropHoney", new NameConversion("minecraft:honey_bottle", false));
         ORE_NAME_OVERRIDE.put("dyeGreen", new NameConversion("minecraft:green_dye", false));
-        ORE_NAME_OVERRIDE.put("cobblestone", new NameConversion("minecraft:stone_crafting_materials", true));
+        ORE_NAME_OVERRIDE.put("cobblestone", new NameConversion("minecraft:cobblestone", false));
         ORE_NAME_OVERRIDE.put("plankWood", new NameConversion("minecraft:planks", true));
         ORE_NAME_OVERRIDE.put("stone", new NameConversion("minecraft:stone", false));
         ORE_NAME_OVERRIDE.put("foodHoneydrop", new NameConversion("minecraft:honey_bottle", false));
