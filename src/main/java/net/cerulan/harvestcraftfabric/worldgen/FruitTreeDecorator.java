@@ -20,10 +20,6 @@ public class FruitTreeDecorator extends TreeDecorator {
                 BlockState.CODEC
                         .fieldOf("fruitBlockState")
                         .forGetter(FruitTreeDecorator::getFruitBlockState))
-//                .and(Codec
-//                        .floatRange(0.0f, 1.0f)
-//                        .fieldOf("fruitProbability")
-//                        .forGetter(FruitTreeDecorator::getFruitProbability))
                 .apply(instance, FruitTreeDecorator::new)
     );
 
