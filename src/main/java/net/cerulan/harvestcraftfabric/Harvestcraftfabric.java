@@ -4,6 +4,7 @@ import com.swordglowsblue.artifice.api.Artifice;
 import net.cerulan.harvestcraftfabric.block.PamCakeBlock;
 import net.cerulan.harvestcraftfabric.block.PamCropBlock;
 import net.cerulan.harvestcraftfabric.block.PamFruitBlock;
+import net.cerulan.harvestcraftfabric.block.PamGardenBlock;
 import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.config.FoodsConfig;
 import net.cerulan.harvestcraftfabric.item.DrinkFoodItem;
@@ -25,16 +26,17 @@ public final class Harvestcraftfabric implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("PamHC-Fabric");
     private LocalPam localPam;
     private static Harvestcraftfabric INSTANCE = null;
-    public static ItemGroup HARVESTCRAFT_CROP_GROUP = FabricItemGroupBuilder.build(
+    public final ItemGroup HARVESTCRAFT_CROP_GROUP = FabricItemGroupBuilder.build(
             new Identifier("harvestcraft", "crops"),
             () -> new ItemStack(Registry.ITEM.get(new Identifier("harvestcraft", "tomatoitem"))));
-    public static ItemGroup HARVESTCRAFT_FOOD_GROUP = FabricItemGroupBuilder.build(
+    public final ItemGroup HARVESTCRAFT_FOOD_GROUP = FabricItemGroupBuilder.build(
             new Identifier("harvestcraft", "food"),
             () -> new ItemStack(Registry.ITEM.get(new Identifier("harvestcraft", "mcpamitem"))));
 
     public static final ArrayList<PamCropBlock> CROP_BLOCKS = new ArrayList<>();
     public static final ArrayList<PamFruitBlock> FRUIT_BLOCKS = new ArrayList<>();
     public static final ArrayList<FruitSaplingBlock> SAPLING_BLOCKS = new ArrayList<>();
+    public static final ArrayList<PamGardenBlock> GARDEN_BLOCK = new ArrayList<>();
     public static final ArrayList<Identifier> SEED_ITEMS = new ArrayList<>();
 
     @Override
@@ -127,6 +129,12 @@ public final class Harvestcraftfabric implements ModInitializer {
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", cake + "item"), item);
         });
 
+        localPam.getContent().getGardens().forEach(garden -> {
+            PamGardenBlock gardenBlock = new PamGardenBlock();
+            Registry.register(Registry.BLOCK, new Identifier("harvestcraft", garden + "garden"), gardenBlock);
+            GARDEN_BLOCK.add(gardenBlock);
+        });
+
         Artifice.registerData(new Identifier("harvestcraft", "harvestcraft"), localPam::registerPamData);
         PamWorldGenerator.initWorldGen(FRUIT_BLOCKS);
     }
@@ -134,6 +142,7 @@ public final class Harvestcraftfabric implements ModInitializer {
     public LocalPam getLocalPam() {
         return localPam;
     }
+
     public static Harvestcraftfabric getInstance() {
         if (INSTANCE == null) {
             throw new RuntimeException("Harvestcraft has not been initialized yet");

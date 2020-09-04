@@ -1,7 +1,6 @@
 package net.cerulan.harvestcraftfabric.worldgen;
 
 import com.google.common.collect.ImmutableList;
-import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.block.PamFruitBlock;
 import net.cerulan.harvestcraftfabric.mixin.AccessorTreeDecoratorType;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
@@ -68,6 +67,5 @@ public class PamWorldGenerator {
         RandomFeatureConfig config = new RandomFeatureConfig(ImmutableList.copyOf(treeConfigured.values()).stream().map(a -> a.withChance(0.0001f)).collect(Collectors.toList()), Feature.NO_OP.configure(DefaultFeatureConfig.INSTANCE));
         treeConfigured.values().forEach(tree -> biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(config)));
     }
-
 
 }

@@ -24,5 +24,7 @@ public class HarvestcraftfabricClient implements ClientModInitializer {
                 .forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout()));
         Harvestcraftfabric.FRUIT_BLOCKS
                 .forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout()));
+        Harvestcraftfabric.GARDEN_BLOCK
+                .forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout()));
     }
 }

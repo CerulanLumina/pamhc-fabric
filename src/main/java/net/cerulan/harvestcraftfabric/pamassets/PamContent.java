@@ -12,6 +12,7 @@ public class PamContent {
     private HashSet<String> basicItems;
     private HashSet<String> cake;
     private HashMap<String, String> specialModels;
+    private HashSet<String> gardens;
 
     public HashSet<String> getCrops() {
         return crops;
@@ -43,5 +44,9 @@ public class PamContent {
 
     public HashSet<String> getCake() {
         return cake;
+    }
+
+    public HashSet<String> getGardens() {
+        return gardens;
     }
 }

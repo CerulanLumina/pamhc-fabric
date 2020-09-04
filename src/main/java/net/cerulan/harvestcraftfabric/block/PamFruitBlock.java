@@ -29,7 +29,7 @@ public class PamFruitBlock extends PlantBlock implements Fertilizable {
     public static final Property<Integer> AGE_PROPERTY = IntProperty.of("age", 0, 2);
     public static final int MAX_AGE = 2;
 
-    private static final VoxelShape OUTLINE = VoxelShapes.cuboid(0.3, 0.5, 0.3, 0.7, 1.0, 0.7);
+    private static final VoxelShape OUTLINE = VoxelShapes.cuboid(0.2, 0.5, 0.2, 0.8, 1.0, 0.8);
 
     protected Identifier fruitItemID;
 
@@ -66,7 +66,7 @@ public class PamFruitBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(0.3, 0.5, 0.3, 0.7, 1.0, 0.7);
+        return OUTLINE;
     }
 
     public int getAge(BlockState state) {

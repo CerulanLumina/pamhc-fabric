@@ -106,16 +106,18 @@ public class ClientLocalPam extends LocalPam {
 
         if (object.has("forge_marker")) {
 
-            String model = object.getAsJsonObject("defaults").get("model").getAsString();
+            String model = object.getAsJsonObject("defaults").get("model").getAsString().replace("harvestcraft:", "harvestcraft:block/");
+            object = new JsonObject();
+            JsonObject variants = new JsonObject();
+            JsonObject variant = new JsonObject();
+            variant.addProperty("model", model);
             if (model.endsWith("_sapling")) {
-                object = new JsonObject();
-                JsonObject variants = new JsonObject();
-                JsonObject variant = new JsonObject();
-                variant.addProperty("model", model.replace("harvestcraft:", "harvestcraft:block/"));
                 variants.add("stage=0", variant);
                 variants.add("stage=1", variant);
-                object.add("variants", variants);
+            } else {
+                variants.add("", variant);
             }
+            object.add("variants", variants);
         } else if (object.has("variants")) {
             JsonObject variants = object.getAsJsonObject("variants");
             if (variants.has("inventory")) {

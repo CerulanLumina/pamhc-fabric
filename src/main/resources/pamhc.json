@@ -991,16 +991,14 @@
     "breadfruit",
     "tamarind"
   ],
-  "specialModels": {
-    "rambutan_sapling": "block/saplings/rambutan_sapling",
-    "jackfruit_sapling": "block/saplings/jackfruit_sapling",
-    "passionfruit_sapling": "block/saplings/passionfruit_sapling",
-    "pawpaw_sapling": "block/saplings/pawpaw_sapling",
-    "lychee_sapling": "block/saplings/lychee_sapling",
-    "guava_sapling": "block/saplings/guava_sapling",
-    "breadfruit_sapling": "block/saplings/breadfruit_sapling",
-    "tamarind_sapling": "block/saplings/tamarind_sapling"
-  },
+  "gardens": [
+    "arid",
+    "frost",
+    "shaded",
+    "soggy",
+    "tropical",
+    "windy"
+  ],
   "ingredients": [
     "anchovyraw",
     "bassraw",
@@ -1077,6 +1075,16 @@
     "roux",
     "meringue"
   ],
+  "specialModels": {
+    "rambutan_sapling": "block/saplings/rambutan_sapling",
+    "jackfruit_sapling": "block/saplings/jackfruit_sapling",
+    "passionfruit_sapling": "block/saplings/passionfruit_sapling",
+    "pawpaw_sapling": "block/saplings/pawpaw_sapling",
+    "lychee_sapling": "block/saplings/lychee_sapling",
+    "guava_sapling": "block/saplings/guava_sapling",
+    "breadfruit_sapling": "block/saplings/breadfruit_sapling",
+    "tamarind_sapling": "block/saplings/tamarind_sapling"
+  },
   "tools": [
     "bakeware",
     "cuttingboard",
