@@ -9,6 +9,7 @@ import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.pamassets.artifice.DataResource;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.fabricmc.loader.gui.FabricGuiEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
@@ -68,8 +69,10 @@ public class LocalPam {
     protected PamContent content;
     protected Gson gson;
 
+    public static final Path HARVEST_JAR_PATH = FabricLoader.getInstance().getGameDir().resolve("pamhc/harvestcraft.jar");
+
     public LocalPam() {
-        this(FabricLoader.getInstance().getGameDir().resolve("pamhc/harvestcraft.jar"));
+        this(HARVEST_JAR_PATH);
     }
 
     private LocalPam(Path path) {
@@ -78,7 +81,6 @@ public class LocalPam {
         } else {
             this.gson = new GsonBuilder().create();
         }
-        verifyLocalFiles(path);
         try {
             this.zipFile = new ZipFile(path.toFile());
         } catch (IOException e) {
@@ -86,11 +88,6 @@ public class LocalPam {
             throw new RuntimeException(e);
         }
         this.content = loadPamContent();
-        Harvestcraftfabric.LOGGER.debug(content.getCrops());
-        Harvestcraftfabric.LOGGER.debug(content.getFoods());
-        Harvestcraftfabric.LOGGER.debug(content.getTools());
-        Harvestcraftfabric.LOGGER.debug(content.getIngredients());
-        Harvestcraftfabric.LOGGER.debug(content.getFruits());
     }
 
     protected LocalPam(LocalPam pam) {
@@ -331,40 +328,24 @@ public class LocalPam {
         return gson.fromJson(new InputStreamReader(stream), PamContent.class);
     }
 
-    private static void verifyLocalFiles(Path jar) {
+    public static void verifyLocalFiles(Path jar) throws MissingHarvestCraftException {
         Harvestcraftfabric.LOGGER.info("Checking local harvestcraft");
         Path jarParent = jar.getParent();
         if (!Files.isDirectory(jarParent)) {
             if (!jarParent.toFile().mkdirs()) {
-                Harvestcraftfabric.LOGGER.error("Failed to create directory `pamhc`. Is there a file conflict?");
-                throw new RuntimeException();
+                throw new MissingHarvestCraftException("Failed to create directory `pamhc`. Is there a file conflict?");
             }
         }
         if (Files.notExists(jar)) {
-            downloadHarvestcraft(jar);
+            throw new MissingHarvestCraftException("Missing harvestcraft.jar. Download Pam's HarvestCraft for 1.12.2 and place it in .minecraft/pamhc/harvestcraft.jar");
         } else if (Files.isDirectory(jar)) {
-            Harvestcraftfabric.LOGGER.error("Failed to validate existing jar file `pamhc/harvestcraft.jar`. Is there a file conflict?");
-            throw new RuntimeException();
+            throw new MissingHarvestCraftException("Failed to validate existing jar file `pamhc/harvestcraft.jar`. Is there a file conflict?");
         }
     }
 
-    private static void downloadHarvestcraft(Path output) {
-        Optional<ModContainer> container = FabricLoader.getInstance().getModContainer("harvestcraftfabric");
-        if (!container.isPresent()) {
-            throw new RuntimeException("Failed to get mod container");
-        }
-        String strUrl = container.get().getMetadata().getCustomValue("harvestcraftfabric:pamurl").getAsString();
-        try {
-            URL url = new URL(strUrl);
-            Harvestcraftfabric.LOGGER.info("Downloading harvestcraft from " + strUrl);
-            FileUtils.copyURLToFile(url, output.toFile());
-        } catch (MalformedURLException ex) {
-            throw new RuntimeException("Failed to parse URL", ex);
-        } catch (IOException e) {
-            Harvestcraftfabric.LOGGER.error("Failed to download Pam's Harvestcraft.\n" +
-                    "If you are offline, download a copy of Pam's Harvestcraft for 1.12.2\n" +
-                    "and place it in the folder 'pamhc' in the Minecraft root directory, naming it 'harvestcraft.jar'.");
-            throw new RuntimeException("Failed to download harvestcraft", e);
+    public static final class MissingHarvestCraftException extends Exception {
+        public MissingHarvestCraftException(String s) {
+            super(s);
         }
     }
 

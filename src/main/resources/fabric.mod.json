@@ -17,6 +17,9 @@
     ],
     "main": [
       "net.cerulan.harvestcraftfabric.Harvestcraftfabric"
+    ],
+    "preLaunch": [
+      "net.cerulan.harvestcraftfabric.PreLaunchEntry"
     ]
   },
   "mixins": [
