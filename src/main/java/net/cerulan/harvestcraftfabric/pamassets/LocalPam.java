@@ -377,7 +377,6 @@ public class LocalPam {
         skipRecipes.add("assets/harvestcraft/recipes/honeyitem_x9_honey.json");
         skipRecipes.add("assets/harvestcraft/recipes/minecraft_pumpkinseeds.json");
         skipRecipes.add("assets/harvestcraft/recipes/minecraft_pumpkinblocks.json");
-        skipRecipes.add("assets/harvestcraft/recipes/pumpkincheesecakeitem.json");
     }
 
     private enum IngredientModifyResult {

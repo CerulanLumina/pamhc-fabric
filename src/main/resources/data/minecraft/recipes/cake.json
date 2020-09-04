@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "BEB",
+    "CCC"
+  ],
+  "key": {
+    "A": {
+      "tag": "harvestcraft:milk"
+    },
+    "B": {
+      "tag": "harvestcraft:sugar"
+    },
+    "C": {
+      "tag": "harvestcraft:cookie_base"
+    },
+    "E": {
+      "tag": "harvestcraft:egg"
+    }
+  },
+  "result": {
+    "item": "minecraft:cake"
+  }
+}

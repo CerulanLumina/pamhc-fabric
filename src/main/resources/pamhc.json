@@ -2,6 +2,18 @@
   "basicItems": [
     "wovencotton"
   ],
+  "cake": [
+    "carrotcake",
+    "holidaycake",
+    "pumpkincheesecake",
+    "pavlova",
+    "lamington",
+    "cheesecake",
+    "cherrycheesecake",
+    "pineappleupsidedowncake",
+    "chocolatesprinklecake",
+    "redvelvetcake"
+  ],
   "crops": [
     "blackberry",
     "blueberry",

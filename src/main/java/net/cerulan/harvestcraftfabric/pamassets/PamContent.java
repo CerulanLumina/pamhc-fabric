@@ -10,6 +10,7 @@ public class PamContent {
     private HashSet<String> ingredients;
     private HashSet<String> fruits;
     private HashSet<String> basicItems;
+    private HashSet<String> cake;
     private HashMap<String, String> specialModels;
 
     public HashSet<String> getCrops() {
@@ -38,5 +39,9 @@ public class PamContent {
 
     public HashMap<String, String> getSpecialModels() {
         return specialModels;
+    }
+
+    public HashSet<String> getCake() {
+        return cake;
     }
 }

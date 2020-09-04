@@ -1,6 +1,7 @@
 package net.cerulan.harvestcraftfabric;
 
 import com.swordglowsblue.artifice.api.Artifice;
+import net.cerulan.harvestcraftfabric.block.PamCakeBlock;
 import net.cerulan.harvestcraftfabric.block.PamCropBlock;
 import net.cerulan.harvestcraftfabric.block.PamFruitBlock;
 import net.cerulan.harvestcraftfabric.config.ConfigHandler;
@@ -101,12 +102,8 @@ public final class Harvestcraftfabric implements ModInitializer {
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", ingred + "item"), item);
         });
 
-
-
         // Fruits
         localPam.getContent().getFruits().forEach(fruit -> {
-
-            // TODO trees
             Item item = new Item(new Item.Settings().group(HARVESTCRAFT_CROP_GROUP).food(cropResultFood));
             Identifier fruitItemID = new Identifier("harvestcraft", fruit + "item");
             PamFruitBlock fruitBlock = new PamFruitBlock(fruitItemID);
@@ -118,6 +115,16 @@ public final class Harvestcraftfabric implements ModInitializer {
             Registry.register(Registry.BLOCK, new Identifier("harvestcraft", "pam" + fruit), fruitBlock);
             SAPLING_BLOCKS.add(saplingBlock);
             FRUIT_BLOCKS.add(fruitBlock);
+        });
+
+        localPam.getContent().getCake().forEach(cake -> {
+            PamCakeBlock block = new PamCakeBlock();
+            Item item = new BlockItem(block, new Item.Settings().group(HARVESTCRAFT_FOOD_GROUP));
+            Identifier blockID;
+            if (cake.endsWith("cake")) blockID = new Identifier("harvestcraft", cake);
+            else blockID = new Identifier("harvestcraft", cake + "cake");
+            Registry.register(Registry.BLOCK, blockID, block);
+            Registry.register(Registry.ITEM, new Identifier("harvestcraft", cake + "item"), item);
         });
 
         Artifice.registerData(new Identifier("harvestcraft", "harvestcraft"), localPam::registerPamData);
