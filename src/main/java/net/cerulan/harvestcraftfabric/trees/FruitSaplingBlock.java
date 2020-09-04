@@ -5,8 +5,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SaplingBlock;
 
-public class TestSaplingBlock extends SaplingBlock {
-    public TestSaplingBlock(Block fruitBlock) {
+public class FruitSaplingBlock extends SaplingBlock {
+    public FruitSaplingBlock(Block fruitBlock) {
         super(new DynamicSaplingGenerator(fruitBlock), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
     }
 }

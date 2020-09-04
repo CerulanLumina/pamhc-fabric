@@ -9,7 +9,7 @@ import net.cerulan.harvestcraftfabric.config.FoodsConfig;
 import net.cerulan.harvestcraftfabric.item.DrinkFoodItem;
 import net.cerulan.harvestcraftfabric.item.PamSeedItem;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
-import net.cerulan.harvestcraftfabric.trees.TestSaplingBlock;
+import net.cerulan.harvestcraftfabric.trees.FruitSaplingBlock;
 import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -34,7 +34,7 @@ public final class Harvestcraftfabric implements ModInitializer {
 
     public static final ArrayList<PamCropBlock> CROP_BLOCKS = new ArrayList<>();
     public static final ArrayList<PamFruitBlock> FRUIT_BLOCKS = new ArrayList<>();
-    public static final ArrayList<TestSaplingBlock> SAPLING_BLOCKS = new ArrayList<>();
+    public static final ArrayList<FruitSaplingBlock> SAPLING_BLOCKS = new ArrayList<>();
     public static final ArrayList<Identifier> SEED_ITEMS = new ArrayList<>();
 
     @Override
@@ -107,7 +107,7 @@ public final class Harvestcraftfabric implements ModInitializer {
             Item item = new Item(new Item.Settings().group(HARVESTCRAFT_CROP_GROUP).food(cropResultFood));
             Identifier fruitItemID = new Identifier("harvestcraft", fruit + "item");
             PamFruitBlock fruitBlock = new PamFruitBlock(fruitItemID);
-            TestSaplingBlock saplingBlock = new TestSaplingBlock(fruitBlock);
+            FruitSaplingBlock saplingBlock = new FruitSaplingBlock(fruitBlock);
             Item sapling = new BlockItem(saplingBlock, new Item.Settings().group(HARVESTCRAFT_CROP_GROUP));
             Registry.register(Registry.ITEM, fruitItemID, item);
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "_sapling"), sapling);
