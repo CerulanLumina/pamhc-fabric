@@ -3,7 +3,6 @@ package net.cerulan.harvestcraftfabric.client;
 import com.swordglowsblue.artifice.api.Artifice;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.pamassets.ClientLocalPam;
-import net.cerulan.harvestcraftfabric.pamassets.artifice.DataResource;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

@@ -23,7 +23,6 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
 import java.util.Random;
-import java.util.function.Supplier;
 
 public class PamFruitBlock extends PlantBlock implements Fertilizable {
 

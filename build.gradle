@@ -26,8 +26,7 @@ dependencies {
     modImplementation "com.lettuce.fudge:artifice:${project.artifice_version}"
     include "com.lettuce.fudge:artifice:${project.artifice_version}"
 
-    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api:${project.rei_version}")
-    modRuntime("me.shedaniel:RoughlyEnoughItems:${project.rei_version}")
+    modApi("me.shedaniel:RoughlyEnoughItems:${project.rei_version}")
 
     modRuntime "com.github.squeek502:AppleSkin:1.16-fabric-SNAPSHOT"
 }

@@ -1,26 +1,24 @@
 package net.cerulan.harvestcraftfabric.trees;
 
+import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
+import net.minecraft.block.Block;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class DynamicSaplingGenerator extends SaplingGenerator {
 
-    private String saplingKey;
-    public DynamicSaplingGenerator(String saplingKey) {
-        this.saplingKey = saplingKey;
+    private final Block fruit;
+    public DynamicSaplingGenerator(Block fruit) {
+        this.fruit = fruit;
     }
-
-    public static Map<String, ConfiguredFeature<TreeFeatureConfig, ?>> config = new HashMap<>();
 
     @Override
     protected @Nullable ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bl) {
-        return config.get(saplingKey);
+        return PamWorldGenerator.getTreeGeneratorForFruitBlock(fruit);
     }
 
 }
