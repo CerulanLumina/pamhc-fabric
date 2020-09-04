@@ -129,9 +129,10 @@ public final class Harvestcraftfabric implements ModInitializer {
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", cake + "item"), item);
         });
 
-        localPam.getContent().getGardens().forEach(garden -> {
+        localPam.getContent().getGardens().forEach((garden, categories) -> {
             PamGardenBlock gardenBlock = new PamGardenBlock();
             Registry.register(Registry.BLOCK, new Identifier("harvestcraft", garden + "garden"), gardenBlock);
+            categories.forEach(cat -> PamWorldGenerator.registerGardenForCategoryString(cat, gardenBlock));
             GARDEN_BLOCK.add(gardenBlock);
         });
 

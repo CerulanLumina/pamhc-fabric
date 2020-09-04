@@ -2,6 +2,7 @@ package net.cerulan.harvestcraftfabric.pamassets;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 public class PamContent {
     private HashSet<String> crops;
@@ -12,7 +13,7 @@ public class PamContent {
     private HashSet<String> basicItems;
     private HashSet<String> cake;
     private HashMap<String, String> specialModels;
-    private HashSet<String> gardens;
+    private HashMap<String, List<String>> gardens;
 
     public HashSet<String> getCrops() {
         return crops;
@@ -46,7 +47,7 @@ public class PamContent {
         return cake;
     }
 
-    public HashSet<String> getGardens() {
+    public HashMap<String, List<String>> getGardens() {
         return gardens;
     }
 }

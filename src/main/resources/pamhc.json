@@ -991,14 +991,14 @@
     "breadfruit",
     "tamarind"
   ],
-  "gardens": [
-    "arid",
-    "frost",
-    "shaded",
-    "soggy",
-    "tropical",
-    "windy"
-  ],
+  "gardens": {
+    "arid": ["desert", "mesa"],
+    "frost": ["taiga", "extreme_hills"],
+    "shaded": ["forest"],
+    "soggy": ["swamp", "river", "ocean"],
+    "tropical": ["jungle", "beach"],
+    "windy": ["plains", "savanna"]
+  },
   "ingredients": [
     "anchovyraw",
     "bassraw",

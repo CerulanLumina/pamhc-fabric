@@ -2,6 +2,7 @@
   "values": [
     "minecraft:grass_block",
     "minecraft:dirt",
-    "minecraft:podzol"
+    "minecraft:podzol",
+    "minecraft:sand"
   ]
 }
