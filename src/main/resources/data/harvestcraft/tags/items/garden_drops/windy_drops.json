@@ -1,0 +1,23 @@
+{
+  "values": [
+    "harvestcraft:strawberryitem",
+    "harvestcraft:barleyitem",
+    "harvestcraft:cornitem",
+    "harvestcraft:cucumberitem",
+    "harvestcraft:wintersquashitem",
+    "harvestcraft:mustardseedsitem",
+    "harvestcraft:onionitem",
+    "harvestcraft:parsnipitem",
+    "harvestcraft:peanutitem",
+    "minecraft:potato",
+    "minecraft:carrot",
+    "harvestcraft:lettuceitem",
+    "harvestcraft:artichokeitem",
+    "harvestcraft:bellpepperitem",
+    "harvestcraft:chilipepperitem",
+    "minecraft:wheat",
+    "harvestcraft:flaxitem",
+    "harvestcraft:amaranthitem",
+    "harvestcraft:elderberryitem"
+  ]
+}
