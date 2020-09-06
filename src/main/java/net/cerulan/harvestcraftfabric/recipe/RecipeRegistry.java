@@ -1,5 +1,6 @@
 package net.cerulan.harvestcraftfabric.recipe;
 
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
@@ -12,6 +13,8 @@ public class RecipeRegistry {
 
     public static RecipeType<DoubleOutputRecipe> PRESSER;
     public static RecipeSerializer<DoubleOutputRecipe> PRESSER_SERIALIZER;
+
+    public static final ObjectOpenHashSet<RecipeType<?>> RECIPE_TYPES = new ObjectOpenHashSet<>();
 
     public static void regiterRecipeHandlers() {
 
@@ -30,6 +33,7 @@ public class RecipeRegistry {
     private static <T extends Recipe<?>> TypeSerializer<T> registerRecipeType(String name, Class<T> type, RecipeSerializer<T> serializer) {
         RecipeSerializer<T> recipeSerializer = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier("harvestcraft", name), serializer);
         RecipeType<T> recipeType = Registry.register(Registry.RECIPE_TYPE, new Identifier("harvestcraft", name), createRecipeType(name, type));
+        RECIPE_TYPES.add(recipeType);
         return new TypeSerializer<>(recipeType, recipeSerializer);
     }
 

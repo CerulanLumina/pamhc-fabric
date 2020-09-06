@@ -1,0 +1,12 @@
+{
+  "input": {
+    "item": "harvestcraft:kiwiitem"
+  },
+  "output_one": {
+    "item": "harvestcraft:kiwijuiceitem"
+  },
+  "output_two": {
+    "item": "harvestcraft:fruitbaititem"
+  },
+  "type": "harvestcraft:presser"
+}

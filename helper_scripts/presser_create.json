@@ -1,0 +1,176 @@
+{
+  "generate": {
+    "almonditem": [
+      "freshmilkitem",
+      "grainbaititem"
+    ],
+    "apple": [
+      "applejuiceitem",
+      "fruitbaititem"
+    ],
+    "apricotitem": [
+      "apricotjuiceitem",
+      "fruitbaititem"
+    ],
+    "avocadoitem": [
+      "oliveoilitem",
+      "veggiebaititem"
+    ],
+    "blackberryitem": [
+      "blackberryjuiceitem",
+      "fruitbaititem"
+    ],
+    "blueberryitem": [
+      "blueberryjuiceitem",
+      "fruitbaititem"
+    ],
+    "cactusfruititem": [
+      "cactusfruitjuiceitem",
+      "fruitbaititem"
+    ],
+    "carrot": [
+      "carrotjuiceitem",
+      "veggiebaititem"
+    ],
+    "cherryitem": [
+      "cherryjuiceitem",
+      "fruitbaititem"
+    ],
+    "coconutitem": [
+      "coconutmilkitem",
+      "veggiebaititem"
+    ],
+    "cottonseeditem": [
+      "oliveoilitem",
+      "grainbaititem"
+    ],
+    "cranberryitem": [
+      "cranberryjuiceitem",
+      "fruitbaititem"
+    ],
+    "figitem": [
+      "figjuiceitem",
+      "fruitbaititem"
+    ],
+    "grapefruititem": [
+      "grapefruitjuiceitem",
+      "fruitbaititem"
+    ],
+    "grapeitem": [
+      "grapejuiceitem",
+      "fruitbaititem"
+    ],
+    "kiwiitem": [
+      "kiwijuiceitem",
+      "fruitbaititem"
+    ],
+    "limeitem": [
+      "limejuiceitem",
+      "fruitbaititem"
+    ],
+    "mangoitem": [
+      "mangojuiceitem",
+      "fruitbaititem"
+    ],
+    "mustardseeditem": [
+      "oliveoilitem",
+      "grainbaititem"
+    ],
+    "mustardseedsitem": [
+      "oliveoilitem",
+      "grainbaititem"
+    ],
+    "oliveitem": [
+      "oliveoilitem",
+      "fruitbaititem"
+    ],
+    "orangeitem": [
+      "orangejuiceitem",
+      "fruitbaititem"
+    ],
+    "papayaitem": [
+      "papayajuiceitem",
+      "fruitbaititem"
+    ],
+    "peachitem": [
+      "peachjuiceitem",
+      "fruitbaititem"
+    ],
+    "pearitem": [
+      "pearjuiceitem",
+      "fruitbaititem"
+    ],
+    "persimmonitem": [
+      "persimmonjuiceitem",
+      "fruitbaititem"
+    ],
+    "plumitem": [
+      "plumjuiceitem",
+      "fruitbaititem"
+    ],
+    "pomegranateitem": [
+      "pomegranatejuiceitem",
+      "fruitbaititem"
+    ],
+    "pumpkin_seedsitem": [
+      "oliveoilitem",
+      "grainbaititem"
+    ],
+    "pumpkinitem": [
+      "oliveoilitem",
+      "veggiebaititem"
+    ],
+    "raspberryitem": [
+      "raspberryjuiceitem",
+      "fruitbaititem"
+    ],
+    "sesameseedsitem": [
+      "sesameoilitem",
+      "grainbaititem"
+    ],
+    "sesameseedsseeditem": [
+      "sesameoilitem",
+      "grainbaititem"
+    ],
+    "silkentofuitem": [
+      "firmtofuitem",
+      "soymilkitem"
+    ],
+    "soybeanitem": [
+      "silkentofuitem",
+      "grainbaititem"
+    ],
+    "starfruititem": [
+      "starfruitjuiceitem",
+      "fruitbaititem"
+    ],
+    "strawberryitem": [
+      "strawberryjuiceitem",
+      "fruitbaititem"
+    ],
+    "sugar_cane": [
+      "sugar",
+      "sugar"
+    ],
+    "sunflowerseedsitem": [
+      "oliveoilitem",
+      "grainbaititem"
+    ],
+    "tealeafitem": [
+      "oliveoilitem",
+      "grainbaititem"
+    ],
+    "walnutitem": [
+      "oliveoilitem",
+      "grainbaititem"
+    ]
+  },
+  "minecraft": [
+    "apple",
+    "carrot",
+    "pumpkin_seeds",
+    "pumpkin",
+    "sugar",
+    "sugar_cane"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "input": {
+    "item": "harvestcraft:silkentofuitem"
+  },
+  "output_one": {
+    "item": "harvestcraft:firmtofuitem"
+  },
+  "output_two": {
+    "item": "harvestcraft:soymilkitem"
+  },
+  "type": "harvestcraft:presser"
+}

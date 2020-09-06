@@ -1,0 +1,12 @@
+{
+  "input": {
+    "item": "harvestcraft:papayaitem"
+  },
+  "output_one": {
+    "item": "harvestcraft:papayajuiceitem"
+  },
+  "output_two": {
+    "item": "harvestcraft:fruitbaititem"
+  },
+  "type": "harvestcraft:presser"
+}
