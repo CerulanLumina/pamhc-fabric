@@ -13,6 +13,7 @@ import net.cerulan.harvestcraftfabric.gui.GuiRegistry;
 import net.cerulan.harvestcraftfabric.item.DrinkFoodItem;
 import net.cerulan.harvestcraftfabric.item.PamSeedItem;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
+import net.cerulan.harvestcraftfabric.recipe.RecipeRegistry;
 import net.cerulan.harvestcraftfabric.trees.FruitSaplingBlock;
 import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
 import net.fabricmc.api.ModInitializer;
@@ -149,6 +150,8 @@ public final class Harvestcraftfabric implements ModInitializer {
             categories.forEach(cat -> PamWorldGenerator.registerGardenForCategoryString(cat, gardenBlock));
             GARDEN_BLOCK.add(gardenBlock);
         });
+
+        RecipeRegistry.regiterRecipeHandlers();
 
         Artifice.registerData(new Identifier("harvestcraft", "harvestcraft"), localPam::registerPamData);
         PamWorldGenerator.initWorldGen(FRUIT_BLOCKS);
