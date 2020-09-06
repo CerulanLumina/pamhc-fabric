@@ -5,15 +5,20 @@ import net.cerulan.harvestcraftfabric.block.PamCakeBlock;
 import net.cerulan.harvestcraftfabric.block.PamCropBlock;
 import net.cerulan.harvestcraftfabric.block.PamFruitBlock;
 import net.cerulan.harvestcraftfabric.block.PamGardenBlock;
+import net.cerulan.harvestcraftfabric.block.machine.MachineRegistry;
+import net.cerulan.harvestcraftfabric.blockentity.ModBlockEntities;
 import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.config.FoodsConfig;
+import net.cerulan.harvestcraftfabric.gui.GuiRegistry;
 import net.cerulan.harvestcraftfabric.item.DrinkFoodItem;
 import net.cerulan.harvestcraftfabric.item.PamSeedItem;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
+import net.cerulan.harvestcraftfabric.recipe.RecipeRegistry;
 import net.cerulan.harvestcraftfabric.trees.FruitSaplingBlock;
 import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -82,6 +87,11 @@ public final class Harvestcraftfabric implements ModInitializer {
             Registry.register(Registry.BLOCK, new Identifier("harvestcraft", getCropID(name)), block);
         });
 
+        MachineRegistry.registerMachines();
+        ModBlockEntities.registerBlockEntities();
+
+        GuiRegistry.registerScreenHandlers();
+
         // Foods
         localPam.getContent().getFoods().forEach(food -> {
             Identifier foodId = new Identifier("harvestcraft", food + "item");
@@ -135,6 +145,8 @@ public final class Harvestcraftfabric implements ModInitializer {
             categories.forEach(cat -> PamWorldGenerator.registerGardenForCategoryString(cat, gardenBlock));
             GARDEN_BLOCK.add(gardenBlock);
         });
+
+        RecipeRegistry.regiterRecipeHandlers();
 
         Artifice.registerData(new Identifier("harvestcraft", "harvestcraft"), localPam::registerPamData);
         PamWorldGenerator.initWorldGen(FRUIT_BLOCKS);

@@ -1,0 +1,12 @@
+{
+  "input": {
+    "item": "minecraft:carrot"
+  },
+  "output_one": {
+    "item": "harvestcraft:carrotjuiceitem"
+  },
+  "output_two": {
+    "item": "harvestcraft:veggiebaititem"
+  },
+  "type": "harvestcraft:presser"
+}

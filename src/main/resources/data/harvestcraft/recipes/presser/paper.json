@@ -1,0 +1,12 @@
+{
+  "input": {
+    "tag": "minecraft:logs"
+  },
+  "output_one": {
+    "item": "minecraft:paper"
+  },
+  "output_two": {
+    "item": "minecraft:paper"
+  },
+  "type": "harvestcraft:presser"
+}

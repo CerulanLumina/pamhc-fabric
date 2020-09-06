@@ -1,0 +1,12 @@
+{
+  "input": {
+    "item": "harvestcraft:sesameseedsseeditem"
+  },
+  "output_one": {
+    "item": "harvestcraft:sesameoilitem"
+  },
+  "output_two": {
+    "item": "harvestcraft:grainbaititem"
+  },
+  "type": "harvestcraft:presser"
+}

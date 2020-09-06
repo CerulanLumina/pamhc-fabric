@@ -1,0 +1,6 @@
+{
+  "type": "harvestcraft:presser",
+  "input": {"item": "harvestcraft:freshwateritem"},
+  "output_one": {"item": "harvestcraft:bubblywateritem"},
+  "output_two": {"item": "harvestcraft:bubblywateritem"}
+}

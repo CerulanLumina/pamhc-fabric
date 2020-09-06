@@ -13,6 +13,10 @@ group = project.maven_group
 repositories {
     jcenter()
     maven { url "https://jitpack.io" }
+    maven {
+        name = "CottonMC"
+        url = "https://server.bbkr.space/artifactory/libs-release"
+    }
 }
 
 dependencies {
@@ -28,7 +32,9 @@ dependencies {
 
     modApi("me.shedaniel:RoughlyEnoughItems:${project.rei_version}")
 
-    modRuntime "com.github.squeek502:AppleSkin:1.16-fabric-SNAPSHOT"
+    modRuntime "com.github.squeek502:AppleSkin:${project.appleskin_version}"
+
+    modImplementation "io.github.cottonmc:LibGui:${project.libgui_version}"
 }
 
 processResources {

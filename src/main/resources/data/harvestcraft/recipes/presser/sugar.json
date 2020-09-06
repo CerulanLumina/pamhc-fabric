@@ -1,0 +1,12 @@
+{
+  "input": {
+    "item": "minecraft:sugar_cane"
+  },
+  "output_one": {
+    "item": "minecraft:sugar"
+  },
+  "output_two": {
+    "item": "minecraft:sugar"
+  },
+  "type": "harvestcraft:presser"
+}

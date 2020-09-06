@@ -91,6 +91,7 @@ public class NameConversion {
         ORE_NAME_OVERRIDE.put("foodBread", new NameConversion("minecraft:bread", false));
         ORE_NAME_OVERRIDE.put("materialCloth", new NameConversion("minecraft:wool", true));
         ORE_NAME_OVERRIDE.put("string", new NameConversion("minecraft:string", false));
+        ORE_NAME_OVERRIDE.put("ingotIron", new NameConversion("minecraft:iron_ingot", false));
 
         ITEM_NAME_OVERRIDE.put("harvestcraft:yogurtitem", new NameConversion("harvestcraft:plainyogurtitem", false));
         ITEM_NAME_OVERRIDE.put("minecraft:waterlily", new NameConversion("minecraft:lily_pad", false));
@@ -119,6 +120,7 @@ public class NameConversion {
         DROP_DATA_MAP.put("minecraft:coal", new NameConversion("minecraft:coal", false));
         DROP_DATA_MAP.put("minecraft:stone_pressure_plate", new NameConversion("minecraft:stone_pressure_plate", false));
         DROP_DATA_MAP.put("minecraft:sapling", new NameConversion("minecraft:saplings", true));
+        DROP_DATA_MAP.put("minecraft:piston", new NameConversion("minecraft:piston", false));
     }
 
 }
