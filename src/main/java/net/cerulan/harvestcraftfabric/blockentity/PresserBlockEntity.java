@@ -34,7 +34,7 @@ public class PresserBlockEntity extends BlockEntity implements Tickable,
     private final MachineInventory inventory;
 
     private int ticksProgress = 0;
-    private static final int MAXIMUM_PROGRESS = 200;
+    private static final int MAXIMUM_PROGRESS = 125;
 
     private final PropertyDelegate propertyDelegate = new PropertyDelegate() {
         @Override
