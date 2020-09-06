@@ -9,6 +9,7 @@ import net.cerulan.harvestcraftfabric.block.machine.MachineRegistry;
 import net.cerulan.harvestcraftfabric.blockentity.ModBlockEntities;
 import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.config.FoodsConfig;
+import net.cerulan.harvestcraftfabric.gui.GuiRegistry;
 import net.cerulan.harvestcraftfabric.item.DrinkFoodItem;
 import net.cerulan.harvestcraftfabric.item.PamSeedItem;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
@@ -92,6 +93,8 @@ public final class Harvestcraftfabric implements ModInitializer {
 
         MachineRegistry.registerMachines();
         ModBlockEntities.registerBlockEntities();
+
+        GuiRegistry.registerScreenHandlers();
 
         // Foods
         localPam.getContent().getFoods().forEach(food -> {
