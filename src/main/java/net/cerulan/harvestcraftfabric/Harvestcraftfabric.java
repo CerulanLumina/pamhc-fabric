@@ -5,6 +5,8 @@ import net.cerulan.harvestcraftfabric.block.PamCakeBlock;
 import net.cerulan.harvestcraftfabric.block.PamCropBlock;
 import net.cerulan.harvestcraftfabric.block.PamFruitBlock;
 import net.cerulan.harvestcraftfabric.block.PamGardenBlock;
+import net.cerulan.harvestcraftfabric.block.machine.MachineRegistry;
+import net.cerulan.harvestcraftfabric.blockentity.ModBlockEntities;
 import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.config.FoodsConfig;
 import net.cerulan.harvestcraftfabric.item.DrinkFoodItem;
@@ -14,6 +16,7 @@ import net.cerulan.harvestcraftfabric.trees.FruitSaplingBlock;
 import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -41,6 +44,11 @@ public final class Harvestcraftfabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
+
+        LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, identifier, fabricLootSupplierBuilder, lootTableSetter) -> {
+
+        });
+
         this.localPam = new LocalPam();
         INSTANCE = this;
 
@@ -81,6 +89,9 @@ public final class Harvestcraftfabric implements ModInitializer {
             Registry.register(Registry.ITEM, new Identifier("harvestcraft", getItemID(name)), item);
             Registry.register(Registry.BLOCK, new Identifier("harvestcraft", getCropID(name)), block);
         });
+
+        MachineRegistry.registerMachines();
+        ModBlockEntities.registerBlockEntities();
 
         // Foods
         localPam.getContent().getFoods().forEach(food -> {
