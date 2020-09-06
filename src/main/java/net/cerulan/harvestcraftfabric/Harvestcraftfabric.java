@@ -46,11 +46,6 @@ public final class Harvestcraftfabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
-        LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, identifier, fabricLootSupplierBuilder, lootTableSetter) -> {
-
-        });
-
         this.localPam = new LocalPam();
         INSTANCE = this;
 
