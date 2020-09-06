@@ -32,8 +32,8 @@ public class PresserGuiDescription extends SyncedGuiDescription {
         root.add(panel, 0, 0);
 
         WItemSlot itemSlot = WItemSlot.of(blockInventory, 0);
-        WItemSlot itemSlot2 = WItemSlot.of(blockInventory, 1);
-        WItemSlot itemSlot3 = WItemSlot.of(blockInventory, 2);
+        WItemSlot itemSlot2 = WItemSlot.of(blockInventory, 1).setInsertingAllowed(false);
+        WItemSlot itemSlot3 = WItemSlot.of(blockInventory, 2).setInsertingAllowed(false);
         panel.add(itemSlot, 72, 22);
         panel.add(itemSlot2, 54, 54);
         panel.add(itemSlot3, 90, 54);
