@@ -18,7 +18,6 @@ import net.cerulan.harvestcraftfabric.trees.FruitSaplingBlock;
 import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -44,6 +43,8 @@ public final class Harvestcraftfabric implements ModInitializer {
     public static final ArrayList<PamGardenBlock> GARDEN_BLOCK = new ArrayList<>();
     public static final ArrayList<Identifier> SEED_ITEMS = new ArrayList<>();
 
+    private FoodComponent cropResultFood = null;
+
     @Override
     public void onInitialize() {
         this.localPam = new LocalPam();
@@ -57,7 +58,7 @@ public final class Harvestcraftfabric implements ModInitializer {
         }
 
         FoodsConfig foodsConfig = config.getFoodsConfig();
-        FoodComponent cropResultFood = foodsConfig.getCropResultFood().toFoodComponent();
+        cropResultFood = foodsConfig.getCropResultFood().toFoodComponent();
 
         // Tools
         localPam.getContent().getTools().forEach(tool -> {
@@ -115,19 +116,8 @@ public final class Harvestcraftfabric implements ModInitializer {
         });
 
         // Fruits
-        localPam.getContent().getFruits().forEach(fruit -> {
-            Item item = new Item(new Item.Settings().group(HARVESTCRAFT_CROP_GROUP).food(cropResultFood));
-            Identifier fruitItemID = new Identifier("harvestcraft", fruit + "item");
-            PamFruitBlock fruitBlock = new PamFruitBlock(fruitItemID);
-            FruitSaplingBlock saplingBlock = new FruitSaplingBlock(fruitBlock);
-            Item sapling = new BlockItem(saplingBlock, new Item.Settings().group(HARVESTCRAFT_CROP_GROUP));
-            Registry.register(Registry.ITEM, fruitItemID, item);
-            Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "_sapling"), sapling);
-            Registry.register(Registry.BLOCK, new Identifier("harvestcraft", fruit + "_sapling"), saplingBlock);
-            Registry.register(Registry.BLOCK, new Identifier("harvestcraft", "pam" + fruit), fruitBlock);
-            SAPLING_BLOCKS.add(saplingBlock);
-            FRUIT_BLOCKS.add(fruitBlock);
-        });
+        localPam.getContent().getFruits().forEach(this::registerPamFruit);
+        registerFruitBlockAndSapling("apple", new Identifier("apple"));
 
         localPam.getContent().getCake().forEach(cake -> {
             PamCakeBlock block = new PamCakeBlock();
@@ -150,6 +140,24 @@ public final class Harvestcraftfabric implements ModInitializer {
 
         Artifice.registerData(new Identifier("harvestcraft", "harvestcraft"), localPam::registerPamData);
         PamWorldGenerator.initWorldGen(FRUIT_BLOCKS);
+    }
+
+    private void registerPamFruit(String fruit) {
+        Item pamFruitItem = new Item(new Item.Settings().group(HARVESTCRAFT_FOOD_GROUP).food(cropResultFood));
+        Identifier fruitItemID = new Identifier("harvestcraft", fruit + "item");
+        registerFruitBlockAndSapling(fruit, fruitItemID);
+        Registry.register(Registry.ITEM, fruitItemID, pamFruitItem);
+    }
+
+    private void registerFruitBlockAndSapling(String fruit, Identifier fruitItemID) {
+        PamFruitBlock fruitBlock = new PamFruitBlock(fruitItemID);
+        FruitSaplingBlock saplingBlock = new FruitSaplingBlock(fruitBlock);
+        Item sapling = new BlockItem(saplingBlock, new Item.Settings().group(HARVESTCRAFT_CROP_GROUP));
+        Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "_sapling"), sapling);
+        Registry.register(Registry.BLOCK, new Identifier("harvestcraft", fruit + "_sapling"), saplingBlock);
+        Registry.register(Registry.BLOCK, new Identifier("harvestcraft", "pam" + fruit), fruitBlock);
+        SAPLING_BLOCKS.add(saplingBlock);
+        FRUIT_BLOCKS.add(fruitBlock);
     }
 
     public LocalPam getLocalPam() {
