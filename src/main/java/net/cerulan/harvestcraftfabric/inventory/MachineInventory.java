@@ -7,16 +7,25 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 
+import java.util.Arrays;
+
 public class MachineInventory implements SidedInventory {
 
-    /*
-    Down - output
-    Other - input
-     */
-    private static final int[] OUTPUT_SLOTS = new int[] {1, 2};
-    private static final int[] INPUT_SLOT = new int[] {0};
+    private final DefaultedList<ItemStack> items;
+    private final int[] outputSlots;
+    private final int[] inputSlots;
 
-    private final DefaultedList<ItemStack> items = DefaultedList.ofSize(3, ItemStack.EMPTY);
+    public MachineInventory(int count, int[] outputSlots, int[] inputSlots) {
+        this.items = DefaultedList.ofSize(count, ItemStack.EMPTY);
+        this.outputSlots = Arrays.copyOf(outputSlots, outputSlots.length);
+        this.inputSlots = Arrays.copyOf(inputSlots, inputSlots.length);
+
+        if (Arrays.stream(outputSlots).anyMatch(i -> i >= count || i < 0))
+            throw new IndexOutOfBoundsException("Output slot array has slot index out of bounds for inventory size");
+        if (Arrays.stream(inputSlots).anyMatch(i -> i >= count || i < 0))
+            throw new IndexOutOfBoundsException("Input slot array has slot index out of bounds for inventory size");
+    }
+
 
     public DefaultedList<ItemStack> getItems() {
         return items;
@@ -24,8 +33,8 @@ public class MachineInventory implements SidedInventory {
 
     @Override
     public int[] getAvailableSlots(Direction side) {
-        if (side == Direction.DOWN) return OUTPUT_SLOTS;
-        else return INPUT_SLOT;
+        if (side == Direction.DOWN) return this.outputSlots;
+        else return this.inputSlots;
     }
 
     @Override
