@@ -123,13 +123,18 @@ public final class Harvestcraftfabric implements ModInitializer {
         localPam.getContent().getFruits().forEach(this::registerPamFruit);
         registerFruitBlockAndSapling("apple", new Identifier("apple"));
 
+        // Log Trees
         localPam.getContent().getLogTrees().forEach(tree -> {
             PamLogBlock logBlock = new PamLogBlock(tree);
             WoodSaplingBlock saplingBlock = new WoodSaplingBlock(logBlock);
             Item saplingItem = new BlockItem(saplingBlock, new Item.Settings().group(harvestcraftCropGroup));
-            Registry.register(Registry.BLOCK, new Identifier("harvestcraft", "pam" + tree), logBlock);
-            Registry.register(Registry.BLOCK, new Identifier("harvestcraft", tree + "_sapling"), saplingBlock);
-            Registry.register(Registry.ITEM, new Identifier("harvestcraft", tree + "_sapling"), saplingItem);
+            Item logBlockItem = new BlockItem(logBlock, new Item.Settings().group(harvestcraftCropGroup));
+            Identifier saplingID = new Identifier("harvestcraft", tree + "_sapling");
+            Identifier logID = new Identifier("harvestcraft", "pam" + tree);
+            Registry.register(Registry.BLOCK, logID, logBlock);
+            Registry.register(Registry.BLOCK, saplingID, saplingBlock);
+            Registry.register(Registry.ITEM, saplingID, saplingItem);
+            Registry.register(Registry.ITEM, logID, logBlockItem);
             logBlocks.add(logBlock);
             saplingBlocks.add(saplingBlock);
         });
