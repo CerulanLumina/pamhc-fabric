@@ -1,17 +1,24 @@
 package net.cerulan.harvestcraftfabric.block;
 
+import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Property;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
@@ -69,17 +76,40 @@ public class PamFruitBlock extends PlantBlock implements Fertilizable {
         return OUTLINE;
     }
 
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (state.get(AGE_PROPERTY) == MAX_AGE) {
+            player.incrementStat(Stats.MINED.getOrCreateStat(this));
+            player.addExhaustion(0.005F);
+            world.setBlockState(pos, getDefaultState(), 19);
+            if (world.isClient()) return ActionResult.SUCCESS;
+            player.inventory.offerOrDrop(world, new ItemStack(Registry.ITEM.get(fruitItemID)));
+            return ActionResult.SUCCESS;
+        }
+        return ActionResult.PASS;
+    }
+
+    @Override
+    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack) {
+        player.incrementStat(Stats.MINED.getOrCreateStat(this));
+        player.addExhaustion(0.005F);
+        world.setBlockState(pos, getDefaultState(), 19);
+        if (state.get(AGE_PROPERTY) == MAX_AGE) {
+            player.inventory.offerOrDrop(world, new ItemStack(Registry.ITEM.get(fruitItemID)));
+        }
+    }
+
     public int getAge(BlockState state) {
         return state.get(AGE_PROPERTY);
     }
 
-    public boolean isMature(BlockState state) {
-        return getAge(state) >= MAX_AGE;
+    public boolean notMature(BlockState state) {
+        return getAge(state) < MAX_AGE;
     }
 
     @Override
     public boolean hasRandomTicks(BlockState state) {
-        return !this.isMature(state);
+        return this.notMature(state);
     }
 
     public BlockState withAge(int age) {
@@ -119,7 +149,7 @@ public class PamFruitBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
-        return !this.isMature(state);
+        return this.notMature(state);
     }
 
     @Override
