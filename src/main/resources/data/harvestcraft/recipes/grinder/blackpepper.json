@@ -1,0 +1,12 @@
+{
+  "type": "harvestcraft:grinder",
+  "input": {
+    "item": "harvestcraft:peppercornitem"
+  },
+  "output_one": {
+    "item": "harvestcraft:blackpepperitem"
+  },
+  "output_two": {
+    "item": "harvestcraft:veggiebaititem"
+  }
+}

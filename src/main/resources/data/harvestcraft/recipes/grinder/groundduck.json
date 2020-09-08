@@ -1,0 +1,9 @@
+{
+  "type": "harvestcraft:grinder",
+  "input": [
+    {"item": "harvestcraft:duckrawitem"},
+    {"item": "harvestcraft:rawtofuduckitem"}
+  ],
+  "output_one": {"item": "harvestcraft:groundduckitem"},
+  "output_two": {"item": "harvestcraft:groundduckitem"}
+}

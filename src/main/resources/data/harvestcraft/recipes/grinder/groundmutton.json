@@ -1,0 +1,9 @@
+{
+  "type": "harvestcraft:grinder",
+  "input": [
+    {"item": "minecraft:mutton"},
+    {"item": "harvestcraft:rawtofuttonitem"}
+  ],
+  "output_one": {"item": "harvestcraft:groundmuttonitem"},
+  "output_two": {"item": "harvestcraft:groundmuttonitem"}
+}

@@ -1,0 +1,12 @@
+{
+  "type": "harvestcraft:grinder",
+  "input": {
+    "tag": "harvestcraft:flourgrain"
+  },
+  "output_one": {
+    "item": "harvestcraft:flouritem"
+  },
+  "output_two": {
+    "item": "harvestcraft:flouritem"
+  }
+}

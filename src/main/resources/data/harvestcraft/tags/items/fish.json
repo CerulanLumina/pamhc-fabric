@@ -1,0 +1,27 @@
+{
+  "values": [
+    "minecraft:cod",
+    "minecraft:salmon",
+    "minecraft:pufferfish",
+    "minecraft:tropical_fish",
+    "harvestcraft:rawtofishitem",
+    "harvestcraft:groundfishitem",
+    "harvestcraft:anchovyrawitem",
+    "harvestcraft:bassrawitem",
+    "harvestcraft:carprawitem",
+    "harvestcraft:calamarirawitem",
+    "harvestcraft:catfishrawitem",
+    "harvestcraft:charrrawitem",
+    "harvestcraft:grouperrawitem",
+    "harvestcraft:herringrawitem",
+    "harvestcraft:mudfishrawitem",
+    "harvestcraft:perchrawitem",
+    "harvestcraft:snapperrawitem",
+    "harvestcraft:tilapiarawitem",
+    "harvestcraft:troutrawitem",
+    "harvestcraft:tunarawitem",
+    "harvestcraft:walleyerawitem",
+    "harvestcraft:greenheartfishitem",
+    "harvestcraft:sardinerawitem"
+  ]
+}

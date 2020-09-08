@@ -1,0 +1,8 @@
+{
+  "type": "harvestcraft:grinder",
+  "input": {
+    "tag": "harvestcraft:fish"
+  },
+  "output_one": {"item": "harvestcraft:groundfishitem"},
+  "output_two": {"item": "harvestcraft:groundfishitem"}
+}

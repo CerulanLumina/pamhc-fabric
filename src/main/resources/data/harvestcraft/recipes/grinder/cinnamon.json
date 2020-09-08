@@ -1,0 +1,12 @@
+{
+  "type": "harvestcraft:grinder",
+  "input": {
+    "item": "harvestcraft:cinnamonitem"
+  },
+  "output_one": {
+    "item": "harvestcraft:groundcinnamonitem"
+  },
+  "output_two": {
+    "item": "harvestcraft:grainbaititem"
+  }
+}

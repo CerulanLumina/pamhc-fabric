@@ -1,0 +1,9 @@
+{
+  "type": "harvestcraft:grinder",
+  "input": [
+    {"item": "minecraft:porkchop"},
+    {"item": "harvestcraft:rawtofaconitem"}
+  ],
+  "output_one": {"item": "harvestcraft:groundporkitem"},
+  "output_two": {"item": "harvestcraft:groundporkitem"}
+}

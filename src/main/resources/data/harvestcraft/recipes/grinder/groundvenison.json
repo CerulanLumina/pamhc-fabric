@@ -1,0 +1,9 @@
+{
+  "type": "harvestcraft:grinder",
+  "input": [
+    {"item": "harvestcraft:venisonrawitem"},
+    {"item": "harvestcraft:rawtofenisonitem"}
+  ],
+  "output_one": {"item": "harvestcraft:groundvenisonitem"},
+  "output_two": {"item": "harvestcraft:groundvenisonitem"}
+}

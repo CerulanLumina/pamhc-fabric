@@ -1,0 +1,17 @@
+{
+  "values": [
+    "minecraft:wheat",
+    "minecraft:potato",
+    "harvestcraft:barleyitem",
+    "harvestcraft:oatsitem",
+    "harvestcraft:riceitem",
+    "harvestcraft:ryeitem",
+    "harvestcraft:peasitem",
+    "harvestcraft:soybeanitem",
+    "harvestcraft:beanitem",
+    "harvestcraft:almonditem",
+    "harvestcraft:coconutitem",
+    "harvestcraft:bananaitem",
+    "harvestcraft:chestnutitem"
+  ]
+}

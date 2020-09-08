@@ -1,0 +1,9 @@
+{
+  "type": "harvestcraft:grinder",
+  "input": [
+    {"item": "minecraft:beef"},
+    {"item": "harvestcraft:rawtofeakitem"}
+  ],
+  "output_one": {"item": "harvestcraft:groundbeefitem"},
+  "output_two": {"item": "harvestcraft:groundbeefitem"}
+}
