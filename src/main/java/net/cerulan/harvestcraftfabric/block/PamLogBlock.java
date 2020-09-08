@@ -29,9 +29,38 @@ public class PamLogBlock extends PillarBlock implements Fertilizable {
     public static final IntProperty AGE = IntProperty.of("age", 0, MATURE_AGE);
 
     private final Identifier treeLoot;
+
     public PamLogBlock(String tree) {
-        super(FabricBlockSettings.copyOf(Blocks.OAK_LOG));
+        super(FabricBlockSettings.copyOf(Blocks.OAK_LOG).ticksRandomly());
         this.treeLoot = new Identifier("harvestcraft", "trees/" + tree);
+    }
+
+    public int getAge(BlockState state) {
+        return state.get(AGE);
+    }
+
+    public boolean notMature(BlockState state) {
+        return getAge(state) < MATURE_AGE;
+    }
+
+    @Override
+    public boolean hasRandomTicks(BlockState state) {
+        return this.notMature(state);
+    }
+
+    public BlockState withAge(int age) {
+        return this.getDefaultState().with(AGE, age);
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        int i = this.getAge(state);
+        if (i < MATURE_AGE) {
+            if (random.nextInt(15) == 0) {
+                world.setBlockState(pos, this.withAge(i + 1), 2);
+            }
+        }
+
     }
 
     @Override
@@ -44,7 +73,7 @@ public class PamLogBlock extends PillarBlock implements Fertilizable {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (state.get(AGE) == MATURE_AGE) {
             if (world.isClient) return ActionResult.SUCCESS;
-            getLoot((ServerWorld)world).forEach(stack -> player.inventory.offerOrDrop(world, stack));
+            getLoot((ServerWorld) world).forEach(stack -> player.inventory.offerOrDrop(world, stack));
             world.setBlockState(pos, state.with(AGE, 0));
             return ActionResult.SUCCESS;
         } else return ActionResult.PASS;
