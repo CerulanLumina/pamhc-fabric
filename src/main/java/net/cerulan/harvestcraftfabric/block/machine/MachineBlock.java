@@ -1,47 +1,38 @@
 package net.cerulan.harvestcraftfabric.block.machine;
 
-import net.cerulan.harvestcraftfabric.blockentity.ModBlockEntities;
-import net.cerulan.harvestcraftfabric.blockentity.PresserBlockEntity;
+import net.cerulan.harvestcraftfabric.blockentity.MachineBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SidedInventory;
-import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.state.StateManager;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
-public class PresserMachine extends BlockWithEntity implements InventoryProvider {
-    public PresserMachine() {
+import java.util.function.Supplier;
+
+public class MachineBlock<T extends BlockEntity> extends BlockWithEntity implements InventoryProvider {
+
+    private final Supplier<T> beSupplier;
+
+    public MachineBlock(Supplier<T> beSupplier) {
         super(FabricBlockSettings.of(Material.METAL)
                 .breakByTool(FabricToolTags.PICKAXES)
                 .sounds(BlockSoundGroup.METAL)
                 .strength(3f, 8f));
-        setDefaultState(getDefaultState().with(MachineRegistry.FACING_PROPERTY, Direction.NORTH));
+        this.beSupplier = beSupplier;
     }
 
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(MachineRegistry.FACING_PROPERTY);
-    }
-
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(MachineRegistry.FACING_PROPERTY, ctx.getPlayerFacing().getOpposite());
     }
 
     @Override
@@ -52,14 +43,14 @@ public class PresserMachine extends BlockWithEntity implements InventoryProvider
 
     @Override
     public BlockEntity createBlockEntity(BlockView world) {
-        return new PresserBlockEntity();
+        return beSupplier.get();
     }
 
     @Override
     public SidedInventory getInventory(BlockState state, WorldAccess world, BlockPos pos) {
         BlockEntity be = world.getBlockEntity(pos);
-        if (be != null && be.getType() == ModBlockEntities.PRESSER_BE_TYPE) {
-            PresserBlockEntity presser = (PresserBlockEntity)be;
+        if (be != null && MachineBlockEntity.isMachineBE(be)) {
+            MachineBlockEntity<?> presser = (MachineBlockEntity<?>) be;
             return presser.getInventory(state, world, pos);
         } else return null;
     }

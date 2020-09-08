@@ -1,23 +1,16 @@
 package net.cerulan.harvestcraftfabric.blockentity;
 
 import com.google.common.collect.ImmutableList;
-import net.cerulan.harvestcraftfabric.gui.PresserGuiDescription;
+import net.cerulan.harvestcraftfabric.gui.GrinderGuiDescription;
 import net.cerulan.harvestcraftfabric.inventory.MachineInventory;
 import net.cerulan.harvestcraftfabric.recipe.DoubleOutputRecipe;
 import net.cerulan.harvestcraftfabric.recipe.RecipeRegistry;
 import net.minecraft.item.ItemStack;
 
-public class PresserBlockEntity extends MachineBlockEntity<DoubleOutputRecipe> {
+public class GrinderBlockEntity extends MachineBlockEntity<DoubleOutputRecipe> {
 
-    /*
-    Down - output
-    Other - input
-     */
-    static final int[] OUTPUT_SLOTS = new int[] {1, 2};
-    static final int[] INPUT_SLOT = new int[] {0};
-
-    public PresserBlockEntity() {
-        super(ModBlockEntities.PRESSER_BE_TYPE, RecipeRegistry.PRESSER, new MachineInventory(3, OUTPUT_SLOTS, INPUT_SLOT), PresserGuiDescription::new);
+    public GrinderBlockEntity() {
+        super(ModBlockEntities.GRINDER_BE_TYPE, RecipeRegistry.GRINDER, new MachineInventory(3, PresserBlockEntity.OUTPUT_SLOTS, PresserBlockEntity.INPUT_SLOT), GrinderGuiDescription::new);
     }
 
     @Override
@@ -37,16 +30,17 @@ public class PresserBlockEntity extends MachineBlockEntity<DoubleOutputRecipe> {
 
     @Override
     protected int[] getOutputSlots() {
-        return OUTPUT_SLOTS;
+        return PresserBlockEntity.OUTPUT_SLOTS;
     }
 
     @Override
     protected int[] getInputSlots() {
-        return INPUT_SLOT;
+        return PresserBlockEntity.INPUT_SLOT;
     }
 
     private boolean canOutput(ItemStack stack, int slot) {
         ItemStack existing = inventory.getStack(slot);
         return existing.isEmpty() || (existing.isItemEqual(stack) && ItemStack.areTagsEqual(existing, stack) && existing.getCount() + stack.getCount() <= stack.getMaxCount());
     }
+
 }

@@ -1,7 +1,6 @@
 package net.cerulan.harvestcraftfabric.gui;
 
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
-import io.github.cottonmc.cotton.gui.client.BackgroundPainter;
 import io.github.cottonmc.cotton.gui.widget.WBar;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
@@ -9,24 +8,27 @@ import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
 import net.cerulan.harvestcraftfabric.gui.client.FGBar;
 import net.cerulan.harvestcraftfabric.gui.client.MachineBackgroundPainter;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec2f;
 
 public class PresserGuiDescription extends SyncedGuiDescription {
-    private static final int INVENTORY_SIZE = 3;
+    static final int INVENTORY_SIZE = 3;
     private static final Identifier barTexture = new Identifier("harvestcraft", "textures/gui/presser.png");
 
-    private static final MachineBackgroundPainter painter = new MachineBackgroundPainter(
-            new Identifier("harvestcraft", "textures/gui/presser.png")
-    ).setPadding(6, 8, 0, 17);
+    private static final MachineBackgroundPainter painter = new MachineBackgroundPainter(barTexture)
+            .setPadding(6, 8, 0, 17);
 
     public PresserGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(GuiRegistry.PRESSER_HANDLER_TYPE, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 2));
+        doubleOutputSetup(this, blockInventory);
+    }
 
+    static void doubleOutputSetup(SyncedGuiDescription description, Inventory blockInventory) {
         WGridPanel root = new WGridPanel();
 
-        setRootPanel(root);
+        description.setRootPanel(root);
 
         WPlainPanel panel = new WPlainPanel();
         root.add(panel, 0, 0);
@@ -42,9 +44,9 @@ public class PresserGuiDescription extends SyncedGuiDescription {
         panel.add(progressBar, 70, 8);
 
 
-        this.setTitleColor(0xe5e5e5ff);
-        root.add(this.createPlayerInventoryPanel(), 0, 4);
-        root.validate(this);
+        description.setTitleColor(0xe5e5e5ff);
+        root.add(description.createPlayerInventoryPanel(), 0, 4);
+        root.validate(description);
         progressBar.setSize(24, 13);
     }
 

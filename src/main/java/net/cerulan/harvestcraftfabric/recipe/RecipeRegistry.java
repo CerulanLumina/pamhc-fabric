@@ -14,6 +14,9 @@ public class RecipeRegistry {
     public static RecipeType<DoubleOutputRecipe> PRESSER;
     public static RecipeSerializer<DoubleOutputRecipe> PRESSER_SERIALIZER;
 
+    public static RecipeType<DoubleOutputRecipe> GRINDER;
+    public static RecipeSerializer<DoubleOutputRecipe> GRINDER_SERIALIZER;
+
     public static final ObjectOpenHashSet<RecipeType<?>> RECIPE_TYPES = new ObjectOpenHashSet<>();
 
     public static void regiterRecipeHandlers() {
@@ -21,6 +24,10 @@ public class RecipeRegistry {
         register("presser", DoubleOutputRecipe.class, new DoubleOutputRecipe.Serializer<>(PresserRecipe::new), (type, serializer) -> {
             PRESSER = type;
             PRESSER_SERIALIZER = serializer;
+        });
+        register("grinder", DoubleOutputRecipe.class, new DoubleOutputRecipe.Serializer<>(GrinderRecipe::new), (type, serializer) -> {
+            GRINDER = type;
+            GRINDER_SERIALIZER = serializer;
         });
 
     }

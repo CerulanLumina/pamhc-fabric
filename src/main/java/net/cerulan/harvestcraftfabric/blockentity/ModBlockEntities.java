@@ -12,9 +12,11 @@ import java.util.function.Supplier;
 public class ModBlockEntities {
 
     public static BlockEntityType<PresserBlockEntity> PRESSER_BE_TYPE;
+    public static BlockEntityType<GrinderBlockEntity> GRINDER_BE_TYPE;
 
     public static void registerBlockEntities() {
         PRESSER_BE_TYPE = registerBlockEntity("presser", PresserBlockEntity::new, MachineRegistry.PRESSER_MACHINE);
+        GRINDER_BE_TYPE = registerBlockEntity("grinder", GrinderBlockEntity::new, MachineRegistry.GRINDER_MACHINE);
     }
 
     private static <T extends BlockEntity> BlockEntityType<T> registerBlockEntity(String localId, Supplier<T> beSupplier, Block block) {

@@ -2,7 +2,7 @@ package net.cerulan.harvestcraftfabric.blockentity;
 
 import com.google.common.collect.ImmutableList;
 import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
-import net.cerulan.harvestcraftfabric.gui.PresserGuiDescription;
+import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import net.cerulan.harvestcraftfabric.inventory.MachineInventory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.InventoryProvider;
@@ -27,7 +27,6 @@ import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldAccess;
 
-
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -40,11 +39,13 @@ public abstract class MachineBlockEntity<R extends Recipe<Inventory>> extends Bl
     protected final MachineInventory inventory;
 
     protected int ticksProgress = 0;
+    private final GuiDescriptionFactory guiDescriptionFactory;
 
-    protected MachineBlockEntity(BlockEntityType<? extends BlockEntity> type, RecipeType<R> recipeType, MachineInventory inventory) {
+    protected MachineBlockEntity(BlockEntityType<? extends BlockEntity> type, RecipeType<R> recipeType, MachineInventory inventory, GuiDescriptionFactory guiDescriptionFactory) {
         super(type);
         this.recipeType = recipeType;
         this.inventory = inventory;
+        this.guiDescriptionFactory = guiDescriptionFactory;
     }
 
     protected abstract int getMaximumProgress();
@@ -118,7 +119,12 @@ public abstract class MachineBlockEntity<R extends Recipe<Inventory>> extends Bl
 
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return new PresserGuiDescription(syncId, inv, ScreenHandlerContext.create(world, pos));
+        return guiDescriptionFactory.create(syncId, inv, ScreenHandlerContext.create(world, pos));
+    }
+
+    @FunctionalInterface
+    protected interface GuiDescriptionFactory {
+        SyncedGuiDescription create(int syncId, PlayerInventory inv, ScreenHandlerContext context);
     }
 
     @Override
@@ -165,4 +171,8 @@ public abstract class MachineBlockEntity<R extends Recipe<Inventory>> extends Bl
             return 2 + getAdditionalPropertiesCount();
         }
     };
+
+    public static boolean isMachineBE(BlockEntity entity) {
+        return MachineBlockEntity.class.isAssignableFrom(entity.getClass());
+    }
 }

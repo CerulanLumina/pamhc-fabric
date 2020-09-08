@@ -12,10 +12,12 @@ public class MachineRegistry {
 
     public static final DirectionProperty FACING_PROPERTY = DirectionProperty.of("facing", dir -> dir.getAxis().isHorizontal());
 
-    public static final PresserMachine PRESSER_MACHINE = new PresserMachine();
+    public static final PresserMachineBlock PRESSER_MACHINE = new PresserMachineBlock();
+    public static final GrinderMachineBlock GRINDER_MACHINE = new GrinderMachineBlock();
 
     public static void registerMachines() {
         registerMachine("presser", PRESSER_MACHINE);
+        registerMachine("grinder", GRINDER_MACHINE);
     }
 
     private static void registerMachine(String localId, Block block) {
