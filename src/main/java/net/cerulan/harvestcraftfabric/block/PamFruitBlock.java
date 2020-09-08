@@ -1,6 +1,5 @@
 package net.cerulan.harvestcraftfabric.block;
 
-import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;

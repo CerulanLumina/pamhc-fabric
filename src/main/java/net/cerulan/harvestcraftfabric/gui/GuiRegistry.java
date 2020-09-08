@@ -1,6 +1,5 @@
 package net.cerulan.harvestcraftfabric.gui;
 
-import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;

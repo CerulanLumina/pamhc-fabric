@@ -5,7 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
+import com.swordglowsblue.artifice.api.builder.JsonObjectBuilder;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
+import net.cerulan.harvestcraftfabric.block.PamCropBlock;
 import net.cerulan.harvestcraftfabric.pamassets.artifice.DataResource;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
@@ -107,6 +109,49 @@ public class LocalPam {
             unhandledOres.forEach(Harvestcraftfabric.LOGGER::error);
         }
         builder.addItemTag(new Identifier("harvestcraft", "seed"), tagBuilder -> Harvestcraftfabric.getInstance().getSeedItems().forEach(tagBuilder::value));
+
+        Identifier condBlockStateProperty = new Identifier("block_state_property");
+        Identifier condInverted = new Identifier("inverted");
+        Identifier funcSetCount = new Identifier("set_count");
+        Identifier typeBlock = new Identifier("block");
+        Identifier typeItem = new Identifier("item");
+        getContent().getCrops().forEach(crop -> {
+            String cropID = Harvestcraftfabric.getCropID(crop);
+            String seedID = Harvestcraftfabric.getSeedItemID(crop);
+            String itemID = Harvestcraftfabric.getItemID(crop);
+            builder.addLootTable(new Identifier("harvestcraft", "blocks/" + cropID), lootTableBuilder -> {
+                lootTableBuilder
+                        .type(typeBlock)
+                        .pool(pool -> pool
+                                .rolls(1)
+                                .entry(entry -> entry
+                                        .condition(condBlockStateProperty, condition -> condition
+                                                .add("block", "harvestcraft:" + cropID)
+                                                .addObject("properties", jsonObjectBuilder -> jsonObjectBuilder
+                                                        .add("age", PamCropBlock.MAX_AGE)))
+                                        .type(typeItem)
+                                        .name(new Identifier("harvestcraft", itemID))
+                                        .function(funcSetCount, function -> {
+                                            function.addObject("count", jsonObjectBuilder -> jsonObjectBuilder
+                                                    .add("type", "uniform")
+                                                    .add("min", 1)
+                                                    .add("max", 3));
+                                        }))
+                                .entry(entry -> entry
+                                        .condition(condInverted, condition -> condition
+                                                .addObject("term", jsonObjectBuilder -> jsonObjectBuilder
+                                                        .add("condition", condBlockStateProperty.toString())
+                                                        .add("block", "harvestcraft:" + cropID)
+                                                        .addObject("properties", pjsonObjectBuilder -> pjsonObjectBuilder
+                                                                .add("age", PamCropBlock.MAX_AGE))
+                                                )
+                                        )
+                                        .type(typeItem)
+                                        .name(new Identifier("harvestcraft", seedID))));
+            });
+        });
+
+
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
             StringBuilder tags = new StringBuilder();
             NameConversion.tags.stream().sorted().forEach(t -> tags.append(t).append("\n"));

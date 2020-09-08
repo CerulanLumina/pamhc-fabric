@@ -1,7 +1,5 @@
 package net.cerulan.harvestcraftfabric.pamassets;
 
-import net.minecraft.util.Identifier;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;

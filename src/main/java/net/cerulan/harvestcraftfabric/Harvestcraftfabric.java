@@ -80,6 +80,8 @@ public final class Harvestcraftfabric implements ModInitializer {
             Item item = new AliasedBlockItem(block, new Item.Settings().group(harvestcraftCropGroup).food(cropResultFood));
             Item seedItem = new PamSeedItem(block, new Item.Settings().group(harvestcraftCropGroup));
 
+            block.setSeedsItem(seedItem);
+
             cropBlocks.add(block);
 
             Identifier seedID = new Identifier("harvestcraft", getSeedItemID(name));
