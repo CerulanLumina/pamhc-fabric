@@ -1078,6 +1078,11 @@
     "roux",
     "meringue"
   ],
+  "logTrees": [
+    "cinnamon",
+    "maple",
+    "paperbark"
+  ],
   "specialModels": {
     "rambutan_sapling": "block/saplings/rambutan_sapling",
     "jackfruit_sapling": "block/saplings/jackfruit_sapling",

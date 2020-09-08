@@ -8,21 +8,16 @@ import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.pamassets.artifice.DataResource;
 import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
-import net.fabricmc.loader.gui.FabricGuiEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
 import org.apache.commons.compress.archivers.zip.ZipFile;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -111,7 +106,7 @@ public class LocalPam {
             Harvestcraftfabric.LOGGER.error("There were unhandled ore cases. This is a bug!");
             unhandledOres.forEach(Harvestcraftfabric.LOGGER::error);
         }
-        builder.addItemTag(new Identifier("harvestcraft", "seed"), tagBuilder -> Harvestcraftfabric.SEED_ITEMS.forEach(tagBuilder::value));
+        builder.addItemTag(new Identifier("harvestcraft", "seed"), tagBuilder -> Harvestcraftfabric.getInstance().getSeedItems().forEach(tagBuilder::value));
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
             StringBuilder tags = new StringBuilder();
             NameConversion.tags.stream().sorted().forEach(t -> tags.append(t).append("\n"));

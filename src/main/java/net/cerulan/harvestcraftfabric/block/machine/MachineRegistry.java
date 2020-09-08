@@ -22,7 +22,7 @@ public class MachineRegistry {
 
     private static void registerMachine(String localId, Block block) {
         Registry.register(Registry.BLOCK, new Identifier("harvestcraft", localId), block);
-        Item item = new BlockItem(block, new Item.Settings().group(Harvestcraftfabric.getInstance().HARVESTCRAFT_FOOD_GROUP));
+        Item item = new BlockItem(block, new Item.Settings().group(Harvestcraftfabric.getInstance().harvestcraftFoodGroup));
         Registry.register(Registry.ITEM, new Identifier("harvestcraft", localId), item);
     }
 

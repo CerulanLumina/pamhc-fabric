@@ -1,6 +1,5 @@
-package net.cerulan.harvestcraftfabric.trees;
+package net.cerulan.harvestcraftfabric.worldgen;
 
-import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -9,10 +8,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
-public class DynamicSaplingGenerator extends SaplingGenerator {
+public class FruitSaplingGenerator extends SaplingGenerator {
 
     private final Block fruit;
-    public DynamicSaplingGenerator(Block fruit) {
+    public FruitSaplingGenerator(Block fruit) {
         this.fruit = fruit;
     }
 

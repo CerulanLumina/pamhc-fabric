@@ -24,13 +24,8 @@ public class HarvestcraftfabricClient implements ClientModInitializer {
         ClientLocalPam pam = new ClientLocalPam(Harvestcraftfabric.getInstance().getLocalPam());
         Artifice.registerAssets(new Identifier("harvestcraft", "harvestcraft"), pam::registerPamResources);
 
-        Harvestcraftfabric.CROP_BLOCKS
-                .forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout()));
-        Harvestcraftfabric.SAPLING_BLOCKS
-                .forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout()));
-        Harvestcraftfabric.FRUIT_BLOCKS
-                .forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout()));
-        Harvestcraftfabric.GARDEN_BLOCK
+
+        Harvestcraftfabric.getInstance().getCutoutBlocks()
                 .forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout()));
 
         ScreenRegistry.<PresserGuiDescription, PresserScreen>register(GuiRegistry.PRESSER_HANDLER_TYPE, (gui, inv, title) -> new PresserScreen(gui, inv.player, title));
