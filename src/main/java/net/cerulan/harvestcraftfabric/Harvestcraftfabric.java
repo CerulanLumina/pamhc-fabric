@@ -4,10 +4,12 @@ import com.google.common.collect.ImmutableList;
 import com.swordglowsblue.artifice.api.Artifice;
 import net.cerulan.harvestcraftfabric.block.*;
 import net.cerulan.harvestcraftfabric.block.machine.MachineRegistry;
+import net.cerulan.harvestcraftfabric.blockentity.MarketBlockEntity;
 import net.cerulan.harvestcraftfabric.blockentity.ModBlockEntities;
 import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.config.FoodsConfig;
 import net.cerulan.harvestcraftfabric.gui.GuiRegistry;
+import net.cerulan.harvestcraftfabric.gui.MarketGuiDescription;
 import net.cerulan.harvestcraftfabric.item.DrinkFoodItem;
 import net.cerulan.harvestcraftfabric.item.PamSeedItem;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
@@ -15,11 +17,18 @@ import net.cerulan.harvestcraftfabric.recipe.RecipeRegistry;
 import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.network.PacketContext;
+import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
+import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.SaplingBlock;
 import net.minecraft.item.*;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -44,8 +53,32 @@ public final class Harvestcraftfabric implements ModInitializer {
     private List<SaplingBlock> saplingBlocks = new ArrayList<>();
     private List<PamGardenBlock> gardenBlocks = new ArrayList<>();
     private List<Identifier> seedItems = new ArrayList<>();
+    private List<Identifier> saplingItems = new ArrayList<>();
 
     private FoodComponent cropResultFood = null;
+
+    public static class Packets {
+        public static final Identifier SET_MARKET_STACK = LocalPam.modID("set_market_stack");
+
+        public static void registerC2SPackets() {
+            ServerSidePacketRegistry.INSTANCE.register(SET_MARKET_STACK, Packets::acceptSetMarketStack);
+        }
+
+        private static void acceptSetMarketStack(PacketContext context, PacketByteBuf buf) {
+            Harvestcraftfabric.LOGGER.info("receiving packet");
+            BlockPos pos = buf.readBlockPos();
+            ItemStack stack = buf.readItemStack();
+            Tag<Item> buyable = TagRegistry.item(MarketGuiDescription.buyable);
+            context.getTaskQueue().execute(() -> {
+                World world = context.getPlayer().world;
+                if (world.canSetBlock(pos) && buyable.contains(stack.getItem()) && world.getBlockState(pos).isOf(MachineRegistry.MARKET_BLOCK)) {
+                    MarketBlockEntity market = (MarketBlockEntity)world.getBlockEntity(pos);
+                    if (market != null)
+                        market.setOutput(stack);
+                }
+            });
+        }
+    }
 
     @Override
     public void onInitialize() {
@@ -164,9 +197,11 @@ public final class Harvestcraftfabric implements ModInitializer {
         logBlocks = ImmutableList.copyOf(logBlocks);
         saplingBlocks = ImmutableList.copyOf(saplingBlocks);
         seedItems = ImmutableList.copyOf(seedItems);
+        saplingItems = ImmutableList.copyOf(saplingItems);
 
         Artifice.registerData(new Identifier("harvestcraft", "harvestcraft"), localPam::registerPamData);
         PamWorldGenerator.initWorldGen(fruitBlocks, logBlocks);
+        Packets.registerC2SPackets();
     }
 
     private void registerPamFruit(String fruit) {
@@ -180,11 +215,13 @@ public final class Harvestcraftfabric implements ModInitializer {
         PamFruitBlock fruitBlock = new PamFruitBlock(fruitItemID);
         FruitSaplingBlock saplingBlock = new FruitSaplingBlock(fruitBlock);
         Item sapling = new BlockItem(saplingBlock, new Item.Settings().group(harvestcraftCropGroup));
-        Registry.register(Registry.ITEM, new Identifier("harvestcraft", fruit + "_sapling"), sapling);
-        Registry.register(Registry.BLOCK, new Identifier("harvestcraft", fruit + "_sapling"), saplingBlock);
+        Identifier saplingID = LocalPam.modID(fruit + "_sapling");
+        Registry.register(Registry.ITEM, saplingID, sapling);
+        Registry.register(Registry.BLOCK, saplingID, saplingBlock);
         Registry.register(Registry.BLOCK, new Identifier("harvestcraft", "pam" + fruit), fruitBlock);
         saplingBlocks.add(saplingBlock);
         fruitBlocks.add(fruitBlock);
+        saplingItems.add(saplingID);
     }
 
     public LocalPam getLocalPam() {
@@ -229,5 +266,9 @@ public final class Harvestcraftfabric implements ModInitializer {
 
     public List<Identifier> getSeedItems() {
         return seedItems;
+    }
+
+    public List<Identifier> getSaplingItems() {
+        return saplingItems;
     }
 }

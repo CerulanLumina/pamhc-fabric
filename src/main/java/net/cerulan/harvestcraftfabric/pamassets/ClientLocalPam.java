@@ -120,6 +120,10 @@ public class ClientLocalPam extends LocalPam {
             object.add("variants", variants);
         } else if (object.has("variants")) {
             JsonObject variants = object.getAsJsonObject("variants");
+            if (variants.has("normal")) {
+                variants.add("", variants.get("normal"));
+                variants.remove("normal");
+            }
             if (variants.has("inventory")) {
                 variants.remove("inventory");
             }

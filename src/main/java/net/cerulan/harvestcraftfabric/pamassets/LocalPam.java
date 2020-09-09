@@ -9,6 +9,7 @@ import com.swordglowsblue.artifice.api.builder.JsonObjectBuilder;
 import com.swordglowsblue.artifice.api.builder.data.LootTableBuilder;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.block.PamCropBlock;
+import net.cerulan.harvestcraftfabric.mixin.AccessorIdentifier;
 import net.cerulan.harvestcraftfabric.pamassets.artifice.DataResource;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
@@ -110,6 +111,8 @@ public class LocalPam {
             unhandledOres.forEach(Harvestcraftfabric.LOGGER::error);
         }
         builder.addItemTag(modID("seed"), tagBuilder -> Harvestcraftfabric.getInstance().getSeedItems().forEach(tagBuilder::value));
+        builder.addItemTag(modID("saplings"), tagBuilder -> Harvestcraftfabric.getInstance().getSaplingItems().forEach(tagBuilder::value));
+        builder.addItemTag(modID("buyable"), tagBuilder -> tagBuilder.include(modID("seed")).include(modID("saplings")));
 
 
         getContent().getCrops().forEach(crop -> {
@@ -232,7 +235,7 @@ public class LocalPam {
         String path = zipName
                 .substring(20)
                 .toLowerCase();
-        if (Identifier.isValid(path))
+        if (AccessorIdentifier.isPathValid(path))
             return new Identifier("harvestcraft", path);
         else return null;
     }
