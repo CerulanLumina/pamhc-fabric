@@ -5,6 +5,7 @@ import io.github.cottonmc.cotton.gui.widget.WBar;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
+import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import net.cerulan.harvestcraftfabric.gui.client.FGBar;
 import net.cerulan.harvestcraftfabric.gui.client.MachineBackgroundPainter;
 import net.minecraft.entity.player.PlayerInventory;
@@ -26,8 +27,9 @@ public class PresserGuiDescription extends SyncedGuiDescription {
     }
 
     static void doubleOutputSetup(SyncedGuiDescription description, Inventory blockInventory) {
-        WGridPanel root = new WGridPanel();
+        description.setTitleColor(0xe5e5e5ff);
 
+        WGridPanel root = new WGridPanel();
         description.setRootPanel(root);
 
         WPlainPanel panel = new WPlainPanel();
@@ -43,8 +45,6 @@ public class PresserGuiDescription extends SyncedGuiDescription {
         FGBar progressBar = new FGBar(null, barTexture, 0, 1, WBar.Direction.RIGHT, new Vec2f(0.6875f, 0.0703125f), new Vec2f(0.78125f, 0.12109375f));
         panel.add(progressBar, 70, 8);
 
-
-        description.setTitleColor(0xe5e5e5ff);
         root.add(description.createPlayerInventoryPanel(), 0, 4);
         root.validate(description);
         progressBar.setSize(24, 13);

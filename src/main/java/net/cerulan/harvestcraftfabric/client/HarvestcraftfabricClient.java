@@ -3,10 +3,7 @@ package net.cerulan.harvestcraftfabric.client;
 import com.swordglowsblue.artifice.api.Artifice;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.gui.*;
-import net.cerulan.harvestcraftfabric.gui.client.GrinderScreen;
-import net.cerulan.harvestcraftfabric.gui.client.MarketScreen;
-import net.cerulan.harvestcraftfabric.gui.client.PresserScreen;
-import net.cerulan.harvestcraftfabric.gui.client.WaterFilterScreen;
+import net.cerulan.harvestcraftfabric.gui.client.*;
 import net.cerulan.harvestcraftfabric.pamassets.ClientLocalPam;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -31,6 +28,8 @@ public class HarvestcraftfabricClient implements ClientModInitializer {
         ScreenRegistry.<PresserGuiDescription, PresserScreen>register(GuiRegistry.PRESSER_HANDLER_TYPE, (gui, inv, title) -> new PresserScreen(gui, inv.player, title));
         ScreenRegistry.<GrinderGuiDescription, GrinderScreen>register(GuiRegistry.GRINDER_HANDLER_TYPE, (gui, inv, title) -> new GrinderScreen(gui, inv.player, title));
         ScreenRegistry.<WaterFilterGuiDescription, WaterFilterScreen>register(GuiRegistry.WATERFILTER_HANDLER_TYPE, (gui, inv, title) -> new WaterFilterScreen(gui, inv.player, title));
+        ScreenRegistry.<WaterTrapGuiDescription, WaterTrapScreen>register(GuiRegistry.WATERTRAP_HANDLER_TYPE, (gui, inv, title) -> new WaterTrapScreen(gui, inv.player, title));
+        ScreenRegistry.<GroundTrapGuiDescription, GroundTrapScreen>register(GuiRegistry.GROUNDTRAP_HANDLER_TYPE, (gui, inv, title) -> new GroundTrapScreen(gui, inv.player, title));
         ScreenRegistry.<MarketGuiDescription, MarketScreen>register(GuiRegistry.MARKET_HANDLER_TYPE, (gui, inv, title) -> new MarketScreen(gui, inv.player, title));
     }
 }

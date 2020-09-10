@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:empty",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "name": "harvestcraft:fishraw",
+          "expand": true,
+          "weight": 85
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tropical_fish",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pufferfish",
+          "weight": 13
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.1
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:gameplay/fishing/junk",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:gameplay/fishing/treasure",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

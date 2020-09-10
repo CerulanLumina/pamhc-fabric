@@ -36,6 +36,7 @@ public class WaterFilterBlockEntity extends MachineBlockEntity<DoubleOutputRecip
         isInWater = BlockPos.stream(pos.north(2).west(2), pos.south(2).east(2))
                 .map(BlockPos::toImmutable)
                 .filter(p -> !p.equals(pos))
+                .filter(world::canSetBlock)
                 .map(world::getFluidState)
                 .map(FluidState::getFluid)
                 .allMatch(state -> state.isIn(FluidTags.WATER));

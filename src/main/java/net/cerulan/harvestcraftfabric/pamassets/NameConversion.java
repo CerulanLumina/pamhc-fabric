@@ -105,6 +105,7 @@ public class NameConversion {
         ITEM_NAME_OVERRIDE.put("minecraft:waterlily", new NameConversion("minecraft:lily_pad", false));
         ITEM_NAME_OVERRIDE.put("minecraft:speckled_melon", new NameConversion("minecraft:glistering_melon_slice", false));
         ITEM_NAME_OVERRIDE.put("minecraft:dye", new NameConversion("minecraft:dye", true));
+        ITEM_NAME_OVERRIDE.put("minecraft:trapdoor", new NameConversion("minecraft:trapdoors", true));
 
         DYE_DATA_MAP.put(0, new NameConversion("minecraft:black_dye", false));
         DYE_DATA_MAP.put(1, new NameConversion("minecraft:red_dye", false));
@@ -130,6 +131,7 @@ public class NameConversion {
         DROP_DATA_MAP.put("minecraft:sapling", new NameConversion("minecraft:saplings", true));
         DROP_DATA_MAP.put("minecraft:piston", new NameConversion("minecraft:piston", false));
         DROP_DATA_MAP.put("minecraft:wool", new NameConversion("minecraft:wool", true));
+        DROP_DATA_MAP.put("minecraft:chest", new NameConversion("c:chest", true));
     }
 
 }

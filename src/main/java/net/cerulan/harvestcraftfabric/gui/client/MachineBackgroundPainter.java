@@ -28,6 +28,7 @@ public class MachineBackgroundPainter implements BackgroundPainter {
         int height = panel.getHeight() + this.topPadding + this.bottomPadding;
         left -= this.leftPadding;
         top -= this.topPadding;
+
         ScreenDrawing.texturedRect(left, top, width, height, this.texture, 0.0F, 0.0F, 0.6875f, 0.6875f, -1);
     }
 }

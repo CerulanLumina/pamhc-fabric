@@ -8,6 +8,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 
 import java.util.Arrays;
+import java.util.function.IntPredicate;
 
 public class MachineInventory implements SidedInventory {
 
@@ -39,12 +40,12 @@ public class MachineInventory implements SidedInventory {
 
     @Override
     public boolean canInsert(int slot, ItemStack stack, Direction dir) {
-        return slot == 0 && dir != Direction.DOWN;
+        return Arrays.stream(inputSlots).anyMatch(i -> slot == i) && dir != Direction.DOWN;
     }
 
     @Override
     public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        return slot > 0 && dir == Direction.DOWN;
+        return Arrays.stream(outputSlots).anyMatch(i -> slot == i) && dir == Direction.DOWN;
     }
 
     @Override
@@ -95,5 +96,12 @@ public class MachineInventory implements SidedInventory {
     @Override
     public void clear() {
         items.clear();
+    }
+
+    public boolean isInputSlot(int slot) {
+        return Arrays.stream(inputSlots).anyMatch(i -> i == slot);
+    }
+    public boolean isOutputSlot(int slot) {
+        return Arrays.stream(outputSlots).anyMatch(i -> i == slot);
     }
 }
