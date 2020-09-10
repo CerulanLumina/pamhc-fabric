@@ -6,8 +6,6 @@ import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.EntryStack;
 import me.shedaniel.rei.api.RecipeCategory;
 import me.shedaniel.rei.api.widgets.Widgets;
-import me.shedaniel.rei.gui.entries.RecipeEntry;
-import me.shedaniel.rei.gui.entries.SimpleRecipeEntry;
 import me.shedaniel.rei.gui.widget.Widget;
 import net.cerulan.harvestcraftfabric.recipe.DoubleOutputRecipe;
 import net.cerulan.harvestcraftfabric.rei.display.DoubleOutputDisplay;
@@ -41,11 +39,6 @@ public class DoubleOutputCategory<R extends DoubleOutputRecipe> implements Recip
     @Override
     public String getCategoryName() {
         return I18n.translate(icon.asItem().getTranslationKey());
-    }
-
-    @Override
-    public RecipeEntry getSimpleRenderer(DoubleOutputDisplay<R> recipe) {
-        return SimpleRecipeEntry.create(recipe.getInputEntries(), recipe.getOutputEntries());
     }
 
     @Override
