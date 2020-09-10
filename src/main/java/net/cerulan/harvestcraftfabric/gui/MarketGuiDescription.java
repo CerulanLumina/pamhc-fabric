@@ -47,7 +47,9 @@ public class MarketGuiDescription extends SyncedGuiDescription {
         FilterableItemSelector itemPanel = new FilterableItemSelector(stacks, filterField::getText, 7);
 
         WScrollingPanel scrollPanel = new WScrollingPanel(itemPanel);
-        root.add(scrollPanel, 0, 3, 9, 3);
+        root.add(scrollPanel, 0, 2, 9, 4);
+        scrollPanel.setLocation(scrollPanel.getX(), scrollPanel.getY() + 4);
+        scrollPanel.setSize(scrollPanel.getWidth(), scrollPanel.getHeight() + 6);
         root.add(createPlayerInventoryPanel(), 0, 7);
         itemPanel.setScrollingPanel(scrollPanel);
 
