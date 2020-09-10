@@ -175,4 +175,9 @@ public abstract class MachineBlockEntity<R extends Recipe<Inventory>> extends Bl
     public static boolean isMachineBE(BlockEntity entity) {
         return MachineBlockEntity.class.isAssignableFrom(entity.getClass());
     }
+
+    protected static boolean canPlaceStackInSlot(Inventory inventory, ItemStack stack, int slot) {
+        ItemStack existing = inventory.getStack(slot);
+        return existing.isEmpty() || (existing.isItemEqual(stack) && ItemStack.areTagsEqual(existing, stack) && existing.getCount() + stack.getCount() <= stack.getMaxCount());
+    }
 }

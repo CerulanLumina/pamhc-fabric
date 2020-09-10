@@ -20,7 +20,7 @@ public class GrinderBlockEntity extends MachineBlockEntity<DoubleOutputRecipe> {
 
     @Override
     protected boolean canOutput(DoubleOutputRecipe recipe) {
-        return canOutput(recipe.getOutput(), 1) && canOutput(recipe.getOutput2(), 2);
+        return canPlaceStackInSlot(inventory, recipe.getOutput(), 1) && canPlaceStackInSlot(inventory, recipe.getOutput2(), 2);
     }
 
     @Override
@@ -36,11 +36,6 @@ public class GrinderBlockEntity extends MachineBlockEntity<DoubleOutputRecipe> {
     @Override
     protected int[] getInputSlots() {
         return PresserBlockEntity.INPUT_SLOT;
-    }
-
-    private boolean canOutput(ItemStack stack, int slot) {
-        ItemStack existing = inventory.getStack(slot);
-        return existing.isEmpty() || (existing.isItemEqual(stack) && ItemStack.areTagsEqual(existing, stack) && existing.getCount() + stack.getCount() <= stack.getMaxCount());
     }
 
 }

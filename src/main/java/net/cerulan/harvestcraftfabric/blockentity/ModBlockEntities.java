@@ -14,11 +14,13 @@ public class ModBlockEntities {
     public static BlockEntityType<PresserBlockEntity> PRESSER_BE_TYPE;
     public static BlockEntityType<GrinderBlockEntity> GRINDER_BE_TYPE;
     public static BlockEntityType<MarketBlockEntity> MARKET_BE_TYPE;
+    public static BlockEntityType<WaterFilterBlockEntity> WATERFILTER_BE_TYPE;
 
     public static void registerBlockEntities() {
         PRESSER_BE_TYPE = registerBlockEntity("presser", PresserBlockEntity::new, MachineRegistry.PRESSER_MACHINE);
         GRINDER_BE_TYPE = registerBlockEntity("grinder", GrinderBlockEntity::new, MachineRegistry.GRINDER_MACHINE);
         MARKET_BE_TYPE = registerBlockEntity("market", MarketBlockEntity::new, MachineRegistry.MARKET_BLOCK);
+        WATERFILTER_BE_TYPE = registerBlockEntity("water_filter", WaterFilterBlockEntity::new, MachineRegistry.WATER_FILTER_BLOCK);
     }
 
     private static <T extends BlockEntity> BlockEntityType<T> registerBlockEntity(String localId, Supplier<T> beSupplier, Block block) {

@@ -13,10 +13,12 @@ public class GuiRegistry {
     public static ScreenHandlerType<PresserGuiDescription> PRESSER_HANDLER_TYPE;
     public static ScreenHandlerType<GrinderGuiDescription> GRINDER_HANDLER_TYPE;
     public static ScreenHandlerType<MarketGuiDescription> MARKET_HANDLER_TYPE;
+    public static ScreenHandlerType<WaterFilterGuiDescription> WATERFILTER_HANDLER_TYPE;
 
     public static void registerScreenHandlers() {
         PRESSER_HANDLER_TYPE = register("presser", PresserGuiDescription::new);
         GRINDER_HANDLER_TYPE = register("grinder", GrinderGuiDescription::new);
+        WATERFILTER_HANDLER_TYPE = register("waterfilter", WaterFilterGuiDescription::new);
         MARKET_HANDLER_TYPE = registerExtended("market", MarketGuiDescription::new);
     }
 

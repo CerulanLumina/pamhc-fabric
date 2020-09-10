@@ -1,0 +1,14 @@
+{
+  "input": {
+    "item": "harvestcraft:wovencottonitem"
+  },
+  "output_one": {
+    "item": "harvestcraft:freshwateritem",
+    "count": 8
+  },
+  "output_two": {
+    "item": "harvestcraft:saltitem",
+    "count": 8
+  },
+  "type": "harvestcraft:waterfilter"
+}

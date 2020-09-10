@@ -5,6 +5,9 @@ import net.minecraft.util.Identifier;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * I really hate this file and it badly needs a refactor
+ */
 public class NameConversion {
     static final HashSet<String> tags = new HashSet<>();
     private final String value;
@@ -31,6 +34,7 @@ public class NameConversion {
     private static final HashMap<Integer, NameConversion> DYE_DATA_MAP = new HashMap<>();
     private static final HashMap<String, NameConversion> DROP_DATA_MAP = new HashMap<>();
 
+    // Why do I have 3 different functions that do different things that are the same logically
     public static NameConversion fromOre(String ore) {
         if (ORE_NAME_OVERRIDE.containsKey(ore)) return ORE_NAME_OVERRIDE.get(ore);
         else if (ore.startsWith("crop")) {
@@ -52,10 +56,12 @@ public class NameConversion {
         }
     }
 
+    // Why do I have 3 different functions that do different things that are the same logically
     public static NameConversion fromItem(Identifier item) {
         return ITEM_NAME_OVERRIDE.getOrDefault(item.toString(), null);
     }
 
+    // Why do I have 3 different functions that do different things that are the same logically
     public static NameConversion fromItemAndData(Identifier item, int data) {
         if (item.toString().equals("minecraft:dye"))
             return DYE_DATA_MAP.getOrDefault(data, null);
@@ -67,6 +73,8 @@ public class NameConversion {
         return null;
     }
 
+    // what even the actual fuck is this
+    // dAtA dRiVeN mOD
     static {
         CROP_NAME_OVERRIDE.put("apple", "minecraft:apple");
         CROP_NAME_OVERRIDE.put("carrot", "minecraft:carrot");
@@ -121,6 +129,7 @@ public class NameConversion {
         DROP_DATA_MAP.put("minecraft:stone_pressure_plate", new NameConversion("minecraft:stone_pressure_plate", false));
         DROP_DATA_MAP.put("minecraft:sapling", new NameConversion("minecraft:saplings", true));
         DROP_DATA_MAP.put("minecraft:piston", new NameConversion("minecraft:piston", false));
+        DROP_DATA_MAP.put("minecraft:wool", new NameConversion("minecraft:wool", true));
     }
 
 }

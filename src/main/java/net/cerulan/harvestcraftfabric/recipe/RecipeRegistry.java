@@ -17,6 +17,10 @@ public class RecipeRegistry {
     public static RecipeType<DoubleOutputRecipe> GRINDER;
     public static RecipeSerializer<DoubleOutputRecipe> GRINDER_SERIALIZER;
 
+    public static RecipeType<DoubleOutputRecipe> WATERFILTER;
+    public static RecipeSerializer<DoubleOutputRecipe> WATERFILTER_SERIALIZER;
+
+
     public static final ObjectOpenHashSet<RecipeType<?>> RECIPE_TYPES = new ObjectOpenHashSet<>();
 
     public static void regiterRecipeHandlers() {
@@ -28,6 +32,10 @@ public class RecipeRegistry {
         register("grinder", DoubleOutputRecipe.class, new DoubleOutputRecipe.Serializer<>(GrinderRecipe::new), (type, serializer) -> {
             GRINDER = type;
             GRINDER_SERIALIZER = serializer;
+        });
+        register("waterfilter", DoubleOutputRecipe.class, new DoubleOutputRecipe.Serializer<>(WaterFilterRecipe::new), (type, serializer) -> {
+            WATERFILTER = type;
+            WATERFILTER_SERIALIZER = serializer;
         });
 
     }

@@ -15,11 +15,13 @@ public class MachineRegistry {
     public static final PresserMachineBlock PRESSER_MACHINE = new PresserMachineBlock();
     public static final GrinderMachineBlock GRINDER_MACHINE = new GrinderMachineBlock();
     public static final MarketBlock MARKET_BLOCK = new MarketBlock();
+    public static final WaterFilterBlock WATER_FILTER_BLOCK = new WaterFilterBlock();
 
     public static void registerMachines() {
         registerMachine("presser", PRESSER_MACHINE);
         registerMachine("grinder", GRINDER_MACHINE);
         registerMachine("market", MARKET_BLOCK);
+        registerMachine("waterfilter", WATER_FILTER_BLOCK);
     }
 
     private static void registerMachine(String localId, Block block) {
