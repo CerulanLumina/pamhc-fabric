@@ -132,6 +132,7 @@ public class NameConversion {
         DROP_DATA_MAP.put("minecraft:piston", new NameConversion("minecraft:piston", false));
         DROP_DATA_MAP.put("minecraft:wool", new NameConversion("minecraft:wool", true));
         DROP_DATA_MAP.put("minecraft:chest", new NameConversion("c:chest", true));
+        DROP_DATA_MAP.put("minecraft:log", new NameConversion("minecraft:logs", true));
     }
 
 }
