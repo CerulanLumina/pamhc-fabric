@@ -5,7 +5,6 @@ import io.github.cottonmc.cotton.gui.widget.WBar;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
-import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import net.cerulan.harvestcraftfabric.gui.client.FGBar;
 import net.cerulan.harvestcraftfabric.gui.client.MachineBackgroundPainter;
 import net.minecraft.entity.player.PlayerInventory;

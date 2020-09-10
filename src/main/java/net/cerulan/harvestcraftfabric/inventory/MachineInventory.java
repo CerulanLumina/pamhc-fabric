@@ -8,7 +8,6 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 
 import java.util.Arrays;
-import java.util.function.IntPredicate;
 
 public class MachineInventory implements SidedInventory {
 
