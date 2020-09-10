@@ -1,17 +1,19 @@
 package net.cerulan.harvestcraftfabric.blockentity;
 
-import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import net.cerulan.harvestcraftfabric.gui.ShippingBinGuiDescription;
 import net.cerulan.harvestcraftfabric.inventory.MachineInventory;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
 import net.fabricmc.fabric.api.tag.TagRegistry;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
@@ -65,5 +67,19 @@ public class ShippingBinBE extends BlockEntity implements
         return inventory;
     }
 
+    @Override
+    public CompoundTag toTag(CompoundTag tag) {
+        CompoundTag invTag = new CompoundTag();
+        Inventories.toTag(invTag, inventory.getItems());
+        tag.put("items", invTag);
+        return super.toTag(tag);
+    }
+
+    @Override
+    public void fromTag(BlockState state, CompoundTag tag) {
+        super.fromTag(state, tag);
+        if (tag.contains("items", 10))
+            Inventories.fromTag(tag.getCompound("items"), inventory.getItems());
+    }
 
 }
