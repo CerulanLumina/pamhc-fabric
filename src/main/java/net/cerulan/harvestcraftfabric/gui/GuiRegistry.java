@@ -16,6 +16,7 @@ public class GuiRegistry {
     public static ScreenHandlerType<WaterFilterGuiDescription> WATERFILTER_HANDLER_TYPE;
     public static ScreenHandlerType<GroundTrapGuiDescription> GROUNDTRAP_HANDLER_TYPE;
     public static ScreenHandlerType<WaterTrapGuiDescription> WATERTRAP_HANDLER_TYPE;
+    public static ScreenHandlerType<ShippingBinGuiDescription> SHIPPINGBIN_HANDLER_TYPE;
 
     public static void registerScreenHandlers() {
         PRESSER_HANDLER_TYPE = register("presser", PresserGuiDescription::new);
@@ -23,6 +24,7 @@ public class GuiRegistry {
         WATERFILTER_HANDLER_TYPE = register("waterfilter", WaterFilterGuiDescription::new);
         GROUNDTRAP_HANDLER_TYPE = register("ground_trap", GroundTrapGuiDescription::new);
         WATERTRAP_HANDLER_TYPE = register("water_trap", WaterTrapGuiDescription::new);
+        SHIPPINGBIN_HANDLER_TYPE = register("shipping_bin", ShippingBinGuiDescription::new);
         MARKET_HANDLER_TYPE = registerExtended("market", MarketGuiDescription::new);
     }
 

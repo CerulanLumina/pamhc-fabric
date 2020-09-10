@@ -31,5 +31,6 @@ public class HarvestcraftfabricClient implements ClientModInitializer {
         ScreenRegistry.<WaterTrapGuiDescription, WaterTrapScreen>register(GuiRegistry.WATERTRAP_HANDLER_TYPE, (gui, inv, title) -> new WaterTrapScreen(gui, inv.player, title));
         ScreenRegistry.<GroundTrapGuiDescription, GroundTrapScreen>register(GuiRegistry.GROUNDTRAP_HANDLER_TYPE, (gui, inv, title) -> new GroundTrapScreen(gui, inv.player, title));
         ScreenRegistry.<MarketGuiDescription, MarketScreen>register(GuiRegistry.MARKET_HANDLER_TYPE, (gui, inv, title) -> new MarketScreen(gui, inv.player, title));
+        ScreenRegistry.<ShippingBinGuiDescription, ShippingBinScreen>register(GuiRegistry.SHIPPINGBIN_HANDLER_TYPE, (gui, inv, title) -> new ShippingBinScreen(gui, inv.player, title));
     }
 }

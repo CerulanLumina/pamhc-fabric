@@ -20,6 +20,7 @@ public class MachineRegistry {
     public static final WaterFilterBlock WATER_FILTER_BLOCK = new WaterFilterBlock();
     public static final TrapBlock WATER_TRAP_BLOCK = new TrapBlock(WaterTrapBE::new);
     public static final TrapBlock GROUND_TRAP_BLOCK = new TrapBlock(GroundTrapBE::new);
+    public static final ShippingBinBlock SHIPPING_BIN_BLOCK = new ShippingBinBlock();
 
     public static void registerMachines() {
         registerMachine("presser", PRESSER_MACHINE);
@@ -28,6 +29,7 @@ public class MachineRegistry {
         registerMachine("waterfilter", WATER_FILTER_BLOCK);
         registerMachine("watertrap", WATER_TRAP_BLOCK);
         registerMachine("groundtrap", GROUND_TRAP_BLOCK);
+        registerMachine("shippingbin", SHIPPING_BIN_BLOCK);
     }
 
     private static void registerMachine(String localId, Block block) {

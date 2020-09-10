@@ -17,6 +17,7 @@ public class ModBlockEntities {
     public static BlockEntityType<WaterFilterBlockEntity> WATERFILTER_BE_TYPE;
     public static BlockEntityType<TrapBlockEntity> WATER_TRAP_BE_TYPE;
     public static BlockEntityType<TrapBlockEntity> GROUND_TRAP_BE_TYPE;
+    public static BlockEntityType<ShippingBinBE> SHIPPING_BIN_BE_TYPE;
 
     public static void registerBlockEntities() {
         PRESSER_BE_TYPE = registerBlockEntity("presser", PresserBlockEntity::new, MachineRegistry.PRESSER_MACHINE);
@@ -25,6 +26,7 @@ public class ModBlockEntities {
         WATERFILTER_BE_TYPE = registerBlockEntity("water_filter", WaterFilterBlockEntity::new, MachineRegistry.WATER_FILTER_BLOCK);
         WATER_TRAP_BE_TYPE = registerBlockEntity("water_trap", WaterTrapBE::new, MachineRegistry.WATER_TRAP_BLOCK);
         GROUND_TRAP_BE_TYPE = registerBlockEntity("ground_trap", GroundTrapBE::new, MachineRegistry.GROUND_TRAP_BLOCK);
+        SHIPPING_BIN_BE_TYPE = registerBlockEntity("shipping_bin", ShippingBinBE::new, MachineRegistry.SHIPPING_BIN_BLOCK);
     }
 
     private static <T extends BlockEntity> BlockEntityType<T> registerBlockEntity(String localId, Supplier<T> beSupplier, Block block) {
