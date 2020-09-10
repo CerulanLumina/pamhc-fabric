@@ -1,0 +1,19 @@
+{
+  "values": [
+    "minecraft:apple",
+    "minecraft:wheat",
+    "minecraft:potato",
+    "minecraft:carrot",
+    "minecraft:beetroot",
+    "minecraft:cactus",
+    "minecraft:pumpkin",
+    "minecraft:melon",
+    "minecraft:nether_wart",
+    "minecraft:sugar_cane",
+    "minecraft:chorus_fruit",
+    "minecraft:sweet_berries",
+    "minecraft:paper",
+    "harvestcraft:cinnamonitem",
+    "harvestcraft:maplesyrupitem"
+  ]
+}

@@ -112,7 +112,7 @@ public class LocalPam {
         builder.addItemTag(modID("seed"), tagBuilder -> Harvestcraftfabric.getInstance().getSeedItems().forEach(tagBuilder::value));
         builder.addItemTag(modID("saplings"), tagBuilder -> Harvestcraftfabric.getInstance().getSaplingItems().forEach(tagBuilder::value));
         builder.addItemTag(modID("buyable"), tagBuilder -> tagBuilder.include(modID("seed")).include(modID("saplings")));
-
+        builder.addItemTag(modID("sellable"), tagBuilder -> Harvestcraftfabric.getInstance().getGrownItems().forEach(tagBuilder::value));
 
         getContent().getCrops().forEach(crop -> {
             Identifier cropID = modID(Harvestcraftfabric.getCropID(crop));
@@ -146,7 +146,6 @@ public class LocalPam {
     private final Identifier funcSetCount = new Identifier("set_count");
     private final Identifier typeBlock = new Identifier("block");
     private final Identifier typeItem = new Identifier("item");
-    private final Identifier funcExplosionDecay = new Identifier("explosion_decay");
 
     private void addGrowableLootTable(Identifier crop, Identifier item, Identifier seed, LootTableBuilder lootTableBuilder) {
         lootTableBuilder

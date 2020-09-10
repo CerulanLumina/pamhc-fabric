@@ -54,6 +54,7 @@ public final class Harvestcraftfabric implements ModInitializer {
     private List<PamGardenBlock> gardenBlocks = new ArrayList<>();
     private List<Identifier> seedItems = new ArrayList<>();
     private List<Identifier> saplingItems = new ArrayList<>();
+    private List<Identifier> grownItems = new ArrayList<>();
 
     private FoodComponent cropResultFood = null;
 
@@ -120,8 +121,11 @@ public final class Harvestcraftfabric implements ModInitializer {
             Identifier seedID = new Identifier("harvestcraft", getSeedItemID(name));
             seedItems.add(seedID);
 
+            Identifier itemID = LocalPam.modID(getItemID(name));
+            grownItems.add(itemID);
+
             Registry.register(Registry.ITEM, seedID, seedItem);
-            Registry.register(Registry.ITEM, new Identifier("harvestcraft", getItemID(name)), item);
+            Registry.register(Registry.ITEM, itemID, item);
             Registry.register(Registry.BLOCK, new Identifier("harvestcraft", getCropID(name)), block);
         });
 
@@ -172,6 +176,7 @@ public final class Harvestcraftfabric implements ModInitializer {
             saplingBlocks.add(saplingBlock);
         });
 
+
         localPam.getContent().getCake().forEach(cake -> {
             PamCakeBlock block = new PamCakeBlock();
             Item item = new BlockItem(block, new Item.Settings().group(harvestcraftFoodGroup));
@@ -198,6 +203,7 @@ public final class Harvestcraftfabric implements ModInitializer {
         saplingBlocks = ImmutableList.copyOf(saplingBlocks);
         seedItems = ImmutableList.copyOf(seedItems);
         saplingItems = ImmutableList.copyOf(saplingItems);
+        grownItems = ImmutableList.copyOf(grownItems);
 
         Artifice.registerData(new Identifier("harvestcraft", "harvestcraft"), localPam::registerPamData);
         PamWorldGenerator.initWorldGen(fruitBlocks, logBlocks);
@@ -207,6 +213,7 @@ public final class Harvestcraftfabric implements ModInitializer {
     private void registerPamFruit(String fruit) {
         Item pamFruitItem = new Item(new Item.Settings().group(harvestcraftFoodGroup).food(cropResultFood));
         Identifier fruitItemID = new Identifier("harvestcraft", fruit + "item");
+        grownItems.add(fruitItemID);
         registerFruitBlockAndSapling(fruit, fruitItemID);
         Registry.register(Registry.ITEM, fruitItemID, pamFruitItem);
     }
@@ -270,5 +277,9 @@ public final class Harvestcraftfabric implements ModInitializer {
 
     public List<Identifier> getSaplingItems() {
         return saplingItems;
+    }
+
+    public List<Identifier> getGrownItems() {
+        return grownItems;
     }
 }
