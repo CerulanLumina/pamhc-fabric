@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "harvestcraft:fishtrapbaititem",
+    "count": 4
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:string"
+    },
+    {
+      "tag": "harvestcraft:fishraw"
+    },
+    {
+      "tag": "harvestcraft:fishraw"
+    },
+    {
+      "tag": "harvestcraft:fishraw"
+    }
+  ]
+}
