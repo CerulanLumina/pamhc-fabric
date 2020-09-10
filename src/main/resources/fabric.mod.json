@@ -20,6 +20,9 @@
     ],
     "preLaunch": [
       "net.cerulan.harvestcraftfabric.PreLaunchEntry"
+    ],
+    "rei_plugins": [
+      "net.cerulan.harvestcraftfabric.rei.HarvestcraftPlugin"
     ]
   },
   "mixins": [

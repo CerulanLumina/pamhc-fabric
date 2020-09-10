@@ -61,6 +61,10 @@ public abstract class DoubleOutputRecipe implements Recipe<Inventory> {
         return identifier;
     }
 
+    public Ingredient getInput() {
+        return input;
+    }
+
     @Override
     public String getGroup() {
         return group;
