@@ -1,4 +1,6 @@
 {
   "itemGroup.harvestcraft.crops": "Harvestcraft Crops",
-  "itemGroup.harvestcraft.food": "Harvestcraft Food"
+  "itemGroup.harvestcraft.food": "Harvestcraft Food",
+  "rei.category.harvestcraft.tree_fruit": "Fruit Trees",
+  "rei.category.harvestcraft.tree_bark": "Tree Bark"
 }

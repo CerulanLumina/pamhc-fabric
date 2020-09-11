@@ -157,8 +157,8 @@ public final class Harvestcraftfabric implements ModInitializer {
         });
 
         // Fruits
-        localPam.getContent().getFruits().forEach(this::registerPamFruit);
         registerFruitBlockAndSapling("apple", new Identifier("apple"));
+        localPam.getContent().getFruits().forEach(this::registerPamFruit);
 
         // Log Trees
         localPam.getContent().getLogTrees().forEach(tree -> {
@@ -229,6 +229,7 @@ public final class Harvestcraftfabric implements ModInitializer {
         saplingBlocks.add(saplingBlock);
         fruitBlocks.add(fruitBlock);
         saplingItems.add(saplingID);
+        HarvestcraftContent.registerFruitTree(new HarvestcraftContent.FruitTree(sapling, () -> new ItemStack(Registry.ITEM.get(fruitItemID)), fruitBlock));
     }
 
     public LocalPam getLocalPam() {

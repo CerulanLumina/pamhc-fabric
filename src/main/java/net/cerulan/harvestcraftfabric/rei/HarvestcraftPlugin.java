@@ -4,18 +4,23 @@ import me.shedaniel.rei.api.EntryStack;
 import me.shedaniel.rei.api.RecipeDisplay;
 import me.shedaniel.rei.api.RecipeHelper;
 import me.shedaniel.rei.api.plugins.REIPluginV0;
+import net.cerulan.harvestcraftfabric.HarvestcraftContent;
 import net.cerulan.harvestcraftfabric.block.machine.MachineRegistry;
+import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
 import net.cerulan.harvestcraftfabric.recipe.DoubleOutputRecipe;
 import net.cerulan.harvestcraftfabric.recipe.RecipeRegistry;
 import net.cerulan.harvestcraftfabric.rei.category.DoubleOutputCategory;
 import net.cerulan.harvestcraftfabric.rei.category.MarketCategory;
 import net.cerulan.harvestcraftfabric.rei.category.ShippingBinCategory;
+import net.cerulan.harvestcraftfabric.rei.category.TreeCategory;
 import net.cerulan.harvestcraftfabric.rei.display.DoubleOutputDisplay;
+import net.cerulan.harvestcraftfabric.rei.display.TreeDisplay;
 import net.cerulan.harvestcraftfabric.rei.display.MarketDisplay;
 import net.cerulan.harvestcraftfabric.rei.display.ShippingBinDisplay;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -24,6 +29,8 @@ public class HarvestcraftPlugin implements REIPluginV0 {
     private static final Identifier pluginID = new Identifier("harvestcraft", "recipe_plugin");
     private static final Identifier marketID = new Identifier("harvestcraft", "market");
     private static final Identifier shippingBinID = new Identifier("harvestcraft", "shippingbin");
+    private static final Identifier treeFruitID = new Identifier("harvestcraft", "tree_fruit");
+    private static final Identifier treeBarkID = new Identifier("harvestcraft", "tree_bark");
     @Override
     public Identifier getPluginIdentifier() {
         return pluginID;
@@ -36,6 +43,8 @@ public class HarvestcraftPlugin implements REIPluginV0 {
         recipeHelper.registerCategories(new DoubleOutputCategory<>(MachineRegistry.WATER_FILTER_BLOCK, new Identifier(RecipeRegistry.WATERFILTER.toString())));
         recipeHelper.registerCategories(new MarketCategory(marketID));
         recipeHelper.registerCategories(new ShippingBinCategory(shippingBinID));
+        recipeHelper.registerCategories(new TreeCategory(treeFruitID, () -> EntryStack.create(HarvestcraftContent.getFruitTrees().get(0).getSapling())));
+        recipeHelper.registerCategories(new TreeCategory(treeBarkID, () -> EntryStack.create(Registry.ITEM.get(LocalPam.modID("cinnamon_sapling")))));
     }
 
     @Override
@@ -46,6 +55,13 @@ public class HarvestcraftPlugin implements REIPluginV0 {
 
         recipeHelper.registerDisplay(new MarketDisplay(marketID));
         recipeHelper.registerDisplay(new ShippingBinDisplay(shippingBinID));
+
+        HarvestcraftContent.forEachFruitTree(tree -> recipeHelper.registerDisplay(new TreeDisplay(treeFruitID, tree.getSapling(), tree.getResult().get().getItem())));
+
+        // Register Bark resources manually for now
+        recipeHelper.registerDisplay(new TreeDisplay(treeBarkID, Registry.ITEM.get(LocalPam.modID("cinnamon_sapling")), Registry.ITEM.get(LocalPam.modID("cinnamonitem"))));
+        recipeHelper.registerDisplay(new TreeDisplay(treeBarkID, Registry.ITEM.get(LocalPam.modID("maple_sapling")), Registry.ITEM.get(LocalPam.modID("maplesyrupitem"))));
+        recipeHelper.registerDisplay(new TreeDisplay(treeBarkID, Registry.ITEM.get(LocalPam.modID("paperbark_sapling")), Registry.ITEM.get(new Identifier("paper"))));
     }
 
     @Override
