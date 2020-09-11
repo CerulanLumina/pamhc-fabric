@@ -2,5 +2,17 @@
   "itemGroup.harvestcraft.crops": "Harvestcraft Crops",
   "itemGroup.harvestcraft.food": "Harvestcraft Food",
   "rei.category.harvestcraft.tree_fruit": "Fruit Trees",
-  "rei.category.harvestcraft.tree_bark": "Tree Bark"
+  "rei.category.harvestcraft.tree_bark": "Tree Bark",
+  "text.autoconfig.harvestcraft.title": "Pam's HarvestCraft for Fabric Configuration",
+  "text.autoconfig.harvestcraft.option.addCropSeedsToGrass": "Add crop seeds to grass",
+  "text.autoconfig.harvestcraft.option.generateCropGardens": "Generate crop gardens",
+  "text.autoconfig.harvestcraft.option.generateTrees": "Generate trees",
+  "text.autoconfig.harvestcraft.option.machineConfig": "Machine Configuration Options",
+  "text.autoconfig.harvestcraft.option.machineConfig.enableMarket": "Enable Market",
+  "text.autoconfig.harvestcraft.option.machineConfig.enableShippingBin": "Enable Shipping Bin",
+  "text.autoconfig.harvestcraft.option.machineConfig.presserTicks": "Presser Processing Ticks",
+  "text.autoconfig.harvestcraft.option.machineConfig.grinderTicks": "Grinder Processing Ticks",
+  "text.autoconfig.harvestcraft.option.machineConfig.waterFilterTicks": "Water Filter Processing Ticks",
+  "text.autoconfig.harvestcraft.option.machineConfig.trapBaseTicks": "Trap Base Ticks",
+  "text.autoconfig.harvestcraft.option.machineConfig.trapRatio": "Trap Ratio"
 }

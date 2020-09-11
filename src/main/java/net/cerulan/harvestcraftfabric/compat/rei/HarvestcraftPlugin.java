@@ -74,8 +74,10 @@ public class HarvestcraftPlugin implements REIPluginV0 {
         recipeHelper.registerWorkingStations(new Identifier(RecipeRegistry.PRESSER.toString()), EntryStack.create(MachineRegistry.PRESSER_MACHINE));
         recipeHelper.registerWorkingStations(new Identifier(RecipeRegistry.GRINDER.toString()), EntryStack.create(MachineRegistry.GRINDER_MACHINE));
         recipeHelper.registerWorkingStations(new Identifier(RecipeRegistry.WATERFILTER.toString()), EntryStack.create(MachineRegistry.WATER_FILTER_BLOCK));
-        recipeHelper.registerWorkingStations(marketID, EntryStack.create(MachineRegistry.MARKET_BLOCK));
-        recipeHelper.registerWorkingStations(shippingBinID, EntryStack.create(MachineRegistry.SHIPPING_BIN_BLOCK));
+        if (ConfigHandler.getGeneralConfig().machineConfig.enableMarket)
+            recipeHelper.registerWorkingStations(marketID, EntryStack.create(MachineRegistry.MARKET_BLOCK));
+        if (ConfigHandler.getGeneralConfig().machineConfig.enableShippingBin)
+            recipeHelper.registerWorkingStations(shippingBinID, EntryStack.create(MachineRegistry.SHIPPING_BIN_BLOCK));
     }
 
     private void registerDoubleOutputRecipe(Identifier categoryId, RecipeHelper recipeHelper, RecipeType<?> recipeType) {

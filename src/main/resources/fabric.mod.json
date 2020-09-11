@@ -23,6 +23,9 @@
     ],
     "rei_plugins": [
       "net.cerulan.harvestcraftfabric.compat.rei.HarvestcraftPlugin"
+    ],
+    "modmenu": [
+      "net.cerulan.harvestcraftfabric.compat.modmenu.HarvestcraftModMenu"
     ]
   },
   "mixins": [

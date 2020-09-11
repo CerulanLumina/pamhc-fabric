@@ -94,10 +94,11 @@ public final class Harvestcraftfabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        this.localPam = new LocalPam();
-        INSTANCE = this;
 
         ConfigHandler config = ConfigHandler.loadConfig();
+
+        this.localPam = new LocalPam();
+        INSTANCE = this;
 
         if (config == null) {
             Harvestcraftfabric.LOGGER.error("Failed to load config.");

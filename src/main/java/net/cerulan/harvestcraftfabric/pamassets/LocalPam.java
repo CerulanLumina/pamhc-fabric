@@ -100,6 +100,7 @@ public class LocalPam {
     }
 
     public void registerPamData(ArtificeResourcePack.ServerResourcePackBuilder builder) {
+
         Enumeration<ZipArchiveEntry> entries = zipFile.getEntries();
         while (entries.hasMoreElements()) {
             ZipArchiveEntry entry = entries.nextElement();
@@ -215,7 +216,8 @@ public class LocalPam {
 
     private Optional<Loader> getLoader(ZipArchiveEntry entry) {
         String zipName = entry.getName();
-        if (zipName.startsWith("assets/harvestcraft/recipes/") && zipName.endsWith(".json") && !skipRecipes.contains(zipName)) {
+        HashSet<String> configuredSkipRecipes = getConfiguredSkipRecipes();
+        if (zipName.startsWith("assets/harvestcraft/recipes/") && zipName.endsWith(".json") && !skipRecipes.contains(zipName) && !configuredSkipRecipes.contains(zipName)) {
             if (zipName.contains("dustSalt")) return Optional.empty();
             Identifier id = getRecipeID(zipName);
             if (id != null) {
@@ -417,11 +419,15 @@ public class LocalPam {
         skipRecipes.add("assets/harvestcraft/recipes/minecraft_pumpkinseeds.json");
         skipRecipes.add("assets/harvestcraft/recipes/minecraft_pumpkinblocks.json");
         skipRecipes.add("assets/harvestcraft/recipes/fishtrapbaititem_x4.json");
+    }
 
+    public HashSet<String> getConfiguredSkipRecipes() {
+        HashSet<String> skipRecipes = new HashSet<>();
         if (!ConfigHandler.getGeneralConfig().machineConfig.enableMarket)
             skipRecipes.add("assets/harvestcraft/recipes/market.json");
         if (!ConfigHandler.getGeneralConfig().machineConfig.enableShippingBin)
             skipRecipes.add("assets/harvestcraft/recipes/shippingbin.json");
+        return skipRecipes;
     }
 
     private enum IngredientModifyResult {
