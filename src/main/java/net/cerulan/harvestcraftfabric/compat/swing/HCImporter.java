@@ -2,6 +2,7 @@ package net.cerulan.harvestcraftfabric.compat.swing;
 
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
 import org.lwjgl.PointerBuffer;
 import org.lwjgl.system.MemoryStack;
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
@@ -17,6 +18,9 @@ import java.util.Optional;
 public class HCImporter {
 
     public static boolean tryOpenHC(boolean wasInvalid) {
+        Optional<ModContainer> thisMod = FabricLoader.getInstance().getModContainer("harvestcraftfabric");
+        assert thisMod.isPresent();
+        String jarVersion = thisMod.get().getMetadata().getCustomValue("harvestcraftfabric:pam_version").getAsString();
         Path output = FabricLoader.getInstance().getGameDir().resolve("pamhc/harvestcraft.jar");
         if (wasInvalid) {
             try {
@@ -28,8 +32,8 @@ public class HCImporter {
         }
 
         if (!TinyFileDialogs.tinyfd_messageBox("Importing Pam's HarvestCraft",
-                "HarvestCraft for Fabric requires Pam's HarvestCraft for 1.12.2/Forge installed to function.\n" +
-                        "Please download and select Pam's HarvestCraft 1.12.2zg.\n" +
+                "HarvestCraft for Fabric requires Pam's HarvestCraft for Forge + 1.12.2 installed to function.\n" +
+                        "Please download and select Pam's HarvestCraft " + jarVersion + ".\n" +
                         "Alternatively, you can manually place the .jar file at .minecraft/pamhc/harvestcraft.jar.",
                 "okcancel", "info", true)) {
             return false;
@@ -47,10 +51,10 @@ public class HCImporter {
         }
 
         Optional<Path> res = Optional.ofNullable(TinyFileDialogs
-                .tinyfd_openFileDialog("Import Pam's HarvestCraft for Forge / 1.12.2zg",
+                .tinyfd_openFileDialog("Import Pam's HarvestCraft for Forge / " + jarVersion,
                         defaultString,
                         filters,
-                        "Pam's HarvestCraft 1.12.2zg Jar",
+                        "Pam's HarvestCraft " + jarVersion + " Jar",
                         false
                 )).map(Paths::get);
         if (!res.isPresent()) {

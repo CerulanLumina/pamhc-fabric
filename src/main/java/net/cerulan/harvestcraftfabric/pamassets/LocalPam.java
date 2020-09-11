@@ -395,6 +395,7 @@ public class LocalPam {
         Optional<ModContainer> thisMod = FabricLoader.getInstance().getModContainer("harvestcraftfabric");
         assert thisMod.isPresent();
         String neededJarMd5 = thisMod.get().getMetadata().getCustomValue("harvestcraftfabric:pam_md5").getAsString();
+        String jarVersion = thisMod.get().getMetadata().getCustomValue("harvestcraftfabric:pam_version").getAsString();
         Harvestcraftfabric.LOGGER.info("Checking local HarvestCraft");
         Path jarParent = jar.getParent();
         if (!Files.isDirectory(jarParent)) {
@@ -403,7 +404,7 @@ public class LocalPam {
             }
         }
         if (Files.notExists(jar)) {
-            throw new MissingHarvestCraftException("Missing harvestcraft.jar. Download Pam's HarvestCraft version 1.12.2zg and place it in .minecraft/pamhc/harvestcraft.jar");
+            throw new MissingHarvestCraftException("Missing harvestcraft.jar. Download Pam's HarvestCraft version " + jarVersion + " and place it in .minecraft/pamhc/harvestcraft.jar");
         } else if (Files.isDirectory(jar)) {
             throw new MissingHarvestCraftException("Failed to validate harvestcraft.jar. pamhc/harvestcraft.jar is a directory!");
         } else {
