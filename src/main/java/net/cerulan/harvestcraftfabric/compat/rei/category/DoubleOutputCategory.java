@@ -1,4 +1,4 @@
-package net.cerulan.harvestcraftfabric.rei.category;
+package net.cerulan.harvestcraftfabric.compat.rei.category;
 
 import com.google.common.collect.Lists;
 import me.shedaniel.math.Point;
@@ -8,7 +8,7 @@ import me.shedaniel.rei.api.RecipeCategory;
 import me.shedaniel.rei.api.widgets.Widgets;
 import me.shedaniel.rei.gui.widget.Widget;
 import net.cerulan.harvestcraftfabric.recipe.DoubleOutputRecipe;
-import net.cerulan.harvestcraftfabric.rei.display.DoubleOutputDisplay;
+import net.cerulan.harvestcraftfabric.compat.rei.display.DoubleOutputDisplay;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.util.Identifier;

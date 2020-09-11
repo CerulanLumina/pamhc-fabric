@@ -1,4 +1,4 @@
-package net.cerulan.harvestcraftfabric.rei.display;
+package net.cerulan.harvestcraftfabric.compat.rei.display;
 
 import me.shedaniel.rei.api.EntryStack;
 import me.shedaniel.rei.api.RecipeDisplay;

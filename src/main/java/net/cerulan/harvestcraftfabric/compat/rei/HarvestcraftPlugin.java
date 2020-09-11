@@ -1,4 +1,4 @@
-package net.cerulan.harvestcraftfabric.rei;
+package net.cerulan.harvestcraftfabric.compat.rei;
 
 import me.shedaniel.rei.api.EntryStack;
 import me.shedaniel.rei.api.RecipeDisplay;
@@ -9,14 +9,14 @@ import net.cerulan.harvestcraftfabric.block.machine.MachineRegistry;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
 import net.cerulan.harvestcraftfabric.recipe.DoubleOutputRecipe;
 import net.cerulan.harvestcraftfabric.recipe.RecipeRegistry;
-import net.cerulan.harvestcraftfabric.rei.category.DoubleOutputCategory;
-import net.cerulan.harvestcraftfabric.rei.category.MarketCategory;
-import net.cerulan.harvestcraftfabric.rei.category.ShippingBinCategory;
-import net.cerulan.harvestcraftfabric.rei.category.TreeCategory;
-import net.cerulan.harvestcraftfabric.rei.display.DoubleOutputDisplay;
-import net.cerulan.harvestcraftfabric.rei.display.TreeDisplay;
-import net.cerulan.harvestcraftfabric.rei.display.MarketDisplay;
-import net.cerulan.harvestcraftfabric.rei.display.ShippingBinDisplay;
+import net.cerulan.harvestcraftfabric.compat.rei.category.DoubleOutputCategory;
+import net.cerulan.harvestcraftfabric.compat.rei.category.MarketCategory;
+import net.cerulan.harvestcraftfabric.compat.rei.category.ShippingBinCategory;
+import net.cerulan.harvestcraftfabric.compat.rei.category.TreeCategory;
+import net.cerulan.harvestcraftfabric.compat.rei.display.DoubleOutputDisplay;
+import net.cerulan.harvestcraftfabric.compat.rei.display.TreeDisplay;
+import net.cerulan.harvestcraftfabric.compat.rei.display.MarketDisplay;
+import net.cerulan.harvestcraftfabric.compat.rei.display.ShippingBinDisplay;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;

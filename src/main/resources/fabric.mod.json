@@ -22,7 +22,7 @@
       "net.cerulan.harvestcraftfabric.PreLaunchEntry"
     ],
     "rei_plugins": [
-      "net.cerulan.harvestcraftfabric.rei.HarvestcraftPlugin"
+      "net.cerulan.harvestcraftfabric.compat.rei.HarvestcraftPlugin"
     ]
   },
   "mixins": [
