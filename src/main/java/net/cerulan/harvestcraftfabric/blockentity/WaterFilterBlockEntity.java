@@ -1,6 +1,7 @@
 package net.cerulan.harvestcraftfabric.blockentity;
 
 import com.google.common.collect.ImmutableList;
+import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.gui.WaterFilterGuiDescription;
 import net.cerulan.harvestcraftfabric.inventory.MachineInventory;
 import net.cerulan.harvestcraftfabric.recipe.DoubleOutputRecipe;
@@ -44,7 +45,7 @@ public class WaterFilterBlockEntity extends MachineBlockEntity<DoubleOutputRecip
 
     @Override
     protected int getMaximumProgress() {
-        return 500;
+        return ConfigHandler.getGeneralConfig().machineConfig.waterFilterTicks;
     }
 
     @Override

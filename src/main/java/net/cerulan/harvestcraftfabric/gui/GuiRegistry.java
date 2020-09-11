@@ -1,5 +1,6 @@
 package net.cerulan.harvestcraftfabric.gui;
 
+import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.network.PacketByteBuf;
@@ -24,8 +25,10 @@ public class GuiRegistry {
         WATERFILTER_HANDLER_TYPE = register("waterfilter", WaterFilterGuiDescription::new);
         GROUNDTRAP_HANDLER_TYPE = register("ground_trap", GroundTrapGuiDescription::new);
         WATERTRAP_HANDLER_TYPE = register("water_trap", WaterTrapGuiDescription::new);
-        SHIPPINGBIN_HANDLER_TYPE = register("shipping_bin", ShippingBinGuiDescription::new);
-        MARKET_HANDLER_TYPE = registerExtended("market", MarketGuiDescription::new);
+        if (ConfigHandler.getGeneralConfig().machineConfig.enableShippingBin)
+            SHIPPINGBIN_HANDLER_TYPE = register("shipping_bin", ShippingBinGuiDescription::new);
+        if (ConfigHandler.getGeneralConfig().machineConfig.enableMarket)
+            MARKET_HANDLER_TYPE = registerExtended("market", MarketGuiDescription::new);
     }
 
     private static <T extends ScreenHandler> ScreenHandlerType<T> register(String localId, GuiDescriptionFactory factory) {

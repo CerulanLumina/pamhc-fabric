@@ -3,6 +3,7 @@ package net.cerulan.harvestcraftfabric.block.machine;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.blockentity.GroundTrapBE;
 import net.cerulan.harvestcraftfabric.blockentity.WaterTrapBE;
+import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -25,11 +26,13 @@ public class MachineRegistry {
     public static void registerMachines() {
         registerMachine("presser", PRESSER_MACHINE);
         registerMachine("grinder", GRINDER_MACHINE);
-        registerMachine("market", MARKET_BLOCK);
         registerMachine("waterfilter", WATER_FILTER_BLOCK);
         registerMachine("watertrap", WATER_TRAP_BLOCK);
         registerMachine("groundtrap", GROUND_TRAP_BLOCK);
-        registerMachine("shippingbin", SHIPPING_BIN_BLOCK);
+        if (ConfigHandler.getGeneralConfig().machineConfig.enableMarket)
+            registerMachine("market", MARKET_BLOCK);
+        if (ConfigHandler.getGeneralConfig().machineConfig.enableShippingBin)
+            registerMachine("shippingbin", SHIPPING_BIN_BLOCK);
     }
 
     private static void registerMachine(String localId, Block block) {

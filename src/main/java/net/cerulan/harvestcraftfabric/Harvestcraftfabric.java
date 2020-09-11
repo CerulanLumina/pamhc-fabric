@@ -17,13 +17,23 @@ import net.cerulan.harvestcraftfabric.recipe.RecipeRegistry;
 import net.cerulan.harvestcraftfabric.worldgen.PamWorldGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.fabricmc.fabric.api.network.PacketContext;
 import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.SaplingBlock;
 import net.minecraft.item.*;
+import net.minecraft.loot.LootManager;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.condition.RandomChanceLootCondition;
+import net.minecraft.loot.entry.LootPoolEntry;
+import net.minecraft.loot.entry.LootPoolEntryTypes;
+import net.minecraft.loot.entry.LootTableEntry;
+import net.minecraft.loot.entry.TagEntry;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.resource.ResourceManager;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -33,6 +43,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -208,6 +219,22 @@ public final class Harvestcraftfabric implements ModInitializer {
         Artifice.registerData(new Identifier("harvestcraft", "harvestcraft"), localPam::registerPamData);
         PamWorldGenerator.initWorldGen(fruitBlocks, logBlocks);
         Packets.registerC2SPackets();
+
+        LootTableLoadingCallback.EVENT.register(this::addSeedItemsToGrass);
+    }
+
+    private static final HashSet<Identifier> grassLootTables = new HashSet<>();
+    static {
+        grassLootTables.add(new Identifier("blocks/fern"));
+        grassLootTables.add(new Identifier("blocks/grass"));
+        grassLootTables.add(new Identifier("blocks/large_fern"));
+        grassLootTables.add(new Identifier("blocks/tall_grass"));
+    }
+    public void addSeedItemsToGrass(ResourceManager resourceManager, LootManager manager, Identifier id, FabricLootSupplierBuilder supplier, LootTableLoadingCallback.LootTableSetter setter) {
+        if (grassLootTables.contains(id)) {
+            if (ConfigHandler.getGeneralConfig().addCropSeedsToGrass)
+                supplier.pool(new LootPool.Builder().conditionally(RandomChanceLootCondition.builder(0.0625f)).with(TagEntry.builder(TagRegistry.item(LocalPam.modID("seed")))));
+        }
     }
 
     private void registerPamFruit(String fruit) {

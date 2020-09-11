@@ -1,7 +1,7 @@
 package net.cerulan.harvestcraftfabric.blockentity;
 
 import net.cerulan.harvestcraftfabric.gui.MarketGuiDescription;
-import net.cerulan.harvestcraftfabric.inventory.CallbackMachineInventory;
+import net.cerulan.harvestcraftfabric.inventory.MachineInventory;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.InventoryProvider;
@@ -28,12 +28,12 @@ public class MarketBlockEntity extends BlockEntity
         Tickable,
         ExtendedScreenHandlerFactory {
 
-    private final CallbackMachineInventory inventory;
+    private final MachineInventory inventory;
     private ItemStack output = ItemStack.EMPTY;
 
     public MarketBlockEntity() {
         super(ModBlockEntities.MARKET_BE_TYPE);
-        this.inventory = new CallbackMachineInventory(2, new int[]{1}, new int[]{0});
+        this.inventory = new MachineInventory(2, new int[]{1}, new int[]{0});
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import com.swordglowsblue.artifice.api.builder.data.LootTableBuilder;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.block.PamCropBlock;
+import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.mixin.AccessorIdentifier;
 import net.cerulan.harvestcraftfabric.pamassets.artifice.DataResource;
 import net.fabricmc.loader.api.FabricLoader;
@@ -416,6 +417,11 @@ public class LocalPam {
         skipRecipes.add("assets/harvestcraft/recipes/minecraft_pumpkinseeds.json");
         skipRecipes.add("assets/harvestcraft/recipes/minecraft_pumpkinblocks.json");
         skipRecipes.add("assets/harvestcraft/recipes/fishtrapbaititem_x4.json");
+
+        if (!ConfigHandler.getGeneralConfig().machineConfig.enableMarket)
+            skipRecipes.add("assets/harvestcraft/recipes/market.json");
+        if (!ConfigHandler.getGeneralConfig().machineConfig.enableShippingBin)
+            skipRecipes.add("assets/harvestcraft/recipes/shippingbin.json");
     }
 
     private enum IngredientModifyResult {

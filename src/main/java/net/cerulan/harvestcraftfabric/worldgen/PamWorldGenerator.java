@@ -3,6 +3,7 @@ package net.cerulan.harvestcraftfabric.worldgen;
 import com.google.common.collect.ImmutableList;
 import net.cerulan.harvestcraftfabric.block.PamFruitBlock;
 import net.cerulan.harvestcraftfabric.block.PamLogBlock;
+import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.mixin.AccessorTreeDecoratorType;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.minecraft.block.Block;
@@ -98,7 +99,7 @@ public class PamWorldGenerator {
         if (checkBiomes.contains(biome)) return;
         checkBiomes.add(biome);
         if (shouldAddTrees(biome)) registerTreesForBiome(biome);
-        registerGardensForBiome(biome);
+        if (ConfigHandler.getGeneralConfig().generateCropGardens) registerGardensForBiome(biome);
     }
 
     private static void registerTreesForBiome(Biome biome) {

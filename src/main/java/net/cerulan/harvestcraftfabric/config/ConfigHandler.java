@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.fabricmc.loader.api.FabricLoader;
 import org.apache.commons.io.IOUtils;
@@ -25,32 +27,42 @@ public class ConfigHandler {
         return foodsConfig;
     }
 
+    public static GeneralConfig getGeneralConfig() { return AutoConfig.getConfigHolder(GeneralConfig.class).getConfig(); }
+
     private static final Gson GSON;
 
     static {
         GSON = new GsonBuilder().create();
     }
 
+
     public static ConfigHandler loadConfig() {
         Path harvestFolderPath = FabricLoader.getInstance().getConfigDir().resolve("harvestcraft");
         Path foodConfig = harvestFolderPath.resolve("foods.json");
-        if (!tryDirectory(harvestFolderPath)) return null;
-        if (!tryCreateFile(foodConfig)) return null;
-        JsonObject foodObj;
-        JsonObject config = tryReadConfig(foodConfig);
-        if (config != null) foodObj = config;
-        else foodObj = getFallbackConfig(foodConfig);
+        FoodsConfig foodsConfigObj = loadPlainConfigInDir(foodConfig, FoodsConfig.class);
 
-        FoodsConfig foodsConfigObj;
+        AutoConfig.register(GeneralConfig.class, JanksonConfigSerializer::new);
+
+        return new ConfigHandler(foodsConfigObj);
+    }
+
+    private static <T> T loadPlainConfigInDir(Path path, Class<T> clazz) {
+        if (!tryDirectory(path.getParent())) return null;
+        if (!tryCreateFile(path)) return null;
+        JsonObject foodObj;
+        JsonObject config = tryReadConfig(path);
+        if (config != null) foodObj = config;
+        else foodObj = getFallbackConfig(path);
+
+        T configObj;
         try {
-            foodsConfigObj = GSON.fromJson(foodObj, FoodsConfig.class);
+            configObj = GSON.fromJson(foodObj, clazz);
+            return configObj;
         } catch (JsonSyntaxException ex) {
             Harvestcraftfabric.LOGGER.error("Failed to deserialize config.");
             ex.printStackTrace();
             return null;
         }
-
-        return new ConfigHandler(foodsConfigObj);
     }
 
     private static boolean tryDirectory(Path directory) {

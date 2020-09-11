@@ -1,6 +1,7 @@
 package net.cerulan.harvestcraftfabric.blockentity;
 
 import com.google.common.collect.ImmutableList;
+import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.gui.GrinderGuiDescription;
 import net.cerulan.harvestcraftfabric.inventory.MachineInventory;
 import net.cerulan.harvestcraftfabric.recipe.DoubleOutputRecipe;
@@ -15,7 +16,7 @@ public class GrinderBlockEntity extends MachineBlockEntity<DoubleOutputRecipe> {
 
     @Override
     protected int getMaximumProgress() {
-        return 125;
+        return ConfigHandler.getGeneralConfig().machineConfig.grinderTicks;
     }
 
     @Override

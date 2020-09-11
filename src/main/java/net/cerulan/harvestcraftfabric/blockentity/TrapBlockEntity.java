@@ -1,5 +1,7 @@
 package net.cerulan.harvestcraftfabric.blockentity;
 
+import net.cerulan.harvestcraftfabric.config.ConfigHandler;
+import net.cerulan.harvestcraftfabric.config.GeneralConfig;
 import net.cerulan.harvestcraftfabric.inventory.MachineInventory;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
 import net.cerulan.harvestcraftfabric.util.InventoryUtil;
@@ -39,7 +41,6 @@ public abstract class TrapBlockEntity extends BlockEntity implements
 
     protected int ticksProgress = 0;
     protected int ticksRequired = -1;
-    protected final int BASE_TICKS_REQUIRED = 3500;
 
     private int ticksUntilCheck = CHECK_RATE_TICKS;
     private static final int CHECK_RATE_TICKS = 200;
@@ -103,6 +104,8 @@ public abstract class TrapBlockEntity extends BlockEntity implements
             ticksRequired = -1;
             return;
         }
+
+        GeneralConfig.MachineConfig config = ConfigHandler.getGeneralConfig().machineConfig;
         long matching = BlockPos.stream(pos.north(2).west(2), pos.south(2).east(2))
                 .map(BlockPos::toImmutable)
                 .filter(p -> !pos.equals(p))
@@ -110,8 +113,8 @@ public abstract class TrapBlockEntity extends BlockEntity implements
                 .map(world::getBlockState)
                 .filter(this::blockPredicate)
                 .count() - 4;
-        double multiplier = Math.pow(0.97, matching);
-        ticksRequired = (int)(BASE_TICKS_REQUIRED * multiplier);
+        double multiplier = Math.pow(config.trapRatio, matching);
+        ticksRequired = (int)(config.trapBaseTicks * multiplier);
     }
 
     protected abstract boolean blockPredicate(BlockState state);

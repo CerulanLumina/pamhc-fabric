@@ -6,6 +6,7 @@ import me.shedaniel.rei.api.RecipeHelper;
 import me.shedaniel.rei.api.plugins.REIPluginV0;
 import net.cerulan.harvestcraftfabric.HarvestcraftContent;
 import net.cerulan.harvestcraftfabric.block.machine.MachineRegistry;
+import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.pamassets.LocalPam;
 import net.cerulan.harvestcraftfabric.recipe.DoubleOutputRecipe;
 import net.cerulan.harvestcraftfabric.recipe.RecipeRegistry;
@@ -41,8 +42,10 @@ public class HarvestcraftPlugin implements REIPluginV0 {
         recipeHelper.registerCategories(new DoubleOutputCategory<>(MachineRegistry.PRESSER_MACHINE, new Identifier(RecipeRegistry.PRESSER.toString())));
         recipeHelper.registerCategories(new DoubleOutputCategory<>(MachineRegistry.GRINDER_MACHINE, new Identifier(RecipeRegistry.GRINDER.toString())));
         recipeHelper.registerCategories(new DoubleOutputCategory<>(MachineRegistry.WATER_FILTER_BLOCK, new Identifier(RecipeRegistry.WATERFILTER.toString())));
-        recipeHelper.registerCategories(new MarketCategory(marketID));
-        recipeHelper.registerCategories(new ShippingBinCategory(shippingBinID));
+        if (ConfigHandler.getGeneralConfig().machineConfig.enableMarket)
+            recipeHelper.registerCategories(new MarketCategory(marketID));
+        if (ConfigHandler.getGeneralConfig().machineConfig.enableShippingBin)
+            recipeHelper.registerCategories(new ShippingBinCategory(shippingBinID));
         recipeHelper.registerCategories(new TreeCategory(treeFruitID, () -> EntryStack.create(HarvestcraftContent.getFruitTrees().get(0).getSapling())));
         recipeHelper.registerCategories(new TreeCategory(treeBarkID, () -> EntryStack.create(Registry.ITEM.get(LocalPam.modID("cinnamon_sapling")))));
     }
@@ -53,8 +56,10 @@ public class HarvestcraftPlugin implements REIPluginV0 {
         registerDoubleOutputRecipe(new Identifier(RecipeRegistry.GRINDER.toString()), recipeHelper, RecipeRegistry.GRINDER);
         registerDoubleOutputRecipe(new Identifier(RecipeRegistry.WATERFILTER.toString()), recipeHelper, RecipeRegistry.WATERFILTER);
 
-        recipeHelper.registerDisplay(new MarketDisplay(marketID));
-        recipeHelper.registerDisplay(new ShippingBinDisplay(shippingBinID));
+        if (ConfigHandler.getGeneralConfig().machineConfig.enableMarket)
+            recipeHelper.registerDisplay(new MarketDisplay(marketID));
+        if (ConfigHandler.getGeneralConfig().machineConfig.enableShippingBin)
+            recipeHelper.registerDisplay(new ShippingBinDisplay(shippingBinID));
 
         HarvestcraftContent.forEachFruitTree(tree -> recipeHelper.registerDisplay(new TreeDisplay(treeFruitID, tree.getSapling(), tree.getResult().get().getItem())));
 
