@@ -28,9 +28,6 @@ import net.minecraft.item.*;
 import net.minecraft.loot.LootManager;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
-import net.minecraft.loot.entry.LootPoolEntry;
-import net.minecraft.loot.entry.LootPoolEntryTypes;
-import net.minecraft.loot.entry.LootTableEntry;
 import net.minecraft.loot.entry.TagEntry;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.resource.ResourceManager;
@@ -77,7 +74,6 @@ public final class Harvestcraftfabric implements ModInitializer {
         }
 
         private static void acceptSetMarketStack(PacketContext context, PacketByteBuf buf) {
-            Harvestcraftfabric.LOGGER.info("receiving packet");
             BlockPos pos = buf.readBlockPos();
             ItemStack stack = buf.readItemStack();
             Tag<Item> buyable = TagRegistry.item(MarketGuiDescription.buyable);
