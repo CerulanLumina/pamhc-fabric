@@ -30,18 +30,27 @@ dependencies {
     modImplementation "com.lettuce.fudge:artifice:${project.artifice_version}"
     include "com.lettuce.fudge:artifice:${project.artifice_version}"
 
-    modApi("me.shedaniel:RoughlyEnoughItems:${project.rei_version}")
+    // REI API
+    modImplementation "me.shedaniel:RoughlyEnoughItems:${project.rei_version}"
 
-    modRuntime "com.github.squeek502:AppleSkin:${project.appleskin_version}"
-
+    // LibGui
     modImplementation "io.github.cottonmc:LibGui:${project.libgui_version}"
+    include "io.github.cottonmc:LibGui:${project.libgui_version}"
 
+    // Mod Menu
+    modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
+
+    modImplementation "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
+    include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
+
+    // Autoconfig1u
     modApi("me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
     include "me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig_version}"
 
-    modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
+    // Run AppleSkin at runtime (for debug)
+    modRuntime "com.github.squeek502:AppleSkin:${project.appleskin_version}"
 }
 
 processResources {

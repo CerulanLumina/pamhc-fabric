@@ -40,6 +40,7 @@
     "roughlyenoughitems": "*"
   },
   "custom": {
-    "harvestcraftfabric:pamurl": "https://media.forgecdn.net/files/2904/825/Pam%27s+HarvestCraft+1.12.2zg.jar"
+    "harvestcraftfabric:pamurl": "https://media.forgecdn.net/files/2904/825/Pam%27s+HarvestCraft+1.12.2zg.jar",
+    "harvestcraftfabric:pam_md5": "e8e1ac67accdeea50116e1e92e592397"
   }
 }

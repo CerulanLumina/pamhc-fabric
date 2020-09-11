@@ -6,14 +6,17 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import com.swordglowsblue.artifice.api.builder.data.LootTableBuilder;
+import net.cerulan.harvestcraftfabric.HarvestcraftContent;
 import net.cerulan.harvestcraftfabric.Harvestcraftfabric;
 import net.cerulan.harvestcraftfabric.block.PamCropBlock;
 import net.cerulan.harvestcraftfabric.config.ConfigHandler;
 import net.cerulan.harvestcraftfabric.mixin.AccessorIdentifier;
 import net.cerulan.harvestcraftfabric.pamassets.artifice.DataResource;
 import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
 import org.apache.commons.compress.archivers.zip.ZipFile;
 import org.apache.commons.io.IOUtils;
@@ -389,7 +392,10 @@ public class LocalPam {
     }
 
     public static void verifyLocalFiles(Path jar) throws MissingHarvestCraftException {
-        Harvestcraftfabric.LOGGER.info("Checking local harvestcraft");
+        Optional<ModContainer> thisMod = FabricLoader.getInstance().getModContainer("harvestcraftfabric");
+        assert thisMod.isPresent();
+        String neededJarMd5 = thisMod.get().getMetadata().getCustomValue("harvestcraftfabric:pam_md5").getAsString();
+        Harvestcraftfabric.LOGGER.info("Checking local HarvestCraft");
         Path jarParent = jar.getParent();
         if (!Files.isDirectory(jarParent)) {
             if (!jarParent.toFile().mkdirs()) {
@@ -397,15 +403,47 @@ public class LocalPam {
             }
         }
         if (Files.notExists(jar)) {
-            throw new MissingHarvestCraftException("Missing harvestcraft.jar. Download Pam's HarvestCraft for 1.12.2 and place it in .minecraft/pamhc/harvestcraft.jar");
+            throw new MissingHarvestCraftException("Missing harvestcraft.jar. Download Pam's HarvestCraft version 1.12.2zg and place it in .minecraft/pamhc/harvestcraft.jar");
         } else if (Files.isDirectory(jar)) {
-            throw new MissingHarvestCraftException("Failed to validate existing jar file `pamhc/harvestcraft.jar`. Is there a file conflict?");
+            throw new MissingHarvestCraftException("Failed to validate harvestcraft.jar. pamhc/harvestcraft.jar is a directory!");
+        } else {
+            try {
+                byte[] jarData = Files.readAllBytes(jar);
+                String inputMd5 = DigestUtils.md5Hex(jarData);
+                if (!neededJarMd5.equals(inputMd5)) {
+                    throw new InvalidHarvestCraftException(inputMd5, neededJarMd5);
+                }
+            } catch (IOException ex) {
+                throw new MissingHarvestCraftException("Failed to validate existing jar file `pamhc/harvestcraft.jar`.");
+            }
+        }
+        Harvestcraftfabric.LOGGER.info("Local HarvestCraft valid.");
+    }
+
+    public static class MissingHarvestCraftException extends Exception {
+        public MissingHarvestCraftException(String s) {
+            super(s);
         }
     }
 
-    public static final class MissingHarvestCraftException extends Exception {
-        public MissingHarvestCraftException(String s) {
-            super(s);
+    public static class InvalidHarvestCraftException extends MissingHarvestCraftException {
+        private final String jarMd5, neededMd5;
+
+        public InvalidHarvestCraftException(String jarMd5, String neededMd5) {
+            super("Failed to validate existing jar file. Checksum did not match expected.");
+            this.jarMd5 = jarMd5;
+            this.neededMd5 = neededMd5;
+        }
+
+        @Override
+        public String getMessage() {
+            return super.getMessage() +
+                    " " +
+                    "Provided Hash: [" +
+                    jarMd5 +
+                    "] Expected Hash: [" +
+                    neededMd5 +
+                    "]";
         }
     }
 
