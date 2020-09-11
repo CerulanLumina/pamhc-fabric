@@ -13,7 +13,7 @@ public class WaterFilterGuiDescription extends SyncedGuiDescription {
 
     public WaterFilterGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(GuiRegistry.WATERFILTER_HANDLER_TYPE, syncId, playerInventory, getBlockInventory(context, PresserGuiDescription.INVENTORY_SIZE), getBlockPropertyDelegate(context, 2));
-        PresserGuiDescription.doubleOutputSetup(this, blockInventory);
+        PresserGuiDescription.doubleOutputSetup(this, blockInventory, barTexture);
     }
 
     @Override

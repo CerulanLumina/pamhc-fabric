@@ -22,10 +22,10 @@ public class PresserGuiDescription extends SyncedGuiDescription {
 
     public PresserGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(GuiRegistry.PRESSER_HANDLER_TYPE, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context, 2));
-        doubleOutputSetup(this, blockInventory);
+        doubleOutputSetup(this, blockInventory, barTexture);
     }
 
-    static void doubleOutputSetup(SyncedGuiDescription description, Inventory blockInventory) {
+    static void doubleOutputSetup(SyncedGuiDescription description, Inventory blockInventory, Identifier progTexture) {
         description.setTitleColor(0xe5e5e5ff);
 
         WGridPanel root = new WGridPanel();
@@ -41,7 +41,7 @@ public class PresserGuiDescription extends SyncedGuiDescription {
         panel.add(itemSlot2, 54, 54);
         panel.add(itemSlot3, 90, 54);
 
-        FGBar progressBar = new FGBar(null, barTexture, 0, 1, WBar.Direction.RIGHT, new Vec2f(0.6875f, 0.0703125f), new Vec2f(0.78125f, 0.12109375f));
+        FGBar progressBar = new FGBar(null, progTexture, 0, 1, WBar.Direction.RIGHT, new Vec2f(0.6875f, 0.0703125f), new Vec2f(0.78125f, 0.12109375f));
         panel.add(progressBar, 70, 8);
 
         root.add(description.createPlayerInventoryPanel(), 0, 4);
