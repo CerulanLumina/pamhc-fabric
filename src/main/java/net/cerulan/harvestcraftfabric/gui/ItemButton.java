@@ -2,9 +2,11 @@ package net.cerulan.harvestcraftfabric.gui;
 
 import io.github.cottonmc.cotton.gui.widget.WButton;
 import io.github.cottonmc.cotton.gui.widget.icon.ItemIcon;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.StringRenderable;
-import net.minecraft.text.TranslatableText;
 
 import java.util.List;
 
@@ -18,8 +20,9 @@ public class ItemButton extends WButton {
     }
 
     @Override
+    @Environment(EnvType.CLIENT)
     public void addTooltip(List<StringRenderable> tooltip) {
-        tooltip.add(new TranslatableText(stack.getTranslationKey()));
+        tooltip.addAll(stack.getTooltip(null, TooltipContext.Default.NORMAL));
     }
 
     public ItemStack getStack() {
