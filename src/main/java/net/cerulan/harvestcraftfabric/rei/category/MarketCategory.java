@@ -5,6 +5,7 @@ import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.EntryStack;
 import me.shedaniel.rei.api.RecipeCategory;
+import me.shedaniel.rei.api.widgets.Slot;
 import me.shedaniel.rei.api.widgets.Widgets;
 import me.shedaniel.rei.gui.widget.Widget;
 import net.cerulan.harvestcraftfabric.block.machine.MachineRegistry;
@@ -14,6 +15,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -41,28 +43,37 @@ public class MarketCategory implements RecipeCategory<MarketDisplay> {
         int yBase = bounds.y + (bounds.height - MarketCategory.SLOT_DELTA * GRID_HEIGHT) / 2;
 
         List<EntryStack> buyable = recipeDisplay.getOutputEntries();
-        Iterator<EntryStack> buyIter = buyable.iterator();
-        List<List<EntryStack>> entries = Lists.newArrayListWithCapacity(GRID_COUNT);
-        int eachSlot = buyable.size() / GRID_COUNT;
-        Stream.generate(() -> Lists.<EntryStack>newArrayListWithCapacity(eachSlot))
-                .peek(list -> IntStream.range(0, eachSlot).filter(i -> buyIter.hasNext()).mapToObj(i -> buyIter.next()).forEach(list::add))
-                .limit(GRID_COUNT).forEach(entries::add);
-        int remaining = 0;
-        while (buyIter.hasNext()) {
-            entries.get(remaining % GRID_COUNT).add(buyIter.next());
-            ++remaining;
-        }
-        for (int i = 0; i < 16; ++i) {
-            int xOff = i % GRID_WIDTH;
-            int yOff = i / GRID_HEIGHT;
-            widgets.add(Widgets.createSlot(new Point(xBase + xOff * SLOT_DELTA, yBase + yOff * MarketCategory.SLOT_DELTA)).entries(entries.get(i)).markOutput());
-        }
+        renderMorphingGrid(widgets, buyable, new Point(xBase, yBase), Slot::markOutput, GRID_WIDTH, GRID_HEIGHT);
 
         widgets.add(Widgets.createSlot(new Point((xBase - bounds.x) / 3 + bounds.x, yBase + SLOT_DELTA * (GRID_HEIGHT / 2 - (1 - (GRID_HEIGHT % 2))) + (GRID_HEIGHT % 2 == 0 ? SLOT_DELTA / 2 : 0)))
                 .entries(recipeDisplay.getInputEntries().get(0))
                 .markInput());
 
         return widgets;
+    }
+
+    static void renderMorphingGrid(List<Widget> widgets, List<EntryStack> buyable, Point base, Consumer<Slot> marker, int gridWidth, int gridHeight) {
+        int gridCount = gridWidth * gridHeight;
+        int xBase = base.x;
+        int yBase = base.y;
+        Iterator<EntryStack> buyIter = buyable.iterator();
+        List<List<EntryStack>> entries = Lists.newArrayListWithCapacity(gridCount);
+        int eachSlot = buyable.size() / gridCount;
+        Stream.generate(() -> Lists.<EntryStack>newArrayListWithCapacity(eachSlot))
+                .peek(list -> IntStream.range(0, eachSlot).filter(i -> buyIter.hasNext()).mapToObj(i -> buyIter.next()).forEach(list::add))
+                .limit(gridCount).forEach(entries::add);
+        int remaining = 0;
+        while (buyIter.hasNext()) {
+            entries.get(remaining % gridCount).add(buyIter.next());
+            ++remaining;
+        }
+        for (int i = 0; i < 16; ++i) {
+            int xOff = i % gridWidth;
+            int yOff = i / gridHeight;
+            Slot slot = Widgets.createSlot(new Point(xBase + xOff * SLOT_DELTA, yBase + yOff * MarketCategory.SLOT_DELTA)).entries(entries.get(i));
+            marker.accept(slot);
+            widgets.add(slot);
+        }
     }
 
     @Override
